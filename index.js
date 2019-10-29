@@ -2,26 +2,17 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk');
-const Target = require('./model/target');
-const target = new Target();
+const Location = require('./model/location');
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
-    return request.type === 'LaunchRequest'
-      // || (request.type === 'IntentRequest'
-      //   && request.intent.name === 'GetNewFactIntent')
-      ;
+    return request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    // const factArr = data;
-    // const factIndex = Math.floor(Math.random() * factArr.length);
-    // const randomFact = factArr[factIndex];
-    // const speechOutput = GET_FACT_MESSAGE + randomFact;
     const speechOutput = 'Welcome to Unibo path finder! What can I do for you?';
     return handlerInput.responseBuilder
       .speak(speechOutput)
-      // .withSimpleCard(SKILL_NAME, randomFact)
       .getResponse();
   },
 };
@@ -30,10 +21,13 @@ const PathFinderHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
     return request.type === 'IntentRequest' 
-    && request.intent.name === 'PathFinderIntent';
+    && request.intent.name === 'PathFinderIntent'
+    && handlerInput.requestEnvelope.request.intent.slots.destination.value;
   },
   handle(handlerInput) {
-    const speechOutput = target.provaMia();
+    const locationName = handlerInput.requestEnvelope.request.intent.slots.destination.value;
+    const location = new Location(locationName);
+    const speechOutput = location.name();
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
