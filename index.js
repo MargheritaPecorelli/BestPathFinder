@@ -3,6 +3,9 @@
 
 const Alexa = require('ask-sdk');
 const Location = require('./model/location');
+const aula2_1 = new Location('aula 2.1', 'aula 2.1', 'stanza 1009', 1, 2, 'A');
+const mirriLab = new Location('laboratorio della mirri', '', 'stanza 4136', 3, 4, 'C');
+const locations = new Array(aula2_1.name(), mirriLab.name());
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -17,20 +20,30 @@ const GetNewFactHandler = {
   },
 };
 
-const PathFinderHandler = {
+const PathFinderWithDestinationHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
     return request.type === 'IntentRequest' 
     && request.intent.name === 'PathFinderIntent'
-    && handlerInput.requestEnvelope.request.intent.slots.destination.value;
+    && handlerInput.requestEnvelope.request.intent.slots.destinazione.value;
   },
   handle(handlerInput) {
-    const locationName = handlerInput.requestEnvelope.request.intent.slots.destination.value;
-    const location = new Location(locationName);
-    const speechOutput = location.name();
+    const locationName = handlerInput.requestEnvelope.request.intent.slots.destinazione.value;
+    var speechOutput = '';
+    var isDestinationPresent = false;
+    locations.forEach(myFun)
+    function myFun(item) {
+      if(locationName.includes(item)) {
+        isDestinationPresent = true;
+        speechOutput = item;
+      }
+    }
+    if (!isDestinationPresent) {
+      speechOutput = `mi dispiace ma non conosco ${locationName}`;
+    }
     return handlerInput.responseBuilder
-      .speak(speechOutput)
-      .getResponse();
+        .speak(speechOutput)
+        .getResponse();
   },
 };
 
@@ -99,7 +112,7 @@ const skillBuilder = Alexa.SkillBuilders.standard();
 exports.handler = skillBuilder
   .addRequestHandlers(
     GetNewFactHandler,
-    PathFinderHandler,
+    PathFinderWithDestinationHandler,
     HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler

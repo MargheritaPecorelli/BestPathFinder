@@ -1,33 +1,37 @@
 class Location {
 
-    // var name;
-
-    constructor(locName) {
+    constructor(locName, locClassroom, locRoom, locFloor, locLevel, locBlock) {
         this.myName = locName;
+        this.myClassroom = locClassroom;
+        this.myRoom = locRoom;
+        this.myFloor = locFloor;
+        this.myLevel = locLevel;
+        this.myBlock = locBlock;
     }
   
     name() {
-        return `the location name is ${this.myName}`;
+        // return `the location name is ${this.myName}`;
+        return this.myName;
     }
     
     classroom() {
-        return 'this is location classroom';
+        return this.myClassroom;
     }
 
     room() {
-        return 'this is location room';
+        return this.myRoom;
     }
 
     floor() {
-        return 'this is location floor';
+        return this.myFloor;
     }
 
     level() {
-        return 'this is location level';
+        return this.myLevel;
     }
 
     block() {
-        return 'this is location block';
+        return this.myBlock;
     }
 
     path() {
