@@ -2,23 +2,40 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk');
+const Target = require('./model/target');
+const target = new Target();
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
     return request.type === 'LaunchRequest'
-      || (request.type === 'IntentRequest'
-        && request.intent.name === 'GetNewFactIntent');
+      // || (request.type === 'IntentRequest'
+      //   && request.intent.name === 'GetNewFactIntent')
+      ;
   },
   handle(handlerInput) {
-    const factArr = data;
-    const factIndex = Math.floor(Math.random() * factArr.length);
-    const randomFact = factArr[factIndex];
-    const speechOutput = GET_FACT_MESSAGE + randomFact;
-
+    // const factArr = data;
+    // const factIndex = Math.floor(Math.random() * factArr.length);
+    // const randomFact = factArr[factIndex];
+    // const speechOutput = GET_FACT_MESSAGE + randomFact;
+    const speechOutput = 'Welcome to Unibo path finder! What can I do for you?';
     return handlerInput.responseBuilder
       .speak(speechOutput)
-      .withSimpleCard(SKILL_NAME, randomFact)
+      // .withSimpleCard(SKILL_NAME, randomFact)
+      .getResponse();
+  },
+};
+
+const PathFinderHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === 'IntentRequest' 
+    && request.intent.name === 'PathFinderIntent';
+  },
+  handle(handlerInput) {
+    const speechOutput = target.provaMia();
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
       .getResponse();
   },
 };
@@ -46,7 +63,7 @@ const ExitHandler = {
   },
   handle(handlerInput) {
     return handlerInput.responseBuilder
-      .speak(STOP_MESSAGE)
+      .speak('Goodbye!')
       .getResponse();
   },
 };
@@ -58,7 +75,6 @@ const SessionEndedRequestHandler = {
   },
   handle(handlerInput) {
     console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
-
     return handlerInput.responseBuilder.getResponse();
   },
 };
@@ -69,41 +85,27 @@ const ErrorHandler = {
   },
   handle(handlerInput, error) {
     console.log(`Error handled: ${error.message}`);
-
     return handlerInput.responseBuilder
-      .speak('Sorry, an error occurred.')
-      .reprompt('Sorry, an error occurred.')
+      .speak(`Sorry, an error occurred: ${error.message}`)
+      .reprompt(`Sorry, an error occurred: ${error.message}`)
       .getResponse();
   },
 };
 
-const SKILL_NAME = 'Space Facts';
-const GET_FACT_MESSAGE = 'Here\'s your fact: ';
+// const SKILL_NAME = 'Space Facts';
+// const GET_FACT_MESSAGE = 'Here\'s your fact: ';
 const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
-const STOP_MESSAGE = 'Goodbye!';
+// const STOP_MESSAGE = 'Goodbye!';
 
-const data = [
-  'A year on Mercury is just 88 days long.',
-  'Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.',
-  'Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.',
-  'On Mars, the Sun appears about half the size as it does on Earth.',
-  'Earth is the only planet not named after a god.',
-  'Jupiter has the shortest day of all the planets.',
-  'The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.',
-  'The Sun contains 99.86% of the mass in the Solar System.',
-  'The Sun is an almost perfect sphere.',
-  'A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.',
-  'Saturn radiates two and a half times more energy into space than it receives from the sun.',
-  'The temperature inside the Sun can reach 15 million degrees Celsius.',
-  'The Moon is moving approximately 3.8 cm away from our planet every year.',
-];
+// const data = [];
 
 const skillBuilder = Alexa.SkillBuilders.standard();
 
 exports.handler = skillBuilder
   .addRequestHandlers(
     GetNewFactHandler,
+    PathFinderHandler,
     HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler
