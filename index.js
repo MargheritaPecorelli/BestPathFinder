@@ -31,13 +31,12 @@ const PathFinderWithDestinationHandler = {
     const locationName = handlerInput.requestEnvelope.request.intent.slots.destinazione.value;
     var speechOutput = '';
     var isDestinationPresent = false;
-    locations.forEach(myFun)
-    function myFun(item) {
+    locations.forEach(item=>{
       if(locationName.includes(item)) {
         isDestinationPresent = true;
         speechOutput = item;
       }
-    }
+    });
     if (!isDestinationPresent) {
       speechOutput = `mi dispiace ma non conosco ${locationName}`;
     }
