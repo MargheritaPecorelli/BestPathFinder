@@ -3,9 +3,15 @@
 
 const Alexa = require('ask-sdk');
 const Location = require('./model/location');
+const Activity = require('./model/activity');
+
 const aula2_1 = new Location('aula 2.1', 'aula 2.1', 'stanza 1009', 1, 2, 'A');
 const mirriLab = new Location('laboratorio della mirri', '', 'stanza 4136', 3, 4, 'C');
 const locations = new Array(aula2_1.name(), mirriLab.name());
+
+const ricevimentoMirri = new Activity('ricevimento dalla mirri', aula2_1, 'mirri');
+const esameMirri = new Activity('esame mirri', mirriLab, 'mirri');
+const activities = new Array(ricevimentoMirri, esameMirri);
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -20,9 +26,7 @@ const GetNewFactHandler = {
   },
 };
 
-
-//questo viene richiamato quando non è presente il valore di "disabilita"
-const StartedPathFinderIntentHandler = {
+const StartedPathFinderHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
     return request.type === "IntentRequest"
@@ -36,50 +40,21 @@ const StartedPathFinderIntentHandler = {
   }
 }
 
-//questo viene richiamato quando non sono presenti né il valore di "destinazione", né quello di "nomeProfessore", né quello di "attivita"
-//dalmomento che può essere messo un unico .addElicitSlotDirective('...'), ho deciso che nel caso in cui uno dica semplicemente la propria disabilità,
-//gli verrà chiesto dove vuole andare (non quali attività vuole fare o altro)
-const PathFinderInProgressHandler = {
+const CompletedPathFinderHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
     return request.type === "IntentRequest"
       && request.intent.name === "PathFinderIntent"
-      && !request.intent.slots.destinazione.value
-      && !request.intent.slots.nomeProfessore.value
-      && !request.intent.slots.attivita.value
-      && request.intent.slots.disabilita.value
       && request.dialogState === 'COMPLETED';
   },
   handle(handlerInput) {
-    //const destination = handlerInput.requestEnvelope.request.intent.slots.destinazione.value; //undefined
-    //const speechText = `valore di destinazione: ${destination}`;
-    //const speechText = `valore di disabilita ${handlerInput.requestEnvelope.request.intent.slots.disabilita.value}`
-    const speechText = 'Dimmi dove devi andare, così ti dirò come arrivarci';
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(speechText)
-      .addElicitSlotDirective('destinazione')
-      .getResponse();
-  }
-}
-
-//questo viene richiamato quando è presente il valore di "destinazione"
-const PathFinderWithDestinationHandler = {
-  canHandle(handlerInput) {
-    const request = handlerInput.requestEnvelope.request;
-    return request.type === "IntentRequest"
-      && request.intent.name === "PathFinderIntent"
-      && request.intent.slots.destinazione.value
-      && request.dialogState === 'COMPLETED';
-  },
-  handle(handlerInput) {
-    const locationName = handlerInput.requestEnvelope.request.intent.slots.destinazione.value;
+    const destination = handlerInput.requestEnvelope.request.intent.slots.destinazione.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disabilita.value;
-    var speechOutput = `mi dispiace ma non conosco ${locationName}`;
-    //var isDestinationPresent = false;
+    var speechOutput = `mi dispiace ma non conosco ${destination}`;
+    var isLocation = false;
     locations.forEach(item => {
-      if(locationName.includes(item)) {
-        //isDestinationPresent = true;
+      if(destination.includes(item)) {
+        isLocation = true;
         if (disability.includes('no') || disability.includes('nesssuna')) {
           speechOutput = `per raggiungere ${item} devi ...`;
         } else {
@@ -87,42 +62,18 @@ const PathFinderWithDestinationHandler = {
         }
       }
     });
-    /*if (!isDestinationPresent) {
-      speechOutput = `mi dispiace ma non conosco ${locationName}`;
-    }*/
+    if (!isLocation) {
+      activities.forEach(item => {
+        if(destination.includes(item.name())) {
+          speechOutput = `${item.name()} si trova in ${item.location().name()}. Per arrivarci devi ...`;
+        }
+      });
+    }
     return handlerInput.responseBuilder
-        .speak(speechOutput)
-        .getResponse();
-  },
-};
-
-//questo viene richiamato quando è presente il valore di "attivita"
-/*const PathFinderWithActivityHandler = {
-  canHandle(handlerInput) {
-    const request = handlerInput.requestEnvelope.request;
-    return request.type === "IntentRequest"
-      && request.intent.name === "PathFinderIntent"
-      && request.intent.slots.attività.value
-  },
-  handle(handlerInput) {
-    const activityName = handlerInput.requestEnvelope.request.intent.slots.attivita.value;
-    const disability = handlerInput.requestEnvelope.request.intent.slots.disabilita.value;
-    var speechOutput = `mi dispiace ma non conosco ${activityName}`;
-    activities.forEach(item => {
-      if(activityName.includes(item)) {
-        //if (disability.includes('no') || disability.includes('nesssuna')) {
-          const activityLocation = item.location();
-          speechOutput = `${item} si tiene presso  ${activityLocation}. Vuoi sapere come raggiungerla?`;
-        //} else {
-          //speechOutput = `per raggiungere ${item} con disabilità ${disability}, devi ...`;
-        //}
-      }
-    });
-    return handlerInput.responseBuilder
-        .speak(speechOutput)
-        .getResponse();
-  },
-};*/
+      .speak(speechOutput)
+      .getResponse();
+  }
+}
 
 const HelpHandler = {
   canHandle(handlerInput) {
@@ -189,9 +140,8 @@ const skillBuilder = Alexa.SkillBuilders.standard();
 exports.handler = skillBuilder
   .addRequestHandlers(
     GetNewFactHandler,
-    PathFinderWithDestinationHandler,
-    StartedPathFinderIntentHandler,
-    PathFinderInProgressHandler,
+    StartedPathFinderHandler,
+    CompletedPathFinderHandler,
     HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler
