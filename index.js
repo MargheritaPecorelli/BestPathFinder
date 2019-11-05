@@ -70,17 +70,31 @@ const CompletedPathFinderHandler = {
       }
     });
     if(!isLocation) {
-      activities.forEach(actItem => {
-        if(destination.includes(actItem)) {
-          speechOutput = `mi hai chiesto dove si trova ${actItem}`;
-          professors.forEach(profItem => {
-            if(destination.includes(profItem)) {
-              speechOutput = speechOutput + ` del prof ${profItem}`;
-            }
-          });
+      var professorName;
+      var thereIsProf = false;
+      professors.forEach(profItem => {
+        if(destination.includes(profItem)) {
+          professorName = `${profItem}`;
+          thereIsProf = true;
         }
       });
+      
+      var isAnActivity = false;
+      activities.forEach(actItem => {
+        if(destination.includes(actItem)) {
+          isAnActivity = true;
+          speechOutput = `mi hai chiesto dove si trova ${actItem}`;
+          if(thereIsProf) {
+            speechOutput = speechOutput + ` del prof ${professorName}`
+          }
+        }
+      });
+      
+      if(!isAnActivity && thereIsProf) {
+        speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`
+      }
     }
+    
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
