@@ -2,6 +2,8 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk');
+
+/*
 const Location = require('./model/location');
 const Activity = require('./model/activity');
 
@@ -9,9 +11,14 @@ const aula2_1 = new Location('aula 2.1', 'aula 2.1', 'stanza 1009', 1, 2, 'A');
 const mirriLab = new Location('laboratorio della mirri', '', 'stanza 4136', 3, 4, 'C');
 const locations = new Array(aula2_1.name(), mirriLab.name());
 
-const ricevimentoMirri = new Activity('ricevimento dalla mirri', aula2_1, 'mirri');
-const esameMirri = new Activity('esame mirri', mirriLab, 'mirri');
+const ricevimentoMirri = new Activity('ricevimento', aula2_1, 'mirri');
+const esameMirri = new Activity('esame', mirriLab, 'mirri');
 const activities = new Array(ricevimentoMirri, esameMirri);
+*/
+
+const locations = ['aula 2.1', 'stanza 4136', 'biblioteca'];
+const activities = ['ricevimento', 'esame', 'linux day'];
+const professors = ['mirri', 'viroli', 'ricci'];
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -48,9 +55,9 @@ const CompletedPathFinderHandler = {
       && request.dialogState === 'COMPLETED';
   },
   handle(handlerInput) {
-    const destination = handlerInput.requestEnvelope.request.intent.slots.destinazione.value;
-    const disability = handlerInput.requestEnvelope.request.intent.slots.disabilita.value;
-    var speechOutput = `mi dispiace ma non conosco ${destination}`;
+    const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
+    const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
+    var speechOutput = `mi dispiace ma non capisco: ${destination}`;
     var isLocation = false;
     locations.forEach(item => {
       if(destination.includes(item)) {
@@ -62,10 +69,10 @@ const CompletedPathFinderHandler = {
         }
       }
     });
-    if (!isLocation) {
+    if(!isLocation) {
       activities.forEach(item => {
-        if(destination.includes(item.name())) {
-          speechOutput = `${item.name()} si trova in ${item.location().name()}. Per arrivarci devi ...`;
+        if(destination.includes(item)) {
+          speechOutput = `mi hai chiesto dove si trova ${item}`;
         }
       });
     }
@@ -127,13 +134,8 @@ const ErrorHandler = {
   },
 };
 
-// const SKILL_NAME = 'Space Facts';
-// const GET_FACT_MESSAGE = 'Here\'s your fact: ';
 const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
-// const STOP_MESSAGE = 'Goodbye!';
-
-// const data = [];
 
 const skillBuilder = Alexa.SkillBuilders.standard();
 
