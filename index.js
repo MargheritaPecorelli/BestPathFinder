@@ -70,9 +70,14 @@ const CompletedPathFinderHandler = {
       }
     });
     if(!isLocation) {
-      activities.forEach(item => {
-        if(destination.includes(item)) {
-          speechOutput = `mi hai chiesto dove si trova ${item}`;
+      activities.forEach(actItem => {
+        if(destination.includes(actItem)) {
+          speechOutput = `mi hai chiesto dove si trova ${actItem}`;
+          professors.forEach(profItem => {
+            if(destination.includes(profItem)) {
+              speechOutput = speechOutput + ` del prof ${profItem}`;
+            }
+          });
         }
       });
     }
@@ -81,7 +86,22 @@ const CompletedPathFinderHandler = {
       .getResponse();
   }
 }
-
+/*
+function checkLocations(speechOutput, destination, disability) {
+  speechOutput = `provaaaaaaaaaaaaaaaaaaaa`;
+  locations.forEach(item => {
+    if(destination.includes(item)) {
+      if (disability.includes('no') || disability.includes('nesssuna')) {
+        speechOutput = `per raggiungere ${item} devi ...`;
+      } else {
+        speechOutput = `per raggiungere ${item} con disabilità ${disability}, devi ...`;
+      }
+      return true;
+    }
+  });
+  return false;
+}
+*/
 const HelpHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -134,14 +154,20 @@ const ErrorHandler = {
   },
 };
 
+// const SKILL_NAME = 'Space Facts';
+// const GET_FACT_MESSAGE = 'Here\'s your fact: ';
 const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
+// const STOP_MESSAGE = 'Goodbye!';
+
+// const data = [];
 
 const skillBuilder = Alexa.SkillBuilders.standard();
 
 exports.handler = skillBuilder
   .addRequestHandlers(
     GetNewFactHandler,
+    //PathFinderWithDestinationHandler,
     StartedPathFinderHandler,
     CompletedPathFinderHandler,
     HelpHandler,
