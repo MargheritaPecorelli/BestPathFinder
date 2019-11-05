@@ -17,7 +17,7 @@ const activities = new Array(ricevimentoMirri, esameMirri);
 */
 
 const locations = ['aula 2.1', 'stanza 4136', 'biblioteca'];
-const activities = ['ricevimento', 'esame', 'linux day'];
+const activities = ['ricevimento', 'esame', 'linux day', 'programmazione concorrente e distribuita', 'applicazioni e servizi web'];
 const professors = ['mirri', 'viroli', 'ricci'];
 
 const GetNewFactHandler = {
@@ -69,6 +69,7 @@ const CompletedPathFinderHandler = {
         }
       }
     });
+    
     if(!isLocation) {
       var professorName;
       var thereIsProf = false;
@@ -109,7 +110,42 @@ const TimeTableHandler = {
   },
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
-    const speechOutput = `mi hai chiesto l'orario per: ${destination}`;
+    var speechOutput = `mi dispiace ma non capisco: ${destination}`;
+    
+    var isLocation = false;
+    locations.forEach(item => {
+      if(destination.includes(item)) {
+        isLocation = true;
+        speechOutput = `mi hai chiesto l'orario per: ${item}`;
+      }
+    });
+    
+    if(!isLocation) {
+      var professorName;
+      var thereIsProf = false;
+      professors.forEach(profItem => {
+        if(destination.includes(profItem)) {
+          professorName = `${profItem}`;
+          thereIsProf = true;
+        }
+      });
+      
+      var isAnActivity = false;
+      activities.forEach(actItem => {
+        if(destination.includes(actItem)) {
+          isAnActivity = true;
+          speechOutput = `mi hai chiesto l'orario per: ${actItem}`;
+          if(thereIsProf) {
+            speechOutput = speechOutput + ` del prof ${professorName}`
+          }
+        }
+      });
+      
+      if(!isAnActivity && thereIsProf) {
+        speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`
+      }
+    }
+    
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
