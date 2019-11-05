@@ -100,22 +100,22 @@ const CompletedPathFinderHandler = {
       .getResponse();
   }
 }
-/*
-function checkLocations(speechOutput, destination, disability) {
-  speechOutput = `provaaaaaaaaaaaaaaaaaaaa`;
-  locations.forEach(item => {
-    if(destination.includes(item)) {
-      if (disability.includes('no') || disability.includes('nesssuna')) {
-        speechOutput = `per raggiungere ${item} devi ...`;
-      } else {
-        speechOutput = `per raggiungere ${item} con disabilità ${disability}, devi ...`;
-      }
-      return true;
-    }
-  });
-  return false;
+
+const TimeTableHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === "IntentRequest"
+      && request.intent.name === "TimeTableIntent";
+  },
+  handle(handlerInput) {
+    const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
+    const speechOutput = `mi hai chiesto l'orario per: ${destination}`;
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
+      .getResponse();
+  }
 }
-*/
+
 const HelpHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -168,22 +168,17 @@ const ErrorHandler = {
   },
 };
 
-// const SKILL_NAME = 'Space Facts';
-// const GET_FACT_MESSAGE = 'Here\'s your fact: ';
 const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
-// const STOP_MESSAGE = 'Goodbye!';
-
-// const data = [];
 
 const skillBuilder = Alexa.SkillBuilders.standard();
 
 exports.handler = skillBuilder
   .addRequestHandlers(
     GetNewFactHandler,
-    //PathFinderWithDestinationHandler,
     StartedPathFinderHandler,
     CompletedPathFinderHandler,
+    TimeTableHandler,
     HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler
