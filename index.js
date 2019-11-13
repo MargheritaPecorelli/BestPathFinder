@@ -2,10 +2,82 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk');
-const mariadb = require('mariadb');
+//const mariadb = require('mariadb');
+
+var MySql = require('sync-mysql');
 
 var prova;
+
+var connection = new MySql({
+  host: 'localhost',
+  user: 'margherita',
+  password: 'pippo',
+  database: "db_unibo_simplified"
+});
+ 
+prova = connection.query("SELECT NomeTabellaOpenData FROM toopendata WHERE IdInfo=1")[0].NomeTabellaOpenData;
+
+
 /*
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: "localhost",
+  user: "margherita",
+  password: "pippo",
+  database: "db_unibo_simplified"
+});
+
+var prova;
+var prova2;
+
+var provaFunz = function(querySQL, callback) {
+  connection.connect(function(err) {
+    if (err) {
+      throw err;
+    }
+    console.log("Connected!");
+    connection.query(querySQL, function (err, result, fields) {
+      if (err) {
+        throw err;
+      }
+      //prova = result[0].NomeTabellaOpenData
+      //console.log('prova dentro: ' + prova);
+      //callback(null, prova);
+      callback(null, result[0].NomeTabellaOpenData);
+    });
+  });
+}
+
+const sql = "SELECT NomeTabellaOpenData FROM toopendata WHERE IdInfo=1";
+await provaFunz(sql, function (err, result) {
+  if (err) {
+    console.log("Database error!");
+  } else {
+    //console.log('risultato: ' + result);
+    //console.log('prova medio: ' + prova);
+    prova = result;
+    console.log('prova medio: ' + prova);
+  }
+});*/
+console.log('prova fuori: ' + prova);
+
+/*
+connection.connect(function(err) {
+  if (err) {
+    throw err;
+  }
+  console.log("Connected!");
+  const sql = "SELECT NomeTabellaOpenData FROM toopendata WHERE IdInfo=1";
+  connection.query(sql, function (err, result, fields) {
+    if (err) {
+      throw err;
+    }
+    prova = result[0].NomeTabellaOpenData
+    console.log('prova dentro: ' + prova);
+  });
+});
+console.log('prova fuori: ' + prova);
+
 mariadb.createConnection({user: 'margherita', password: 'pippo', database: 'db_unibo_simplified'})
         .then(conn => {
           conn.query("SELECT NomeTabellaOpenData FROM toopendata WHERE IdInfo=1")
@@ -24,6 +96,7 @@ mariadb.createConnection({user: 'margherita', password: 'pippo', database: 'db_u
 
 console.log('prova fuori: ' + prova);
 */
+/*
 async function asyncFunction() {
   let conn;
   try {
@@ -43,33 +116,9 @@ async function asyncFunction() {
     }
   }
 }
+*/
 
 //asyncFunction();
-
-/*
-const pool = mariadb.createPool({
-  host: 'localhost', 
-  user: "margherita",
-  password: "pippo",
-  connectionLimit: 5
-});
-async function asyncFunction() {
-  let conn;
-  try {
-    conn = await pool.getConnection();
-    const rows = await conn.query("SELECT 1 as val");
-    console.log(rows); //[ {val: 1}, meta: ... ]
-    const res = await conn.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
-    console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
-  } catch (err) {
-    throw err;
-  } finally {
-    if (conn) {
-      return conn.end();
-    }
-  }
-}
-*/
 
 /*
 const Location = require('./model/location');
@@ -109,11 +158,23 @@ const StartedPathFinderHandler = {
       && request.dialogState !== 'COMPLETED';
   },
   handle(handlerInput) {
-    asyncFunction();
+    dfs();
     return handlerInput.responseBuilder
       .addDelegateDirective()
       .getResponse();
   }
+}
+
+function dfs() {
+  prova2 = 'ciao';
+  const sql = "SELECT NomeTabellaOpenData FROM toopendata WHERE IdInfo=1";
+  provaFunz(sql, function (err, result) {
+    if (err) {
+      console.log("Database error!");
+    } else {
+      prova = result;
+    }
+  });
 }
 
 const CompletedPathFinderHandler = {
@@ -124,6 +185,8 @@ const CompletedPathFinderHandler = {
       && request.dialogState === 'COMPLETED';
   },
   handle(handlerInput) {
+    //asyncFunction().then(appended_text => {});
+    //asyncFunction();
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
     var speechOutput = `mi dispiace ma non capisco: ${destination}`;
@@ -132,7 +195,7 @@ const CompletedPathFinderHandler = {
       if(destination.includes(item)) {
         isLocation = true;
         if (disability.includes('no') || disability.includes('nesssuna')) {
-          speechOutput = `per raggiungere ${item} devi + prova: ${prova} ...`;
+          speechOutput = `per raggiungere ${item} devi + prova: ${prova} + prova2: ${prova2} ...`;
         } else {
           speechOutput = `per raggiungere ${item} con disabilità ${disability}, devi ...`;
         }
