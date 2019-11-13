@@ -2,6 +2,74 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk');
+const mariadb = require('mariadb');
+
+var prova;
+/*
+mariadb.createConnection({user: 'margherita', password: 'pippo', database: 'db_unibo_simplified'})
+        .then(conn => {
+          conn.query("SELECT NomeTabellaOpenData FROM toopendata WHERE IdInfo=1")
+              .then(res => {
+                prova = res[0].NomeTabellaOpenData;
+                console.log('prova dentro: ' + prova);
+                conn.end();
+              })
+            .catch(err => { 
+              console.log(err);
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+console.log('prova fuori: ' + prova);
+*/
+async function asyncFunction() {
+  let conn;
+  try {
+    conn = await mariadb.createConnection({user: 'margherita', password: 'pippo', database: 'db_unibo_simplified'});
+    const rows = await conn.query("SELECT NomeTabellaOpenData FROM toopendata WHERE IdInfo=1");
+    prova = rows[0].NomeTabellaOpenData;
+    if(prova === 'AULA 2.8') {
+      console.log('questa è aula 2.8');  
+    }
+    console.log('prova dentro: ' + prova);
+    return prova;
+  } catch (err) {
+    throw err;
+  } finally {
+    if (conn) {
+      return conn.end();
+    }
+  }
+}
+
+//asyncFunction();
+
+/*
+const pool = mariadb.createPool({
+  host: 'localhost', 
+  user: "margherita",
+  password: "pippo",
+  connectionLimit: 5
+});
+async function asyncFunction() {
+  let conn;
+  try {
+    conn = await pool.getConnection();
+    const rows = await conn.query("SELECT 1 as val");
+    console.log(rows); //[ {val: 1}, meta: ... ]
+    const res = await conn.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
+    console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
+  } catch (err) {
+    throw err;
+  } finally {
+    if (conn) {
+      return conn.end();
+    }
+  }
+}
+*/
 
 /*
 const Location = require('./model/location');
@@ -41,6 +109,7 @@ const StartedPathFinderHandler = {
       && request.dialogState !== 'COMPLETED';
   },
   handle(handlerInput) {
+    asyncFunction();
     return handlerInput.responseBuilder
       .addDelegateDirective()
       .getResponse();
@@ -63,7 +132,7 @@ const CompletedPathFinderHandler = {
       if(destination.includes(item)) {
         isLocation = true;
         if (disability.includes('no') || disability.includes('nesssuna')) {
-          speechOutput = `per raggiungere ${item} devi ...`;
+          speechOutput = `per raggiungere ${item} devi + prova: ${prova} ...`;
         } else {
           speechOutput = `per raggiungere ${item} con disabilità ${disability}, devi ...`;
         }
@@ -110,6 +179,7 @@ const TimeTableHandler = {
   },
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
+    //const speechOutput = `mi hai chiesto l'orario per: ${destination}`;
     var speechOutput = `mi dispiace ma non capisco: ${destination}`;
     
     var isLocation = false;
