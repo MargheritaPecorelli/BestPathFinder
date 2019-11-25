@@ -7,6 +7,7 @@ var connection = new MySql({
   database : 'sql2313391'
 });
  
-exports.executeSyncQuery = (callback) => {
-  return callback(null, connection.query("SELECT Nome FROM datacategory WHERE IdDataCategory=1")); // Aule
+exports.executeSyncQuery = (query, callback) => {
+  return callback(null, connection.query(query));
 }
+

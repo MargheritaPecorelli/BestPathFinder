@@ -3,41 +3,69 @@
 
 const Alexa = require('ask-sdk');
 const mysyncmodule = require('./syncConnectionToDB');
-
-/* versione asyncrona:
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'sql2.freemysqlhosting.net',
-  user     : 'sql2313391',
-  password : 'iM7!eM6!',
-  database : 'sql2313391'
-});
-connection.connect();
-connection.query('SELECT Nome FROM datacategory WHERE IdDataCategory=1', function (error, results, fields) {
-  if (error) {
-      throw error;
-  }
-  console.log('The solution is: ', results[0].Nome);
-});
-connection.end();
-*/
-
-/*
 const Location = require('./model/location');
-const Activity = require('./model/activity');
+// const Activity = require('./model/activity');
 
-const aula2_1 = new Location('aula 2.1', 'aula 2.1', 'stanza 1009', 1, 2, 'A');
-const mirriLab = new Location('laboratorio della mirri', '', 'stanza 4136', 3, 4, 'C');
-const locations = new Array(aula2_1.name(), mirriLab.name());
-
-const ricevimentoMirri = new Activity('ricevimento', aula2_1, 'mirri');
-const esameMirri = new Activity('esame', mirriLab, 'mirri');
-const activities = new Array(ricevimentoMirri, esameMirri);
-*/
-
-const locations = ['aula 2.1', 'stanza 4136', 'biblioteca'];
-const activities = ['ricevimento', 'esame', 'linux day', 'programmazione concorrente e distribuita', 'applicazioni e servizi web'];
-const professors = ['mirri', 'viroli', 'ricci'];
+const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
+  if (error) {
+    throw error;
+  }
+  const locs = [];
+  result.forEach(item => {
+    //(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats)
+    var name = item.Nome;
+    var description = item.Descrizione;
+    var roomNumeber = null;
+    var level;
+    var floor;
+    var seats = item.Posti;
+    if (item.Nome.includes("-")) {
+      name = item.Nome.split("-")[1];
+      if (item.Nome.startsWith("S")) {
+        roomNumeber = parseInt(item.Nome.split(" ")[1]);
+      } else {
+        roomNumeber = parseInt(item.Nome.split("-")[0]);
+      }
+      switch(roomNumeber.toString().substring(0, 1)) {
+        case '1':
+          level = 1;
+          floor = 'piano sotto terra';
+          break;
+        case '2':
+          level = 2;
+          floor = 'piano terra';
+          break;
+        case '3':
+          level = 3;
+          floor = 'primo piano';
+          break;
+        case '4':
+          level = 4;
+          floor = 'secondo piano';
+          break;
+      }
+    }
+    if (typeof level === "undefined") {
+      if (description.includes("piano terra")) {
+        level = 2;
+        floor = 'piano terra';
+      } else if (description.includes("primo piano")) {
+        level = 3;
+        floor = 'primo piano';
+      } else if (description.includes("secondo piano")) {
+        level = 4;
+        floor = 'secondo piano';
+      }
+    }
+    locs.push(new Location(name, description, roomNumeber, level, floor, seats));
+  });
+  return locs;
+});
+console.log(locations[8]);
+console.log(locations[42]);
+console.log(locations[122]);
+console.log(locations[39]);
+console.log(locations[40]);
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -45,10 +73,7 @@ const GetNewFactHandler = {
     return request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    var speechOutput = 'Benvenuto nel Campus di Cesena! Cosa posso fare per te?';
-    speechOutput = mysyncmodule.executeSyncQuery((error, result) => {
-      return result[0].Nome;
-    });
+    const speechOutput = 'Benvenuto nel Campus di Cesena! Cosa posso fare per te?';
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
@@ -78,7 +103,10 @@ const CompletedPathFinderHandler = {
   },
   handle(handlerInput) {
     const testoSync = mysyncmodule.executeSyncQuery((error, result) => {
-      return result[0].NomeTabellaOpenData;
+      if (error) {
+        throw error;
+      }
+      return result[0].Nome;
     });
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;

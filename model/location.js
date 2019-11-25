@@ -1,47 +1,45 @@
 class Location {
 
-    constructor(locName, locClassroom, locRoom, locFloor, locLevel, locBlock) {
+    // `informazioni` (`IdInfo`, `Nome`, `Descrizione`, `Posti`)
+    // manca il blocco (che sarebbe carino avere)
+    constructor(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats) {
         this.myName = locName;
-        this.myClassroom = locClassroom;
-        this.myRoom = locRoom;
-        this.myFloor = locFloor;
+        this.myDescription = locDescription;
+        this.myRoomNumber = locRoomNumber;
         this.myLevel = locLevel;
-        this.myBlock = locBlock;
+        this.myFloor = locFloor;
+        this.mySeats = locSeats;
     }
   
     name() {
-        // return `the location name is ${this.myName}`;
         return this.myName;
     }
     
-    classroom() {
-        return this.myClassroom;
+    description() {
+        return this.myDescription;
     }
 
-    room() {
-        return this.myRoom;
-    }
-
-    floor() {
-        return this.myFloor;
+    roomNumber() {
+        return this.myRoomNumber;
     }
 
     level() {
         return this.myLevel;
     }
 
-    block() {
-        return this.myBlock;
+    floor() {
+        return this.myFloor;
     }
 
+    seats() {
+        return this.mySeats;
+    }
+
+    /*
     path() {
         return 'this is location path';
     }
-
-    portionWithMoreFreePlaces() {
-        return 'this is location free places';
-    }
-
+    */
 }
 
  module.exports = Location;
