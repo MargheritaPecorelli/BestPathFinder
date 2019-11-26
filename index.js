@@ -6,6 +6,8 @@ const mysyncmodule = require('./syncConnectionToDB');
 const Location = require('./model/location');
 // const Activity = require('./model/activity');
 
+const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=26/11/2019&Edificio=EST_EXZUCC1";
+
 const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
   if (error) {
     throw error;
@@ -85,6 +87,20 @@ locations.forEach(item => {
 });
 // console.log(professors);
 
+//'PROGRAMMAZIONE AD OGGETTI'
+var request = require('sync-request');
+var res = request('GET', myUrl);
+const activities = [];
+const body = res.getBody().toString('utf8');
+body.split("<Evento>").forEach(item => {
+  if (!item.includes("?xml")) {
+    activities.push(item.split("<Descrizione>")[1].split("<")[0]);
+  }
+});
+// console.log(activities);
+
+// ==============================================================================================================================================================
+
 const GetNewFactHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -147,10 +163,8 @@ const CompletedPathFinderHandler = {
         }
       });
       
-      // var isAnActivity = false;
       activities.forEach(activity => {
         if(destination.includes(activity)) {
-          // isAnActivity = true;
           speechOutput = `mi hai chiesto dove si trova ${activity}`;
           if(thereIsProf) {
             speechOutput = speechOutput + ` del prof ${professorName}`;
