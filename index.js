@@ -12,7 +12,7 @@ const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti
   }
   const locs = [];
   result.forEach(item => {
-    //(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats)
+    // new Location(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats)
     var name = item.Nome;
     var description = item.Descrizione;
     var roomNumeber = null;
@@ -22,14 +22,14 @@ const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti
     if (item.Nome.includes("-")) {
       name = item.Nome.split("-")[1];
       if (item.Nome.startsWith("S")) {
-        roomNumeber = parseInt(item.Nome.split(" ")[1]);
+        roomNumeber = item.Nome.split(" ")[1];
       } else {
-        roomNumeber = parseInt(item.Nome.split("-")[0]);
+        roomNumeber = item.Nome.split("-")[0].split(" ")[0];
       }
-      switch(roomNumeber.toString().substring(0, 1)) {
+      switch(roomNumeber.substring(0, 1)) {
         case '1':
           level = 1;
-          floor = 'piano sotto terra';
+          floor = 'piano interrato';
           break;
         case '2':
           level = 2;
@@ -46,7 +46,10 @@ const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti
       }
     }
     if (typeof level === "undefined") {
-      if (description.includes("piano terra")) {
+      if (description.includes("piano interrato")) {
+        level = 1;
+        floor = 'piano interrato';
+      } else if (description.includes("piano terra")) {
         level = 2;
         floor = 'piano terra';
       } else if (description.includes("primo piano")) {
@@ -55,17 +58,17 @@ const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti
       } else if (description.includes("secondo piano")) {
         level = 4;
         floor = 'secondo piano';
+      } else {
+        level = null;
+        floor = null;
       }
     }
     locs.push(new Location(name, description, roomNumeber, level, floor, seats));
   });
   return locs;
 });
-console.log(locations[8]);
-console.log(locations[42]);
-console.log(locations[122]);
-console.log(locations[39]);
-console.log(locations[40]);
+// console.log(locations[123]);
+// console.log(locations.lenght;
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
