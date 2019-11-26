@@ -67,8 +67,23 @@ const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti
   });
   return locs;
 });
-// console.log(locations[123]);
-// console.log(locations.lenght;
+// console.log(locations[83]);
+// console.log(locations.lenght);
+
+const professors = [];
+locations.forEach(item => {
+  if (item.description().includes("Ufficio")) {
+    if (item.name().includes(",")) {
+      var names = item.name().split(",");
+      names.forEach(name => {
+        professors.push(name);
+      });
+    } else {
+      professors.push(item.name());
+    }
+  }
+});
+// console.log(professors);
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -105,23 +120,18 @@ const CompletedPathFinderHandler = {
       && request.dialogState === 'COMPLETED';
   },
   handle(handlerInput) {
-    const testoSync = mysyncmodule.executeSyncQuery((error, result) => {
-      if (error) {
-        throw error;
-      }
-      return result[0].Nome;
-    });
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
     var speechOutput = `mi dispiace ma non capisco: ${destination}`;
     var isLocation = false;
     locations.forEach(item => {
-      if(destination.includes(item)) {
+      const locaName = item.name();
+      if(destination.includes(locaName)) {
         isLocation = true;
         if (disability.includes('no') || disability.includes('nesssuna')) {
-          speechOutput = `per raggiungere ${item} devi ${testoSync}`;
+          speechOutput = `per raggiungere ${locaName} devi ...`;
         } else {
-          speechOutput = `per raggiungere ${item} con disabilità ${disability}, devi ...`;
+          speechOutput = `per raggiungere ${locaName} con disabilità ${disability}, devi ...`;
         }
       }
     });
@@ -129,27 +139,30 @@ const CompletedPathFinderHandler = {
     if(!isLocation) {
       var professorName;
       var thereIsProf = false;
-      professors.forEach(profItem => {
-        if(destination.includes(profItem)) {
-          professorName = `${profItem}`;
+      professors.forEach(prof => {
+        if(destination.includes(prof)) {
+          professorName = `${prof}`;
           thereIsProf = true;
+          speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`;
         }
       });
       
-      var isAnActivity = false;
-      activities.forEach(actItem => {
-        if(destination.includes(actItem)) {
-          isAnActivity = true;
-          speechOutput = `mi hai chiesto dove si trova ${actItem}`;
+      // var isAnActivity = false;
+      activities.forEach(activity => {
+        if(destination.includes(activity)) {
+          // isAnActivity = true;
+          speechOutput = `mi hai chiesto dove si trova ${activity}`;
           if(thereIsProf) {
-            speechOutput = speechOutput + ` del prof ${professorName}`
+            speechOutput = speechOutput + ` del prof ${professorName}`;
           }
         }
       });
-      
+      /*
+      // l'ho messo direttamente dentro a: if(!isLocation)
       if(!isAnActivity && thereIsProf) {
         speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`
       }
+      */
     }
     
     return handlerInput.responseBuilder
@@ -182,23 +195,26 @@ const TimeTableHandler = {
         if(destination.includes(profItem)) {
           professorName = `${profItem}`;
           thereIsProf = true;
+          speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`;
         }
       });
       
-      var isAnActivity = false;
+      // var isAnActivity = false;
       activities.forEach(actItem => {
         if(destination.includes(actItem)) {
-          isAnActivity = true;
+          // isAnActivity = true;
           speechOutput = `mi hai chiesto l'orario per: ${actItem}`;
           if(thereIsProf) {
             speechOutput = speechOutput + ` del prof ${professorName}`
           }
         }
       });
-      
+      /*
+      // l'ho messo direttamente dentro a: if(!isLocation)
       if(!isAnActivity && thereIsProf) {
         speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`
       }
+      */
     }
     
     return handlerInput.responseBuilder
