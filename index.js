@@ -6,7 +6,10 @@ const mysyncmodule = require('./syncConnectionToDB');
 const Location = require('./model/location');
 // const Activity = require('./model/activity');
 
-const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=26/11/2019&Edificio=EST_EXZUCC1";
+//const today = new Date().toISOString().split("T")[0].replace(/-/g, "/");
+const today = new Date().toLocaleDateString();
+const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
+// console.log(myUrl);
 
 const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
   if (error) {
