@@ -2,16 +2,16 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk');
-const mysyncmodule = require('./syncConnectionToDB');
-const Location = require('./model/location');
-// const Activity = require('./model/activity');
+const Request = require('sync-request');
 
-//const today = new Date().toISOString().split("T")[0].replace(/-/g, "/");
+const MySyncModule = require('./syncConnectionToDB');
+const Location = require('./model/location');
+
 const today = new Date().toLocaleDateString();
 const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
 // console.log(myUrl);
 
-const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
+const locations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
   if (error) {
     throw error;
   }
@@ -73,7 +73,6 @@ const locations = mysyncmodule.executeSyncQuery("SELECT Nome, Descrizione, Posti
   return locs;
 });
 // console.log(locations[83]);
-// console.log(locations.lenght);
 
 const professors = [];
 locations.forEach(item => {
@@ -90,10 +89,8 @@ locations.forEach(item => {
 });
 // console.log(professors);
 
-//'PROGRAMMAZIONE AD OGGETTI'
-var request = require('sync-request');
-var res = request('GET', myUrl);
 const activities = [];
+var res = Request('GET', myUrl);
 const body = res.getBody().toString('utf8');
 body.split("<Evento>").forEach(item => {
   if (!item.includes("?xml")) {
@@ -111,6 +108,7 @@ const GetNewFactHandler = {
   },
   handle(handlerInput) {
     const speechOutput = 'Benvenuto nel Campus di Cesena! Cosa posso fare per te?';
+    console.log(speechOutput);    
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
