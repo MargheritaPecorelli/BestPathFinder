@@ -2,9 +2,9 @@ var MySql = require('sync-mysql');
  
 var connection = new MySql({
   host     : 'sql2.freemysqlhosting.net',
-  user     : 'sql2313391',
-  password : 'iM7!eM6!',
-  database : 'sql2313391'
+  user     : 'sql2320543',
+  password : 'iD9*pE5*',
+  database : 'sql2320543'
 });
  
 exports.executeSyncQuery = (query, callback) => {

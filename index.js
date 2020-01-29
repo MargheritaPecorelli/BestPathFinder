@@ -4,99 +4,98 @@
 const Alexa = require('ask-sdk');
 const Request = require('sync-request');
 
-const MySyncModule = require('./syncConnectionToDB');
-const Location = require('./model/location');
+// const MySyncModule = require('./syncConnectionToDB');
+// const Location = require('./model/location');
 
-const today = new Date().toLocaleDateString();
-const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
-// console.log(myUrl);
+// const today = new Date().toLocaleDateString();
+// const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
 
-const locations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
-  if (error) {
-    throw error;
-  }
-  const locs = [];
-  result.forEach(item => {
-    // new Location(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats)
-    var name = item.Nome;
-    var description = item.Descrizione;
-    var roomNumeber = null;
-    var level;
-    var floor;
-    var seats = item.Posti;
-    if (item.Nome.includes("-")) {
-      name = item.Nome.split("-")[1];
-      if (item.Nome.startsWith("S")) {
-        roomNumeber = item.Nome.split(" ")[1];
-      } else {
-        roomNumeber = item.Nome.split("-")[0].split(" ")[0];
-      }
-      switch(roomNumeber.substring(0, 1)) {
-        case '1':
-          level = 1;
-          floor = 'piano interrato';
-          break;
-        case '2':
-          level = 2;
-          floor = 'piano terra';
-          break;
-        case '3':
-          level = 3;
-          floor = 'primo piano';
-          break;
-        case '4':
-          level = 4;
-          floor = 'secondo piano';
-          break;
-      }
-    }
-    if (typeof level === "undefined") {
-      if (description.includes("piano interrato")) {
-        level = 1;
-        floor = 'piano interrato';
-      } else if (description.includes("piano terra")) {
-        level = 2;
-        floor = 'piano terra';
-      } else if (description.includes("primo piano")) {
-        level = 3;
-        floor = 'primo piano';
-      } else if (description.includes("secondo piano")) {
-        level = 4;
-        floor = 'secondo piano';
-      } else {
-        level = null;
-        floor = null;
-      }
-    }
-    locs.push(new Location(name, description, roomNumeber, level, floor, seats));
-  });
-  return locs;
-});
+// const locations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
+//   if (error) {
+//     throw error;
+//   }
+//   const locs = [];
+//   result.forEach(item => {
+//     // new Location(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats)
+//     var name = item.Nome;
+//     var description = item.Descrizione;
+//     var roomNumeber = null;
+//     var level;
+//     var floor;
+//     var seats = item.Posti;
+//     if (item.Nome.includes("-")) {
+//       name = item.Nome.split("-")[1];
+//       if (item.Nome.startsWith("S")) {
+//         roomNumeber = item.Nome.split(" ")[1];
+//       } else {
+//         roomNumeber = item.Nome.split("-")[0].split(" ")[0];
+//       }
+//       switch(roomNumeber.substring(0, 1)) {
+//         case '1':
+//           level = 1;
+//           floor = 'piano interrato';
+//           break;
+//         case '2':
+//           level = 2;
+//           floor = 'piano terra';
+//           break;
+//         case '3':
+//           level = 3;
+//           floor = 'primo piano';
+//           break;
+//         case '4':
+//           level = 4;
+//           floor = 'secondo piano';
+//           break;
+//       }
+//     }
+//     if (typeof level === "undefined") {
+//       if (description.includes("piano interrato")) {
+//         level = 1;
+//         floor = 'piano interrato';
+//       } else if (description.includes("piano terra")) {
+//         level = 2;
+//         floor = 'piano terra';
+//       } else if (description.includes("primo piano")) {
+//         level = 3;
+//         floor = 'primo piano';
+//       } else if (description.includes("secondo piano")) {
+//         level = 4;
+//         floor = 'secondo piano';
+//       } else {
+//         level = null;
+//         floor = null;
+//       }
+//     }
+//     locs.push(new Location(name, description, roomNumeber, level, floor, seats));
+//   });
+//   return locs;
+// });
 // console.log(locations[83]);
 
-const professors = [];
-locations.forEach(item => {
-  if (item.description().includes("Ufficio")) {
-    if (item.name().includes(",")) {
-      var names = item.name().split(",");
-      names.forEach(name => {
-        professors.push(name);
-      });
-    } else {
-      professors.push(item.name());
-    }
-  }
-});
+// const professors = [];
+// locations.forEach(item => {
+//   if (item.description().includes("Ufficio")) {
+//     if (item.name().includes(",")) {
+//       var names = item.name().split(",");
+//       names.forEach(name => {
+//         professors.push(name);
+//       });
+//     } else {
+//       professors.push(item.name());
+//     }
+//   }
+// });
 // console.log(professors);
 
-const activities = [];
-var res = Request('GET', myUrl);
-const body = res.getBody().toString('utf8');
-body.split("<Evento>").forEach(item => {
-  if (!item.includes("?xml")) {
-    activities.push(item.split("<Descrizione>")[1].split("<")[0]);
-  }
-});
+// const activities = [];
+// var res = Request('GET', myUrl);
+// const body = res.getBody().toString('utf8');
+// body.split("<Evento>").forEach(item => {
+//   if (!item.includes("?xml")) {
+//     activities.push(item.split("<Descrizione>")[1].split("<")[0]);
+//   }
+// });
 // console.log(activities);
 
 // ==============================================================================================================================================================
@@ -139,7 +138,8 @@ const CompletedPathFinderHandler = {
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
-    var speechOutput = `mi dispiace ma non capisco: ${destination}`;
+    // var speechOutput = `mi dispiace ma non capisco: ${destination}`;
+    var speechOutput;
     var isLocation = false;
     locations.forEach(item => {
       const locaName = item.name();
