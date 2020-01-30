@@ -1,0 +1,1549 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "punto informazioni",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "PathFinderIntent",
+          "slots": [
+            {
+              "name": "disability",
+              "type": "disabilityType",
+              "samples": [
+                "nessuna",
+                "no",
+                "sì motoria",
+                "motoria",
+                "sì visiva",
+                "visiva"
+              ]
+            },
+            {
+              "name": "destination",
+              "type": "destinationType",
+              "samples": [
+                "devo andare a {destination}",
+                "all {destination}",
+                "a {destination}",
+                "nella {destination}",
+                "nel {destination}",
+                "alla {destination}",
+                "al {destination}",
+                "in {destination}",
+                "devo raggiungere il {destination}",
+                "devo raggiungere la {destination}",
+                "devo andare al {destination}",
+                "devo raggiungere {destination}",
+                "devo andare in {destination}",
+                "{destination}"
+              ]
+            }
+          ],
+          "samples": [
+            "devo andare da {destination}",
+            "devo raggiungere la {destination}",
+            "devo raggiungere il {destination}",
+            "devo andare al {destination}",
+            "devo andare a {destination}",
+            "devo andare in {destination}",
+            "ho una {disability} e voglio raggiungere {destination}",
+            "ho una {disability} e devo andare {destination}",
+            "devo raggiungere {destination} e ho una {disability}",
+            "devo andare {destination} e ho una {disability}",
+            "devo raggiungere {destination}",
+            "devo andare {destination}",
+            "dove trovo {destination}",
+            "dov è {destination}",
+            "ho una {disability}"
+          ]
+        },
+        {
+          "name": "TimeTableIntent",
+          "slots": [
+            {
+              "name": "placeOrEvent",
+              "type": "placeOrEventType",
+              "samples": [
+                "{placeOrEvent}"
+              ]
+            }
+          ],
+          "samples": [
+            "a che ora è {placeOrEvent}",
+            "qual è l orario della {placeOrEvent}",
+            "a che ora chiude il {placeOrEvent}",
+            "a che ora apre il {placeOrEvent}",
+            "a che ora chiude la {placeOrEvent}",
+            "a che ora apre la {placeOrEvent}",
+            "a che ora è il {placeOrEvent}",
+            "a che ora chiude {placeOrEvent}",
+            "qual è l orario di chiusura della {placeOrEvent}",
+            "a che ora apre {placeOrEvent}",
+            "qual è l orario di apertura della {placeOrEvent}",
+            "qual è l orario di {placeOrEvent}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "sistemi distribuiti"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione concorrente e distribuita"
+              }
+            },
+            {
+              "name": {
+                "value": "applicazioni e servizi web"
+              }
+            },
+            {
+              "name": {
+                "value": "lezione di applicazioni e servizi web"
+              }
+            },
+            {
+              "name": {
+                "value": "dalla mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "da viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "dalla professoressa mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "dal professor viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "professoressa mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "professor viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "ricevimento da viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "ricevimento dalla mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "Linux day"
+              }
+            },
+            {
+              "name": {
+                "value": "ricevimento di viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "esame di viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "ricevimento della mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "esame della mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "bagno"
+              }
+            },
+            {
+              "name": {
+                "value": "biblioteca"
+              }
+            },
+            {
+              "name": {
+                "value": "stanza 4136"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2.1"
+              }
+            }
+          ],
+          "name": "destinationType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "disabilità motoria"
+              }
+            },
+            {
+              "name": {
+                "value": "disabilità visiva"
+              }
+            }
+          ],
+          "name": "disabilityType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "workshop archea"
+              }
+            },
+            {
+              "name": {
+                "value": "algebra e analisi numerica lm"
+              }
+            },
+            {
+              "name": {
+                "value": "serena morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "analisi numerica lm"
+              }
+            },
+            {
+              "name": {
+                "value": "elaborazione dei segnali"
+              }
+            },
+            {
+              "name": {
+                "value": "marco chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "istituzioni di matematiche ii -"
+              }
+            },
+            {
+              "name": {
+                "value": "marco lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "ricerca operativa"
+              }
+            },
+            {
+              "name": {
+                "value": "roberto baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "sensori e nanotecnologie lm"
+              }
+            },
+            {
+              "name": {
+                "value": "marco tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori lm (c.i.) - sensori e attuatori lm"
+              }
+            },
+            {
+              "name": {
+                "value": "fondamenti di biomeccanica"
+              }
+            },
+            {
+              "name": {
+                "value": "rita stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione ad oggetti"
+              }
+            },
+            {
+              "name": {
+                "value": "mirko viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "linguaggi, compilatori e modelli computazionali"
+              }
+            },
+            {
+              "name": {
+                "value": "mario bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.) - storia dell'architettura 3"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo cassani simonetti"
+              }
+            },
+            {
+              "name": {
+                "value": "simonetti"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.) - teorie e storia del restauro"
+              }
+            },
+            {
+              "name": {
+                "value": "marco pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "conversione elettromeccanica dell'energia"
+              }
+            },
+            {
+              "name": {
+                "value": "alberto bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "data mining"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "gianluca moro"
+              }
+            },
+            {
+              "name": {
+                "value": "moro"
+              }
+            },
+            {
+              "name": {
+                "value": "bioingegneria della riabilitazione lm"
+              }
+            },
+            {
+              "name": {
+                "value": "lorenzo chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "diagnostica strutturale"
+              }
+            },
+            {
+              "name": {
+                "value": "lucio nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "mario bonagura"
+              }
+            },
+            {
+              "name": {
+                "value": "bonagura"
+              }
+            },
+            {
+              "name": {
+                "value": "elementi di urbanistica -"
+              }
+            },
+            {
+              "name": {
+                "value": "enrico brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "fondamenti di chimica"
+              }
+            },
+            {
+              "name": {
+                "value": "nadia lotti"
+              }
+            },
+            {
+              "name": {
+                "value": "lotti"
+              }
+            },
+            {
+              "name": {
+                "value": "ingegneria del software"
+              }
+            },
+            {
+              "name": {
+                "value": "stefano rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "matematica"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione - cl.b (cl.b)"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandra lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori lm (c.i.) - sistemi elettronici lm"
+              }
+            },
+            {
+              "name": {
+                "value": "nicolo' attilio speciale"
+              }
+            },
+            {
+              "name": {
+                "value": "speciale"
+              }
+            },
+            {
+              "name": {
+                "value": "algoritmi di ottimizzazione"
+              }
+            },
+            {
+              "name": {
+                "value": "tutorato progetti fondamenti di biomeccanica"
+              }
+            },
+            {
+              "name": {
+                "value": "fisiologia"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo cerri"
+              }
+            },
+            {
+              "name": {
+                "value": "cerri"
+              }
+            },
+            {
+              "name": {
+                "value": "speciale - sistemi elettronici lm - ricevimento"
+              }
+            },
+            {
+              "name": {
+                "value": "geometria e algebra"
+              }
+            },
+            {
+              "name": {
+                "value": "michele mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi operativi"
+              }
+            },
+            {
+              "name": {
+                "value": "vittorio ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione (prof.ssa carbonaro)"
+              }
+            },
+            {
+              "name": {
+                "value": "afpg - laboratorio di diagnostica strutturale ii"
+              }
+            },
+            {
+              "name": {
+                "value": "organi artificiali lm"
+              }
+            },
+            {
+              "name": {
+                "value": "emanuela marcelli"
+              }
+            },
+            {
+              "name": {
+                "value": "marcelli"
+              }
+            },
+            {
+              "name": {
+                "value": "scienza delle costruzioni -"
+              }
+            },
+            {
+              "name": {
+                "value": "luisa molari"
+              }
+            },
+            {
+              "name": {
+                "value": "molari"
+              }
+            },
+            {
+              "name": {
+                "value": "veronica bartolomeo"
+              }
+            },
+            {
+              "name": {
+                "value": "bartolomeo"
+              }
+            },
+            {
+              "name": {
+                "value": "business intelligence"
+              }
+            },
+            {
+              "name": {
+                "value": "comunicazioni digitali e internet"
+              }
+            },
+            {
+              "name": {
+                "value": "davide dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "colloquio candidati assegno di tutorato corsi di studio dei"
+              }
+            },
+            {
+              "name": {
+                "value": "callegati - gruppo tlc e informatica"
+              }
+            },
+            {
+              "name": {
+                "value": "psicologia della forma"
+              }
+            },
+            {
+              "name": {
+                "value": "emanuele valgiusti"
+              }
+            },
+            {
+              "name": {
+                "value": "valgiusti"
+              }
+            },
+            {
+              "name": {
+                "value": "elettronica"
+              }
+            },
+            {
+              "name": {
+                "value": "claudio fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali (c.i.) - biomateriali"
+              }
+            },
+            {
+              "name": {
+                "value": "joseph lovecchio"
+              }
+            },
+            {
+              "name": {
+                "value": "lovecchio"
+              }
+            },
+            {
+              "name": {
+                "value": "alberto sensini"
+              }
+            },
+            {
+              "name": {
+                "value": "sensini"
+              }
+            }
+          ],
+          "name": "placeOrEventType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "PathFinderIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "disability",
+              "type": "disabilityType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1057778871618.1284276472442"
+              },
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.636486974078.1012070012811.1526135315114",
+                  "values": [
+                    "nessuna",
+                    "no",
+                    "motoria",
+                    "visiva",
+                    "altro"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "destination",
+              "type": "destinationType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1057778871618.1277650161174"
+              },
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.508182059409.251334305687.294477588409",
+                  "values": [
+                    "marco tartagni",
+                    "emanuela marcelli",
+                    "stanza 4089",
+                    "ricci",
+                    "laboratorio informatico cad 4.2",
+                    "stanza 4086",
+                    "diciotti",
+                    "tartagni",
+                    "elaborazione dei segnali",
+                    "stanza 4090",
+                    "stanza 4091",
+                    "luca cristofolini",
+                    "rita stagni",
+                    "walter cerroni",
+                    "ferrara",
+                    "alberto sensini",
+                    "bioingegneria della riabilitazione lm",
+                    "stanza 4096",
+                    "stanza 4097",
+                    "stanza 4098",
+                    "stanza 4099",
+                    "stanza 4092",
+                    "stanza 4093",
+                    "storia  e restauro (c.i.) - teorie e storia del restauro",
+                    "stanza 4094",
+                    "algebra e analisi numerica lm",
+                    "stanza 4095",
+                    "laboratorio di fisica ambientale",
+                    "pietro di lena",
+                    "comunicazioni digitali e internet",
+                    "anna maria manfredini",
+                    "emanuele domenico giordano",
+                    "borsari",
+                    "claudia cevenini",
+                    "milan",
+                    "gasparini",
+                    "roli",
+                    "walter balducci",
+                    "francesco ceccarelli",
+                    "bartolomeo",
+                    "apollonio",
+                    "sergio callegari",
+                    "d'angelo",
+                    "mario bonagura",
+                    "mastri",
+                    "chiani",
+                    "marco crescentini",
+                    "biomateriali e comportamento meccanico dei biomateriali (c.i.) - biomateriali",
+                    "laboratorio lib (m)",
+                    "attilio",
+                    "leoni",
+                    "stefania rössl",
+                    "boeri",
+                    "laboratorio 2.2",
+                    "severi",
+                    "laboratorio di ricerca e2",
+                    "stanza 4049",
+                    "luca pasquini",
+                    "stanza 4045",
+                    "stanza 4046",
+                    "sensore canarin archivio",
+                    "stanza 4047",
+                    "stanza 4041",
+                    "stanza 3073",
+                    "stanza 4042",
+                    "stanza 4043",
+                    "stanza 4044",
+                    "cappelli",
+                    "stanza 3070",
+                    "stanza 3071",
+                    "stanza 4040",
+                    "stagni",
+                    "matteo cassani simonetti",
+                    "gianluca moro",
+                    "clemente",
+                    "ursino",
+                    "balducci",
+                    "claudio fiegna",
+                    "antonio natali",
+                    "luisa molari",
+                    "fondamenti di chimica",
+                    "nadia lotti",
+                    "pau",
+                    "franco",
+                    "stanza 4052",
+                    "danila longo",
+                    "stanza 4053",
+                    "stanza 4054",
+                    "caselli",
+                    "stanza 4051",
+                    "laboratorio 3.8",
+                    "laboratorio 3.9",
+                    "franco mastri",
+                    "laboratorio 3.1",
+                    "laboratorio 3.2",
+                    "laboratorio 3.3",
+                    "laboratorio 3.5",
+                    "nobile",
+                    "aula magna 3.4 ",
+                    "laboratorio 3.6",
+                    "arcozzi",
+                    "stanza 4148",
+                    "stanza 3055",
+                    "stanza 4144",
+                    "stanza 3056",
+                    "stanza 4145",
+                    "stanza 4146",
+                    "data mining",
+                    "cassani",
+                    "mirko ravaioli",
+                    "stanza 4140",
+                    "stanza 3052",
+                    "stanza 4020",
+                    "stanza 4141",
+                    "stanza 3053",
+                    "stanza 4021",
+                    "nicola arcozzi",
+                    "stanza 4142",
+                    "stanza 3054",
+                    "stanza 4022",
+                    "stanza 4143",
+                    "crescentini",
+                    "cevenini",
+                    "cantarini",
+                    "colloquio candidati assegno di tutorato corsi di studio dei",
+                    "lena",
+                    "spazio studenti",
+                    "stanza 4038",
+                    "silvia mirri",
+                    "stanza 4039",
+                    "veronica bartolomeo",
+                    "laboratorio offline",
+                    "margara",
+                    "andrea boeri",
+                    "sistemi elettronici e sensori lm (c.i.) - sistemi elettronici lm",
+                    "stanza 4034",
+                    "stanza 3067",
+                    "stanza 4035",
+                    "stanza 3068",
+                    "stanza 4036",
+                    "stanza 3069",
+                    "stanza 4037",
+                    "stanza 3063",
+                    "stanza 3064",
+                    "stanza 4032",
+                    "diagnostica strutturale",
+                    "stanza 3065",
+                    "valentina orioli",
+                    "vitucci",
+                    "alessandro ricci",
+                    "fabrizio ivan apollonio",
+                    "laboratorio 4.2",
+                    "enrico paolini",
+                    "stanza 2068",
+                    "stanza 4005",
+                    "stanza 4126",
+                    "stanza 4006",
+                    "stanza 4127",
+                    "stanza 2066",
+                    "bevilacqua",
+                    "stanza 4128",
+                    "stanza 2065",
+                    "stanza 4008",
+                    "stanza 4129",
+                    "emanuele valgiusti",
+                    "gentilini",
+                    "stanza 3034",
+                    "stanza 4002",
+                    "stanza 4123",
+                    "stanza 4003",
+                    "stanza 4124",
+                    "programmazione (prof.ssa carbonaro)",
+                    "stanza 4004",
+                    "stanza 4125",
+                    "giada gasparini",
+                    "manfredini",
+                    "stanza 4120",
+                    "cristina gentilini",
+                    "psicologia della forma",
+                    "programmazione ad oggetti",
+                    "marco antonio boschetti",
+                    "sala riprese",
+                    "paolini",
+                    "fiegna",
+                    "stanza 4016",
+                    "stanza 4017",
+                    "stanza 4138",
+                    "stanza 4018",
+                    "stanza 4139",
+                    "iniziativa \"preveniamo\", rivolta agli studenti universitari",
+                    "stanza 4019",
+                    "stanza 4012",
+                    "fabrizio caselli",
+                    "stanza 4013",
+                    "stanza 4014",
+                    "stanza 4015",
+                    "stanza 4130",
+                    "stanza 4010",
+                    "stanza 4131",
+                    "stanza 4132",
+                    "serena morigi",
+                    "daniele morbidelli",
+                    "mirri",
+                    "stefano rizzi",
+                    "cristiano cuppini",
+                    "stanza 4104",
+                    "stanza 2046",
+                    "stanza 4105",
+                    "stanza 4106",
+                    "stanza 4100",
+                    "stanza 4101",
+                    "stanza 4102",
+                    "stanza 4103",
+                    "sistemi elettronici e sensori lm (c.i.) - sensori e attuatori lm",
+                    "salomoni",
+                    "gabriele d'angelo",
+                    "ravaioli",
+                    "laboratorio informatico vela 2.2",
+                    "stanza 2056",
+                    "stanza 4116",
+                    "stanza 2055",
+                    "stanza 4117",
+                    "stanza 4118",
+                    "dardari",
+                    "naldi",
+                    "lovecchio",
+                    "valgiusti",
+                    "stanza 3021",
+                    "vittorio ghini",
+                    "stanza 4119",
+                    "stanza 2026",
+                    "stanza 2025",
+                    "maio",
+                    "stanza 2020",
+                    "dario maio",
+                    "business intelligence",
+                    "boschetti",
+                    "lab icm",
+                    "natali",
+                    "malacarne",
+                    "alessandro marata",
+                    "stanza 3004",
+                    "stanza 3007",
+                    "stanza 3001",
+                    "stanza 3003",
+                    "laboratorio di sintesi 3.16",
+                    "cicognani",
+                    "laboratorio di sintesi 3.15",
+                    "laboratorio di sintesi 3.14",
+                    "laboratorio di sintesi 3.13",
+                    "morigi",
+                    "laboratorio di sintesi 3.12",
+                    "storia  e restauro (c.i.) - storia dell'architettura 3",
+                    "vittorio degli esposti",
+                    "jacopo gaspari",
+                    "annalisa franco",
+                    "stanza 3008",
+                    "stanza 3009",
+                    "fallavollita",
+                    "stanza 2002",
+                    "laboratorio 2.14",
+                    "stanza 2001",
+                    "stanza 2006",
+                    "biblioteca",
+                    "stanza 2005",
+                    "laboratorio 2.17",
+                    "stanza 2004",
+                    "laboratorio 2.16",
+                    "stanza 2003",
+                    "laboratorio 2.15",
+                    "agnoletto",
+                    "mucelli",
+                    "cristiana corsi",
+                    "callegati - gruppo tlc e informatica",
+                    "stanza 2008",
+                    "stanza 2007",
+                    "levi",
+                    "conversione elettromeccanica dell'energia",
+                    "organi artificiali lm",
+                    "pretelli",
+                    "stanza 2011",
+                    "alessandra costanzo",
+                    "stanza 2010",
+                    "stanza 2015",
+                    "morbidelli",
+                    "stanza 2014",
+                    "rizzi",
+                    "laboratorio di laurea",
+                    "chiari",
+                    "franco callegati",
+                    "matematica",
+                    "francesco gulinello",
+                    "laboratorio lele 3.2",
+                    "cristofolini",
+                    "afpg - laboratorio di diagnostica strutturale ii",
+                    "maura savini",
+                    "paolo castaldi",
+                    "ricerca operativa",
+                    "giovanni pau",
+                    "gino malacarne",
+                    "andrea giorgetti",
+                    "speciale",
+                    "paola salomoni",
+                    "luciano margara",
+                    "lamberto tronchin",
+                    "laboratorio 3.15",
+                    "laboratorio 3.14",
+                    "fabbri",
+                    "laboratorio 3.13",
+                    "laboratorio 3.12",
+                    "laboratorio 3.16",
+                    "andrea roli",
+                    "aula 2.11",
+                    "aula 2.10",
+                    "aula 2.13",
+                    "aula 2.12",
+                    "analisi numerica lm",
+                    "roberto baldacci",
+                    "gulinello",
+                    "aula 4.1",
+                    "giorgetti",
+                    "massarenti",
+                    "aula 2.1",
+                    "damiana lazzaro",
+                    "programmazione - cl.b (cl.b)",
+                    "andreina milan",
+                    "alessandra lumini",
+                    "mario bravetti",
+                    "sistemi operativi",
+                    "linguaggi, compilatori e modelli computazionali",
+                    "laboratorio fotografico",
+                    "alberto bellini",
+                    "laboratorio lamo",
+                    "matteo agnoletto",
+                    "stefano severi",
+                    "orioli",
+                    "davide dardari",
+                    "annalisa trentin",
+                    "rössl",
+                    "kristian fabbri",
+                    "aula 3.7",
+                    "sangiorgi",
+                    "fondamenti di biomeccanica",
+                    "magosso",
+                    "scienza delle costruzioni -",
+                    "piergiorgio massarenti",
+                    "tommaso trombetti",
+                    "francesco saverio fera",
+                    "aula 3.10",
+                    "aula 3.11",
+                    "lamberto amistadi",
+                    "tronchin",
+                    "simonetti",
+                    "ildebrando clemente",
+                    "federico fallavollita",
+                    "fisiologia",
+                    "laboratorio lamovida",
+                    "bellini",
+                    "omicini",
+                    "ceccarelli",
+                    "esposti",
+                    "raffaele cappelli",
+                    "enrico sangiorgi",
+                    "maniezzo",
+                    "ingegneria del software",
+                    "aula 2.7",
+                    "moreno marzolla",
+                    "aula 2.8",
+                    "roberto naldi",
+                    "aula 2.9",
+                    "aula 2.3",
+                    "aula 2.4",
+                    "aula 2.5",
+                    "aula 2.6",
+                    "ghini",
+                    "mariotti",
+                    "andrea omicini",
+                    "mingozzi",
+                    "sensori e nanotecnologie lm",
+                    "mirko viroli",
+                    "cesari",
+                    "cerroni",
+                    "romani",
+                    "ugolini",
+                    "callegati",
+                    "daniele vigo",
+                    "sensini",
+                    "antonio esposito",
+                    "laboratorio",
+                    "vigo",
+                    "joseph lovecchio",
+                    "marcelli",
+                    "istituzioni di matematiche ii -",
+                    "gaspari",
+                    "viroli",
+                    "michele mulazzani",
+                    "speciale - sistemi elettronici lm - ricevimento",
+                    "fera",
+                    "carbonaro",
+                    "trentin",
+                    "enrico brighi",
+                    "baldacci",
+                    "amistadi",
+                    "golfarelli",
+                    "lenci",
+                    "bonagura",
+                    "giordano",
+                    "cerri",
+                    "andrea ugolini",
+                    "andrea borsari",
+                    "callegari",
+                    "vittorio maniezzo",
+                    "savini",
+                    "catia prandi",
+                    "mulazzani",
+                    "laboratorio 1 elettronica e telecomunicazioni",
+                    "molari",
+                    "sensore canarin",
+                    "sensore canarin 3",
+                    "esposito",
+                    "geometria e algebra",
+                    "sensore canarin 2",
+                    "mauro ursino",
+                    "longo",
+                    "matteo golfarelli",
+                    "debora cesari",
+                    "massimo cicognani",
+                    "brighi",
+                    "elettronica",
+                    "lazzaro",
+                    "ernesto antonini",
+                    "lorenzo chiari",
+                    "moro",
+                    "workshop archea",
+                    "giovanni leoni",
+                    "stefano diciotti",
+                    "maltoni",
+                    "alessandro bevilacqua",
+                    "marzolla",
+                    "elena mucelli",
+                    "bravetti",
+                    "giuseppe levi",
+                    "elisa magosso",
+                    "lumini",
+                    "lucio nobile",
+                    "locale tecnico",
+                    "davide maltoni",
+                    "antonini",
+                    "nicolo' attilio speciale",
+                    "lotti",
+                    "nicoletta cantarini",
+                    "castaldi",
+                    "pasquini",
+                    "antonella carbonaro",
+                    "marco lenci",
+                    "cuppini",
+                    "distributore dell'acqua",
+                    "aldo romani",
+                    "enrico maria vitucci",
+                    "marco pretelli",
+                    "matteo cerri",
+                    "costanzo",
+                    "trombetti",
+                    "elementi di urbanistica -",
+                    "tutorato progetti fondamenti di biomeccanica",
+                    "monica mariotti",
+                    "matteo ferrara",
+                    "laboratorio lib (i)",
+                    "prandi",
+                    "algoritmi di ottimizzazione",
+                    "laboratorio disegno 2.14",
+                    "aristide mingozzi",
+                    "laboratorio disegno 2.15",
+                    "laboratorio informatico 3.3",
+                    "laboratorio disegno 3.8",
+                    "marco chiani",
+                    "laboratorio informatico 3.1",
+                    "laboratorio disegno 3.9",
+                    "laboratorio disegno 2.16",
+                    "laboratorio disegno 3.6",
+                    "laboratorio disegno 2.17",
+                    "stanza 4022c",
+                    "laboratorio disegno 3.5",
+                    "corsi",
+                    "marata",
+                    "stanza 4022a",
+                    "stanza 4022b"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TimeTableIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "placeOrEvent",
+              "type": "placeOrEventType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1053306661657.1227953044039"
+              },
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.1053306661657.1227953044039.646356432067",
+                  "values": [
+                    "marco tartagni",
+                    "emanuela marcelli",
+                    "emanuele valgiusti",
+                    "programmazione (prof.ssa carbonaro)",
+                    "tartagni",
+                    "elaborazione dei segnali",
+                    "psicologia della forma",
+                    "andrea giorgetti",
+                    "programmazione ad oggetti",
+                    "enrico brighi",
+                    "speciale",
+                    "baldacci",
+                    "golfarelli",
+                    "lenci",
+                    "fiegna",
+                    "rita stagni",
+                    "bonagura",
+                    "alberto sensini",
+                    "bioingegneria della riabilitazione lm",
+                    "cerri",
+                    "analisi numerica lm",
+                    "storia  e restauro (c.i.) - teorie e storia del restauro",
+                    "algebra e analisi numerica lm",
+                    "roberto baldacci",
+                    "serena morigi",
+                    "comunicazioni digitali e internet",
+                    "stefano rizzi",
+                    "mulazzani",
+                    "giorgetti",
+                    "molari",
+                    "programmazione - cl.b (cl.b)",
+                    "sistemi elettronici e sensori lm (c.i.) - sensori e attuatori lm",
+                    "geometria e algebra",
+                    "alessandra lumini",
+                    "bartolomeo",
+                    "mario bravetti",
+                    "matteo golfarelli",
+                    "sistemi operativi",
+                    "brighi",
+                    "elettronica",
+                    "mario bonagura",
+                    "linguaggi, compilatori e modelli computazionali",
+                    "lorenzo chiari",
+                    "chiani",
+                    "dardari",
+                    "biomateriali e comportamento meccanico dei biomateriali (c.i.) - biomateriali",
+                    "alberto bellini",
+                    "lovecchio",
+                    "valgiusti",
+                    "moro",
+                    "workshop archea",
+                    "davide dardari",
+                    "vittorio ghini",
+                    "fondamenti di biomeccanica",
+                    "scienza delle costruzioni -",
+                    "bravetti",
+                    "business intelligence",
+                    "stagni",
+                    "matteo cassani simonetti",
+                    "lumini",
+                    "gianluca moro",
+                    "simonetti",
+                    "lucio nobile",
+                    "claudio fiegna",
+                    "luisa molari",
+                    "nicolo' attilio speciale",
+                    "fisiologia",
+                    "lotti",
+                    "bellini",
+                    "fondamenti di chimica",
+                    "nadia lotti",
+                    "morigi",
+                    "ingegneria del software",
+                    "storia  e restauro (c.i.) - storia dell'architettura 3",
+                    "marco lenci",
+                    "nobile",
+                    "ghini",
+                    "data mining",
+                    "sensori e nanotecnologie lm",
+                    "mirko viroli",
+                    "callegati - gruppo tlc e informatica",
+                    "marco pretelli",
+                    "matteo cerri",
+                    "elementi di urbanistica -",
+                    "tutorato progetti fondamenti di biomeccanica",
+                    "colloquio candidati assegno di tutorato corsi di studio dei",
+                    "conversione elettromeccanica dell'energia",
+                    "organi artificiali lm",
+                    "pretelli",
+                    "veronica bartolomeo",
+                    "sistemi elettronici e sensori lm (c.i.) - sistemi elettronici lm",
+                    "sensini",
+                    "diagnostica strutturale",
+                    "rizzi",
+                    "algoritmi di ottimizzazione",
+                    "joseph lovecchio",
+                    "chiari",
+                    "marcelli",
+                    "istituzioni di matematiche ii -",
+                    "matematica",
+                    "marco chiani",
+                    "afpg - laboratorio di diagnostica strutturale ii",
+                    "viroli",
+                    "michele mulazzani",
+                    "ricerca operativa",
+                    "speciale - sistemi elettronici lm - ricevimento"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1057778871618.1277650161174",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Dove devi andare?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1057778871618.1284276472442",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Hai una disabilità visiva o motoria?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.636486974078.1012070012811.1526135315114",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Rispondi semplicemente con motoria oppure visiva oppure nessuna"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.508182059409.251334305687.294477588409",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Mi dispiace, ma non capisco. Prova a chiedermi il nome dell'aula, della stanza o del laboratorio oppure il cognome del professore da cui devi andare oppure il nome preciso della lezione o dell'evento a cui devi partecipare."
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.514042326505.933996650449.84970071480",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Mi dispiace, non ho capito. Prova a dirmi il nome esatto dell'evento o della lezione che devi seguire oppure il nome del professore che la tiene."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1053306661657.1227953044039",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Non ho capito. Prova a dirmi semblicemente il nome del posto, della lezione o dell'evento oppure il nome del professore che lo tiene."
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1053306661657.1227953044039.646356432067",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Mi dispiace, ma non capisco. Prova a chiedermi il nome della lezione o dell'evento oppure il cognome del professore che lo tiene o da cui devi andare."
+          }
+        ]
+      }
+    ]
+  },
+  "version": "130"
+}

@@ -9,6 +9,7 @@ const Request = require('sync-request');
 
 // const today = new Date().toLocaleDateString();
 // const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
+const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=29/11/2019&Edificio=EST_EXZUCC1";
 
 // const locations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
 //   if (error) {
@@ -138,7 +139,7 @@ const CompletedPathFinderHandler = {
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
-    // var speechOutput = `mi dispiace ma non capisco: ${destination}`;
+    var speechOutput = `mi dispiace ma non capisco: ${destination}`;
     var speechOutput;
     var isLocation = false;
     locations.forEach(item => {
@@ -193,44 +194,72 @@ const TimeTableHandler = {
       && request.intent.name === "TimeTableIntent";
   },
   handle(handlerInput) {
-    const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
-    var speechOutput = `mi dispiace ma non capisco: ${destination}`;    
-    var isLocation = false;
-    locations.forEach(item => {
-      if(destination.includes(item)) {
-        isLocation = true;
-        speechOutput = `mi hai chiesto l'orario per: ${item}`;
-      }
-    });
+    const destination = handlerInput.requestEnvelope.request.intent.slots.placeOrEvent.value.toLowerCase();
+    // var speechOutput = `mi dispiace ma non capisco: ${destination}`;    
+    // var isLocation = false;
+    // locations.forEach(item => {
+    //   if(destination.includes(item)) {
+    //     isLocation = true;
+    //     speechOutput = `mi hai chiesto l'orario per: ${item}`;
+    //   }
+    // });
     
-    if(!isLocation) {
-      var professorName;
-      var thereIsProf = false;
-      professors.forEach(profItem => {
-        if(destination.includes(profItem)) {
-          professorName = `${profItem}`;
-          thereIsProf = true;
-          speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`;
-        }
-      });
+    // if(!isLocation) {
+    //   var professorName;
+    //   var thereIsProf = false;
+    //   professors.forEach(profItem => {
+    //     if(destination.includes(profItem)) {
+    //       professorName = `${profItem}`;
+    //       thereIsProf = true;
+    //       speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`;
+    //     }
+    //   });
       
-      // var isAnActivity = false;
-      activities.forEach(actItem => {
-        if(destination.includes(actItem)) {
-          // isAnActivity = true;
-          speechOutput = `mi hai chiesto l'orario per: ${actItem}`;
-          if(thereIsProf) {
-            speechOutput = speechOutput + ` del prof ${professorName}`
+    //   // var isAnActivity = false;
+    //   activities.forEach(actItem => {
+    //     if(destination.includes(actItem)) {
+    //       // isAnActivity = true;
+    //       speechOutput = `mi hai chiesto l'orario per: ${actItem}`;
+    //       if(thereIsProf) {
+    //         speechOutput = speechOutput + ` del prof ${professorName}`
+    //       }
+    //     }
+    //   });
+    //   /*
+    //   // l'ho messo direttamente dentro a: if(!isLocation)
+    //   if(!isAnActivity && thereIsProf) {
+    //     speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`
+    //   }
+    //   */
+    // }
+
+
+    var speechOutput;
+    var start;
+    var finish;
+    var place;
+    const res = Request('GET', myUrl);
+    const body = res.getBody().toString('utf8');
+    body.split("<Evento>").forEach(item => {
+      if (!item.includes("?xml")) {
+        const dest = item.split("<Descrizione>")[1].split("<")[0].toLowerCase();
+        if (destination === dest) {
+          start = item.split("<OraInizio>")[1].split("<")[0];
+          finish = item.split("<OraFine>")[1].split("<")[0];
+          place = item.split("<Descrizione>")[2].split("<")[0].toLowerCase();
+        } else if (item.split("<Docente ")[1] != undefined) {
+          const prof = item.split("<Docente ")[1].split(">")[1].split("<")[0].toLowerCase();
+          const arr = prof.split(" ");
+          const profSurname = arr[arr.length - 1];
+          if (destination === prof || destination === profSurname) {
+            start = item.split("<OraInizio>")[1].split("<")[0];
+            finish = item.split("<OraFine>")[1].split("<")[0];
+            place = item.split("<Descrizione>")[2].split("<")[0].toLowerCase();
           }
         }
-      });
-      /*
-      // l'ho messo direttamente dentro a: if(!isLocation)
-      if(!isAnActivity && thereIsProf) {
-        speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`
       }
-      */
-    }
+    });
+    speechOutput = `${destination} si trova a ${place}, inizia alle ${start} e finisce alle ${finish}`;
     
     return handlerInput.responseBuilder
       .speak(speechOutput)
@@ -273,7 +302,10 @@ const SessionEndedRequestHandler = {
   },
   handle(handlerInput) {
     console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
-    return handlerInput.responseBuilder.getResponse();
+    return handlerInput.responseBuilder
+    .speak(`Sorry, an error occurred (Session ended): ${handlerInput.requestEnvelope.request.reason}`)
+    .reprompt(`Sorry, an error occurred (Session ended): ${handlerInput.requestEnvelope.request.reason}`)
+    .getResponse();
   },
 };
 
@@ -284,8 +316,10 @@ const ErrorHandler = {
   handle(handlerInput, error) {
     console.log(`Error handled: ${error.message}`);
     return handlerInput.responseBuilder
-      .speak(`Sorry, an error occurred: ${error.message}`)
-      .reprompt(`Sorry, an error occurred: ${error.message}`)
+      // .speak(`Sorry, an error occurred: ${error.message}`)
+      .reprompt(`Sorry, an error occurred (Error handled): ${error.message}`)
+      .speak(`Sorry, an error occurred (Error handled): ${handlerInput.requestEnvelope.request.intent}`)
+      // .reprompt(`Sorry, an error occurred: ${handlerInput.requestEnvelope.request.intent.slots.destination.value}`)
       .getResponse();
   },
 };
