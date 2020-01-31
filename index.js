@@ -140,47 +140,51 @@ const CompletedPathFinderHandler = {
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
-    var speechOutput = `mi dispiace ma non capisco: ${destination}`;
-    var speechOutput;
-    var isLocation = false;
-    locations.forEach(item => {
-      const locaName = item.name();
-      if(destination.includes(locaName)) {
-        isLocation = true;
-        if (disability.includes('no') || disability.includes('nesssuna')) {
-          speechOutput = `per raggiungere ${locaName} devi ...`;
-        } else {
-          speechOutput = `per raggiungere ${locaName} con disabilità ${disability}, devi ...`;
-        }
-      }
-    });
+
+
+
+    // VECCHIA VERSIONE
+    // var speechOutput = `mi dispiace ma non capisco: ${destination}`;
+    // var speechOutput;
+    // var isLocation = false;
+    // locations.forEach(item => {
+    //   const locaName = item.name();
+    //   if(destination.includes(locaName)) {
+    //     isLocation = true;
+    //     if (disability.includes('no') || disability.includes('nesssuna')) {
+    //       speechOutput = `per raggiungere ${locaName} devi ...`;
+    //     } else {
+    //       speechOutput = `per raggiungere ${locaName} con disabilità ${disability}, devi ...`;
+    //     }
+    //   }
+    // });
     
-    if(!isLocation) {
-      var professorName;
-      var thereIsProf = false;
-      professors.forEach(prof => {
-        if(destination.includes(prof)) {
-          professorName = `${prof}`;
-          thereIsProf = true;
-          speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`;
-        }
-      });
+    // if(!isLocation) {
+    //   var professorName;
+    //   var thereIsProf = false;
+    //   professors.forEach(prof => {
+    //     if(destination.includes(prof)) {
+    //       professorName = `${prof}`;
+    //       thereIsProf = true;
+    //       speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`;
+    //     }
+    //   });
       
-      activities.forEach(activity => {
-        if(destination.includes(activity)) {
-          speechOutput = `mi hai chiesto dove si trova ${activity}`;
-          if(thereIsProf) {
-            speechOutput = speechOutput + ` del prof ${professorName}`;
-          }
-        }
-      });
-      /*
-      // l'ho messo direttamente dentro a: if(!isLocation)
-      if(!isAnActivity && thereIsProf) {
-        speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`
-      }
-      */
-    }
+    //   activities.forEach(activity => {
+    //     if(destination.includes(activity)) {
+    //       speechOutput = `mi hai chiesto dove si trova ${activity}`;
+    //       if(thereIsProf) {
+    //         speechOutput = speechOutput + ` del prof ${professorName}`;
+    //       }
+    //     }
+    //   });
+    //   /*
+    //   // l'ho messo direttamente dentro a: if(!isLocation)
+    //   if(!isAnActivity && thereIsProf) {
+    //     speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`
+    //   }
+    //   */
+    // }
     
     return handlerInput.responseBuilder
       .speak(speechOutput)
