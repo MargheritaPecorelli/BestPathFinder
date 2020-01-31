@@ -3,6 +3,7 @@
 
 const Alexa = require('ask-sdk');
 const Request = require('sync-request');
+var stringSimilarity = require('string-similarity');
 
 // const MySyncModule = require('./syncConnectionToDB');
 // const Location = require('./model/location');
@@ -195,76 +196,84 @@ const TimeTableHandler = {
   },
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.placeOrEvent.value.toLowerCase();
-    // var speechOutput = `mi dispiace ma non capisco: ${destination}`;    
-    // var isLocation = false;
-    // locations.forEach(item => {
-    //   if(destination.includes(item)) {
-    //     isLocation = true;
-    //     speechOutput = `mi hai chiesto l'orario per: ${item}`;
-    //   }
-    // });
     
-    // if(!isLocation) {
-    //   var professorName;
-    //   var thereIsProf = false;
-    //   professors.forEach(profItem => {
-    //     if(destination.includes(profItem)) {
-    //       professorName = `${profItem}`;
-    //       thereIsProf = true;
-    //       speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`;
-    //     }
-    //   });
+    if (destination != undefined) {
+      var speechOutput = "Non capisco, mi dispiace!";
+      const res = Request('GET', myUrl);
+      const body = res.getBody().toString('utf8');
+      var informations = [];
       
-    //   // var isAnActivity = false;
-    //   activities.forEach(actItem => {
-    //     if(destination.includes(actItem)) {
-    //       // isAnActivity = true;
-    //       speechOutput = `mi hai chiesto l'orario per: ${actItem}`;
-    //       if(thereIsProf) {
-    //         speechOutput = speechOutput + ` del prof ${professorName}`
-    //       }
-    //     }
-    //   });
-    //   /*
-    //   // l'ho messo direttamente dentro a: if(!isLocation)
-    //   if(!isAnActivity && thereIsProf) {
-    //     speechOutput = `mi hai chiesto l'orario per il prof: ${professorName}`
-    //   }
-    //   */
-    // }
-
-
-    var speechOutput;
-    var start;
-    var finish;
-    var place;
-    const res = Request('GET', myUrl);
-    const body = res.getBody().toString('utf8');
-    body.split("<Evento>").forEach(item => {
-      if (!item.includes("?xml")) {
-        const dest = item.split("<Descrizione>")[1].split("<")[0].toLowerCase();
-        if (destination === dest) {
-          start = item.split("<OraInizio>")[1].split("<")[0];
-          finish = item.split("<OraFine>")[1].split("<")[0];
-          place = item.split("<Descrizione>")[2].split("<")[0].toLowerCase();
-        } else if (item.split("<Docente ")[1] != undefined) {
-          const prof = item.split("<Docente ")[1].split(">")[1].split("<")[0].toLowerCase();
-          const arr = prof.split(" ");
-          const profSurname = arr[arr.length - 1];
-          if (destination === prof || destination === profSurname) {
-            start = item.split("<OraInizio>")[1].split("<")[0];
-            finish = item.split("<OraFine>")[1].split("<")[0];
-            place = item.split("<Descrizione>")[2].split("<")[0].toLowerCase();
+      informations = getInformations(body, destination);
+  
+      if (!informations[0]) {
+        const similarDest = [];
+        body.split("<Evento>").forEach(item => {
+          if (!item.includes("?xml")) {
+            var dest = item.split("<Descrizione>")[1].split("<")[0].toLowerCase();
+            if(dest.includes(destination)) {
+              similarDest.push(dest);
+            }
           }
+        });
+
+        if (similarDest.length != 0) {
+          var indexOfBestMatch = 0;
+          if (similarDest.length > 1) {
+            const matches = stringSimilarity.findBestMatch(destination, similarDest);
+            indexOfBestMatch = matches.bestMatchIndex;
+          }
+          informations = getInformations(body, similarDest[indexOfBestMatch]);
         }
+      }    
+  
+      if (informations[0]) {
+        speechOutput = `${destination} si trova a ${informations[3]}, inizia alle ${informations[1]} e finisce alle ${informations[2]}`;
       }
-    });
-    speechOutput = `${destination} si trova a ${place}, inizia alle ${start} e finisce alle ${finish}`;
-    
+    }
+
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
   }
+}
+
+function getInformations(body, destination) {
+  const informations = [];
+  var start;
+  var finish;
+  var place;
+  var found = false;
+
+  body.split("<Evento>").forEach(item => {
+    if (!item.includes("?xml")) {
+      const dest = item.split("<Descrizione>")[1].split("<")[0].toLowerCase();
+      if (destination === dest) {
+        found = true;
+        informations.push(found);
+        start = item.split("<OraInizio>")[1].split("<")[0];
+        informations.push(start);
+        finish = item.split("<OraFine>")[1].split("<")[0];
+        informations.push(finish);
+        place = item.split("<Descrizione>")[2].split("<")[0].toLowerCase();
+        informations.push(place);
+      } else if (item.split("<Docente ")[1] != undefined) {
+        const prof = item.split("<Docente ")[1].split(">")[1].split("<")[0].toLowerCase();
+        const arr = prof.split(" ");
+        const profSurname = arr[arr.length - 1];
+        if (destination === prof || destination === profSurname) {
+          found = true;
+          informations.push(found);
+          start = item.split("<OraInizio>")[1].split("<")[0];
+          informations.push(start);
+          finish = item.split("<OraFine>")[1].split("<")[0];
+          informations.push(finish);
+          place = item.split("<Descrizione>")[2].split("<")[0].toLowerCase();
+          informations.push(place);
+        }
+      }        
+    }
+  });
+  return informations;
 }
 
 const HelpHandler = {

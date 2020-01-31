@@ -102,7 +102,7 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
 function addName(names, loc, partOfTheName) {
     names.forEach(n => {
         if (n.startsWith(" ")) {
-            n = n.substring(1,n.length);
+            n = n.substring(1);
         }
         loc.push(n);
         const arr = n.split(" ");

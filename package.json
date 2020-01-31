@@ -16,6 +16,8 @@
   "dependencies": {
     "ask-sdk": "^2.0.0",
     "config.json": "0.0.4",
+    "node-dijkstra": "^2.5.0",
+    "string-similarity": "^4.0.1",
     "sync-mysql": "^3.0.1",
     "sync-request": "^6.1.0"
   }
