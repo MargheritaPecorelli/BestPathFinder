@@ -1,7 +1,21 @@
 // dopo aver scaricato (nell script) InformationPoint da Alexa Developer Console, richiedo (require) il file JSON
 fs = require('fs');
 const MySyncModule = require('./syncConnectionToDB');
-const Location = require('./model/location');
+// const Location = require('./model/location');
+
+// queste variabili e costanti servono solo per settare jsonOfTheMap
+var needToUpdateJsonOfTheMap = true;
+var mapJson;
+const mapNodes = [];
+const mapBeacons = [];
+const mapEdges = [];
+var nodeIndex = 1;
+var beaconIndex = 1;
+var edgeIndex = 1;
+var previousBeaconLevel;
+if (needToUpdateJsonOfTheMap) {
+    mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
+}
 
 // qua mi salvo il file JSON
 var myJson = JSON.parse(fs.readFileSync('./cartellaProvvisoria/InformationPoint/models/it-IT.json').toString());
@@ -47,67 +61,104 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         }
         if (typeof level === "undefined") {
             if (description.includes("piano interrato")) {
-            level = 1;
-            floor = 'piano interrato';
+                level = 1;
+                floor = 'piano interrato';
             } else if (description.includes("piano terra")) {
-            level = 2;
-            floor = 'piano terra';
+                level = 2;
+                floor = 'piano terra';
             } else if (description.includes("primo piano")) {
-            level = 3;
-            floor = 'primo piano';
+                level = 3;
+                floor = 'primo piano';
             } else if (description.includes("secondo piano")) {
-            level = 4;
-            floor = 'secondo piano';
+                level = 4;
+                floor = 'secondo piano';
             } else {
-            level = null;
-            floor = null;
+                level = null;
+                floor = null;
             }
         }
         name = name.toLowerCase();
         // locs.push(new Location(name, description, roomNumeber, level, floor, seats));
         // la riga sopra diventa:
-        new Location(name, description, roomNumeber, level, floor, seats);
+        // new Location(name, description, roomNumeber, level, floor, seats);
         // tolgo gli spazi prima di un nome
+        
         if (name.startsWith(" ")) {
-            name = name.substring(1,name.length);
+            name = name.substring(1);
         }
-        // se è un professore (allora nella descrizione è presente la parola "Ufficio") oppure se è un laboratorio numerato (quindi è presente un numero che contine un ".")...
-        if (description.includes("Ufficio") || (name.includes("laboratorio") && name.includes("."))) {
+
+        // se è un professore (allora nella descrizione è presente la parola "Ufficio")
+        if (description.includes("Ufficio")) {
             // se sono più nomi di professori, li divido per salvarli singolarmente e poi salvo il cognome da solo
             if(name.includes(",")) {
-                addName(name.split(","), locations, "");
-            // se invece èun unico professore o un laboratorio, salvo anche il cognome / solo il numero del Laboratorio (senza il nome completo)
+                name.split(",").forEach(n => {
+                    addName(n, locations, "");
+                });
             } else {
-                const arr = [];
-                arr.push(name);
-                if (name.includes("laboratorio")) {
-                    addName(arr, locations, "laboratorio ");
-                } else {
-                    addName(arr, locations, "");
-                }
+                // se invece è un unico professore, salvo anche il cognome
+                addName(name, locations, "");
             }
-        // tutti gli altri nomi vengno salvati così come sono
+        } else if (name.includes("laboratorio") && name.includes(".")) {
+            // se è il nome di un Laboratorio che contiene anche un numero (=> contiene "."), salvo anche "laboratorio numero"
+            addName(name, locations, "laboratorio ");
         } else {
+            // tutti gli altri nomi vengno salvati così come sono
             locations.push(name);
         }
+
         // salvo anche i numeri delle stanze
         if (roomNumeber != null) {
             locations.push(`stanza ${roomNumeber}`);
+            if (needToUpdateJsonOfTheMap) {
+                const destination = [];
+                // destination.push(JSON.parse(`{\"${name}\"}`));
+                // destination.push(JSON.parse(`{\"stanza ${roomNumeber}\"}`));
+                destination.push(`[\"${name}\"`);
+                // destination.push(`\"prova\"]`);
+                destination.push(`\"stanza ${roomNumeber}\"]`);
+                addNodeAndBeacon(destination, level);
+            }
+        } else {
+            if (needToUpdateJsonOfTheMap) {
+                const destination = [];
+                destination.push(`[\"${name}\"]`);
+                // destination.push(name);
+                addNodeAndBeacon(destination, level);
+            }
         }
     });
     // console.log(`locs: ${locs}`);
     return locations;
 });
 
-function addName(names, loc, partOfTheName) {
-    names.forEach(n => {
-        if (n.startsWith(" ")) {
-            n = n.substring(1);
-        }
-        loc.push(n);
-        const arr = n.split(" ");
-        loc.push(partOfTheName + "" + arr[arr.length - 1]);
-    });
+function addName(name, loc, partOfTheName) {
+    if (name.startsWith(" ")) {
+        name = name.substring(1);
+    }
+    loc.push(name);
+    const arr = name.split(" ");
+    loc.push(partOfTheName + "" + arr[arr.length - 1]);
+}
+
+function addNodeAndBeacon(destination, level) { //, arrayOfDestination) {
+    // arrayOfDestination,push(destination);
+    // `{\"name\": {\"value\": \"${element}\"}}`
+    const degrees = (Math.random() * 4) === 0 ? 0 : (Math.random() * 4) === 1 ? 90 : (Math.random() * 4) === 2 ? 180 : 270;
+    // mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "${degrees}",\"info\": \"\"}`));
+    mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "${degrees}",\"info\": \"\"}`));
+    // mapJson.buildings[0].nodes = mapNodes;
+    // mapJson.buildings[0].nodes[nodeIndex].name = destination;
+    mapBeacons.push(JSON.parse(`{\"id\": \"${beaconIndex}\", \"major\": \"${level}\"}`));
+    if (mapBeacons.length > 1) {
+        // se i beacons sono a livelli diversi, metto una scala
+        const type = (previousBeaconLevel != level) ? "stairs" : ""
+        mapEdges.push(JSON.parse(`{\"id\": \"${edgeIndex}\",\"start\": \"${beaconIndex - 1}\",\"end\": \"${beaconIndex}\",\"type\": \"${type}\",\"accessible\": \"true\",\"degrees\": \"${degrees}\"}`));
+    }
+    previousBeaconLevel = level;
+    nodeIndex = nodeIndex + 1;
+    beaconIndex = beaconIndex +1;
+    edgeIndex = edgeIndex + 1;
+    // return arrayOfDestination;
 }
 
 // salvo i nuovi valori nel JSON scaricato
@@ -120,5 +171,17 @@ fs.writeFile('./cartellaProvvisoria/InformationPoint/models/it-IT.json', JSON.st
     }
     console.log("The file was saved!");
 });
+
+if (needToUpdateJsonOfTheMap) {
+    mapJson.buildings[0].beacons = mapBeacons;
+    mapJson.buildings[0].nodes = mapNodes;
+    mapJson.buildings[0].arcs = mapEdges;
+    fs.writeFile('./jsonOfTheMap.json', JSON.stringify(mapJson, false, 2), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file has been saved!");
+    });
+}
 
 //dopo di che, lo script carica il nuovo file JSON sull'Alexa Developer Console e rimuove la cartella provvisoria 

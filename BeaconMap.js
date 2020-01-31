@@ -1,7 +1,10 @@
 // classe di Giacomo Mambelli
-import Graph from 'node-dijkstra';
 
-export default class BeaconMap {
+// import Graph from 'node-dijkstra';
+const Graph = require('node-dijkstra');
+
+// export default class BeaconMap {
+class BeaconMap {
   /**
   * Constructs the Beacon map for a building
   *
@@ -23,38 +26,38 @@ export default class BeaconMap {
     this.initGraph(beaconEdges);
   }
 
-    /**
-    * Returns the path between two beacons in a building
-    *
-    * @param origin The beacon object or beacon ID to use as starting point
-    * @param destination The beacon object or beacon ID to use as arrival point
-    *
-    * @return an object with the following properties:
-     * beacons, an array of beacon objects composing the path
-     * edges, an array of edge objects composing the path
-     * length, the length of the path
-    */
-    getPath(origin, destination) {
-        const pathOrigin = (typeof(origin) === 'string' || origin instanceof String) ? origin : origin.id;
-        const pathDestination = (typeof(destination) === 'string' || destination instanceof String) ? destination : destination.id;
-        const pathIDs = this.graph.path(pathOrigin, pathDestination, {"cost": true})
-        if (pathIDs != null) {
-            const startBeacon = this.beacons[pathIDs.path[0]];
-            const path = {
-                "beacons": [startBeacon],
-                "edges": [],
-                "length": pathIDs.cost
-            };
-            for (var i=0; i<pathIDs.path.length-1; i++) {
-                const start = pathIDs.path[i];
-                const endIndex = i+1;
-                const end = pathIDs.path[endIndex];
-                path.beacons[endIndex] = this.beacons[end];
-                path.edges[i] = this.matrix[start][end];
-            }
-            return path;
-        }else return null;
-    }
+  /**
+  * Returns the path between two beacons in a building
+  *
+  * @param origin The beacon object or beacon ID to use as starting point
+  * @param destination The beacon object or beacon ID to use as arrival point
+  *
+  * @return an object with the following properties:
+    * beacons, an array of beacon objects composing the path
+    * edges, an array of edge objects composing the path
+    * length, the length of the path
+  */
+  getPath(origin, destination) {
+      const pathOrigin = (typeof(origin) === 'string' || origin instanceof String) ? origin : origin.id;
+      const pathDestination = (typeof(destination) === 'string' || destination instanceof String) ? destination : destination.id;
+      const pathIDs = this.graph.path(pathOrigin, pathDestination, {"cost": true})
+      if (pathIDs != null) {
+          const startBeacon = this.beacons[pathIDs.path[0]];
+          const path = {
+              "beacons": [startBeacon],
+              "edges": [],
+              "length": pathIDs.cost
+          };
+          for (var i=0; i<pathIDs.path.length-1; i++) {
+              const start = pathIDs.path[i];
+              const endIndex = i+1;
+              const end = pathIDs.path[endIndex];
+              path.beacons[endIndex] = this.beacons[end];
+              path.edges[i] = this.matrix[start][end];
+          }
+          return path;
+      }else return null;
+  }
 
 
   /// Initialization helpers, consider them as private methods
@@ -150,3 +153,5 @@ Array.prototype.groupBy = function(prop) {
     return groups;
   }, {});
 }
+
+module.exports = BeaconMap;

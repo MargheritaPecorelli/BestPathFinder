@@ -3,7 +3,9 @@
 
 const Alexa = require('ask-sdk');
 const Request = require('sync-request');
-var stringSimilarity = require('string-similarity');
+const stringSimilarity = require('string-similarity');
+const fs = require('fs');
+const BeaconMap = require('./BeaconMap');
 
 // const MySyncModule = require('./syncConnectionToDB');
 // const Location = require('./model/location');
@@ -11,6 +13,11 @@ var stringSimilarity = require('string-similarity');
 // const today = new Date().toLocaleDateString();
 // const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
 const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=29/11/2019&Edificio=EST_EXZUCC1";
+
+const right = "gira a destra";
+const left = "gira a sinistra";
+const straight = "vai dritto";
+const back = "torna indietro";
 
 // const locations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
 //   if (error) {
@@ -102,6 +109,8 @@ const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.asp
 
 // ==============================================================================================================================================================
 
+tempor();
+
 const GetNewFactHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -141,6 +150,7 @@ const CompletedPathFinderHandler = {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
 
+    
 
 
     // VECCHIA VERSIONE
@@ -190,6 +200,65 @@ const CompletedPathFinderHandler = {
       .speak(speechOutput)
       .getResponse();
   }
+}
+
+function tempor() {
+  var mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
+  const beaconsList = mapJson.buildings[0].beacons;
+  const edges = mapJson.buildings[0].arcs;
+  // beaconsList.forEach(beacon => console.log("beaconsID: " + beacon.id));
+  const beaconMap = new BeaconMap(beaconsList, edges);
+  const path = beaconMap.getPath(beaconsList[3], beaconsList[9]);
+  path.beacons.forEach(beacon => console.log("beacon ID: " + beacon.id));
+  path.edges.forEach(edge => {
+    console.log("edge id: " + edge.id);
+    // console.log("edge start: " + edge.start);
+    // console.log("edge end: " + edge.end);
+    // console.log("edge accessible: " + edge.accessible);
+    // console.log("edge degrees: " + edge.degrees);
+    // console.log("edge type: " + edge.type);
+  });
+  const indications = getRemainingDirections(path.edges);
+  indications.forEach(indication => console.log(indication + " poi "));
+}
+
+// funzione simile a quella di Giacomo Mambelli (mandata per email)
+function getRemainingDirections(edges) {
+  var previousEdge;
+  const indications = [];
+  edges.forEach(edge => {
+    if (previousEdge === undefined) {
+      console.log("il primo è undefined");
+      // sto ipotizzando che la torretta di Alexa sia sotto gli schermi che ci sono all'ingresso di via dell'università 50,
+      // quindi se si guarda verso la torretta, si sta guardando a nord (circa) secondo Google Maps
+      if (edge.degrees >= 0 && edge.degrees < 90) {
+        indications.push(`dirigiti verso est, ovvero ${right}`);
+      } else if (edge.degrees >= 90 && edge.degrees < 180) {
+        indications.push(`dirigiti verso sud, ovvero ${back}`);
+      } else if (edge.degrees >= 180 && edge.degrees < 270) {
+        indications.push(`dirigiti verso ovest, ovvero ${left}`);
+      } else if (edge.degrees >= 270 && edge.degrees < 360) {
+        indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight}`);
+      }
+    } else if(previousEdge.degrees === edge.degrees) {
+      // hanno gli stessi gradi rispetto al nord => sono nella stessa direzione
+      indications.push(straight);
+    } else if(((previousEdge.degrees + 90) % 360) === edge.degrees) {
+      // se c'è una differenza di esattamente 90° (non mi piace che debba essere esattamente 90, avrei preferito una range es tra 80 e 100), allora devo girare a destra
+      indications.push(right);
+    } else if(((previousEdge.degrees + 270) % 360) === edge.degrees) {
+      // se c'è una differenza di esattamente 270°, allora devo girare a sinistra
+      indications.push(left);
+    } else if(((previousEdge.degrees + 180) % 360) === edge.degrees) {
+      // se c'è una differenza di esattamente 180°, allora devo tornare indietro (altrimenti devo finire le scale => non dico nulla)
+      if(!(previousEdge.type == "stairs" && edge.type == "stairs")) {
+        indications.push(back);
+      }
+    }
+    previousEdge = edge;
+  });
+  indications.push("sei arrivato!")
+  return indications;
 }
 
 const TimeTableHandler = {
