@@ -199,22 +199,22 @@ const TimeTableHandler = {
       && request.intent.name === "TimeTableIntent";
   },
   handle(handlerInput) {
-    const destination = handlerInput.requestEnvelope.request.intent.slots.placeOrEvent.value.toLowerCase();
+    const placeOrEvent = handlerInput.requestEnvelope.request.intent.slots.placeOrEvent.value.toLowerCase();
     
-    if (destination != undefined) {
+    if (placeOrEvent != undefined) {
       var speechOutput = "Non capisco, mi dispiace!";
       const res = Request('GET', myUrl);
       const body = res.getBody().toString('utf8');
       var informations = [];
       
-      informations = getInformations(body, destination);
+      informations = getInformations(body, placeOrEvent);
   
       if (!informations[0]) {
         const similarDest = [];
         body.split("<Evento>").forEach(item => {
           if (!item.includes("?xml")) {
             var dest = item.split("<Descrizione>")[1].split("<")[0].toLowerCase();
-            if(dest.includes(destination)) {
+            if(dest.includes(placeOrEvent)) {
               similarDest.push(dest);
             }
           }
@@ -223,7 +223,7 @@ const TimeTableHandler = {
         if (similarDest.length != 0) {
           var indexOfBestMatch = 0;
           if (similarDest.length > 1) {
-            const matches = stringSimilarity.findBestMatch(destination, similarDest);
+            const matches = stringSimilarity.findBestMatch(placeOrEvent, similarDest);
             indexOfBestMatch = matches.bestMatchIndex;
           }
           informations = getInformations(body, similarDest[indexOfBestMatch]);
@@ -231,7 +231,7 @@ const TimeTableHandler = {
       }    
   
       if (informations[0]) {
-        speechOutput = `${destination} si trova a ${informations[3]}, inizia alle ${informations[1]} e finisce alle ${informations[2]}`;
+        speechOutput = `${placeOrEvent} si trova a ${informations[3]}, inizia alle ${informations[1]} e finisce alle ${informations[2]}`;
       }
     }
 

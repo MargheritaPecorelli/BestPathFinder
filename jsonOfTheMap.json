@@ -1,0 +1,378 @@
+{
+	"buildings": [{
+		"name": "Lettere e Beni Culturali",
+		"latitude": "44.496847",
+		"longitude": "11.3517677",
+		"proximityUUID": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+		"floors": [{
+			"level": "0"
+		},
+		{
+			"level": "1"
+		}
+		],
+		"beacons": [{
+			"id": "001",
+			"major": "0",
+			"minor": "16613"
+		}, {
+			"id": "002",
+			"major": "0",
+			"minor": "9155"
+		}, {
+			"id": "003",
+			"major": "0",
+			"minor": "4723"
+		}, {
+			"id": "004",
+			"major": "0",
+			"minor": "5993"
+		}, {
+			"id": "005",
+			"major": "0",
+			"minor": "26088"
+		}, {
+			"id": "006",
+			"major": "0",
+			"minor": "12887"
+		}, {
+			"id": "007",
+			"major": "0",
+			"minor": "60768"
+		}, {
+			"id": "008",
+			"major": "0",
+			"minor": "13255"
+		}, {
+			"id": "009",
+			"major": "1",
+			"minor": "48271"
+		}, {
+			"id": "010",
+			"major": "1",
+			"minor": "51393"
+		}, {
+			"id": "011",
+			"major": "1",
+			"minor": "18038"
+		}, {
+			"id": "012",
+			"major": "1",
+			"minor": "41343"
+		}, {
+			"id": "013",
+			"major": "1",
+			"minor": "39892"
+		}, {
+			"id": "014",
+			"major": "1",
+			"minor": "23969"
+		}, {
+			"id": "015",
+			"major": "1",
+			"minor": "63095"
+		}, {
+			"id": "016",
+			"major": "1",
+			"minor": "6713"
+		}, {
+			"id": "x01",
+			"major": "01",
+			"minor": "01"
+		}, {
+			"id": "x02",
+			"major": "02",
+			"minor": "02"
+		}],
+		"nodes": [{
+			"id": "001",
+			"beacon": "001",
+			"type": "door",
+			"name": "Ingresso principale",
+			"degrees": "135",
+			"info": "attenzione alla doppia porta"
+		}, {
+			"id": "002",
+			"beacon": "001",
+			"type": "room",
+			"name": "Aula 6",
+			"degrees": "45",
+			"info": "oltrepassa porta"
+		}, {
+			"id": "005",
+			"beacon": "003",
+			"type": "room",
+			"name": "Portineria",
+			"degrees": "45",
+			"info": ""
+		}, {
+			"id": "007",
+			"beacon": "002",
+			"type": "room",
+			"name": "Sala Attilio Roveri",
+			"degrees": "225",
+			"info": ""
+		}, {
+			"id": "008",
+			"beacon": "003",
+			"type": "stairs",
+			"name": "Scale monumentali",
+			"degrees": "45",
+			"info": ""
+		}, {
+			"id": "009",
+			"beacon": "004",
+			"type": "room",
+			"name": "Aula 7",
+			"degrees": "45",
+			"info": ""
+		}, {
+			"id": "010",
+			"beacon": "005",
+			"type": "room",
+			"name": "Tecnolab",
+			"degrees": "45",
+			"info": ""
+		}, {
+			"id": "011",
+			"beacon": "005",
+			"type": "room",
+			"name": "Tecnolab 2",
+			"degrees": "45",
+			"info": ""
+		}, {
+			"id": "013",
+			"beacon": "006",
+			"type": "room",
+			"name": "Stanza mistica",
+			"degrees": "225",
+			"info": ""
+		}, {
+			"id": "014",
+			"beacon": "005",
+			"type": "room",
+			"name": "Aula 11",
+			"degrees": "225",
+			"info": "attenzione, la porta è vicina a quella del cortile"
+		}, {
+			"id": "015",
+			"beacon": "005",
+			"type": "room",
+			"name": "cortile interno O",
+			"degrees": "225",
+			"info": "attenzione, questa porta non si apre"
+		}, {
+			"id": "016",
+			"beacon": "007",
+			"type": "room",
+			"name": "Bagno privato",
+			"degrees": "315",
+			"info": ""
+		}, {
+			"id": "017",
+			"beacon": "008",
+			"type": "room",
+			"name": "Bagno uomini",
+			"degrees": "315",
+			"info": ""
+		}, {
+			"id": "018",
+			"beacon": "008",
+			"type": "room",
+			"name": "Bagno disabili",
+			"degrees": "315",
+			"info": ""
+		}, {
+			"id": "019",
+			"beacon": "008",
+			"type": "room",
+			"name": "Bagno donne",
+			"degrees": "315",
+			"info": ""
+		}, {
+			"id": "020",
+			"beacon": "006",
+			"type": "door",
+			"name": "Ingresso retro",
+			"degrees": "315",
+			"info": ""
+		},{
+			"id": "023",
+			"beacon": "009",
+			"type": "room",
+			"name": "Biblioteca Felice Battaglia",
+			"degrees": "135",
+			"info": ""
+		},{
+			"id": "024",
+			"beacon": "010",
+			"type": "room",
+			"name": "Aula B",
+			"degrees": "225",
+			"info": ""
+		},{
+			"id": "025",
+			"beacon": "010",
+			"type": "room",
+			"name": "Aula C",
+			"degrees": "45",
+			"info": ""
+		},{
+			"id": "026",
+			"beacon": "013",
+			"type": "room",
+			"name": "Dipartimento di Filosofia",
+			"degrees": "315",
+			"info": ""
+		}],
+		"arcs": [{
+			"id": "001",
+			"start": "001",
+			"end": "002",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "1298",
+			"svgY": "1468"
+		}, {
+			"id": "002",
+			"start": "002",
+			"end": "003",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "1162",
+			"svgY": "1210"
+		}, {
+			"id": "003",
+			"start": "003",
+			"end": "004",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "1010",
+			"svgY": "938"
+		}, {
+			"id": "004",
+			"start": "004",
+			"end": "005",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "904",
+			"svgY": "730"
+		}, {
+			"id": "005",
+			"start": "005",
+			"end": "006",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "678",
+			"svgY": "304"
+		}, {
+			"id": "006",
+			"start": "004",
+			"end": "007",
+			"accessible": "true",
+			"degrees": "225",
+			"svgX": "828",
+			"svgY": "898"
+		}, {
+			"id": "007",
+			"start": "007",
+			"end": "008",
+			"accessible": "true",
+			"degrees": "225",
+			"svgX": "640",
+			"svgY": "1000"
+		}, {
+			"id": "008",
+			"start": "003",
+			"end": "x01",
+            "type":"stairs",
+			"accessible": "false",
+			"degrees": "45",
+			"svgX": "1252",
+			"svgY": "1068"
+		}, {
+			"id": "009",
+			"start": "x01",
+			"end": "011",
+            "type":"stairs",
+			"accessible": "false",
+			"degrees": "225",
+			"svgX": "1216",
+			"svgY": "1074"
+		}, {
+			"id": "010",
+			"start": "009",
+			"end": "010",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "1270",
+			"svgY": "1436"
+		}, {
+			"id": "011",
+			"start": "010",
+			"end": "011",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "1166",
+			"svgY": "1244"
+		}, {
+			"id": "012",
+			"start": "011",
+			"end": "012",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "1032",
+			"svgY": "990"
+		}, {
+			"id": "013",
+			"start": "012",
+			"end": "013",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "834",
+			"svgY": "620"
+		}, {
+			"id": "014",
+			"start": "012",
+			"end": "014",
+			"accessible": "true",
+			"degrees": "225",
+			"svgX": "814",
+			"svgY": "892"
+		}, {
+			"id": "015",
+			"start": "014",
+			"end": "015",
+			"accessible": "true",
+			"degrees": "225",
+			"svgX": "650",
+			"svgY": "980"
+		}, {
+			"id": "016",
+			"start": "007",
+			"end": "x02",
+            "type": "elevator",
+			"accessible": "true",
+			"degrees": "135",
+			"svgX": "774",
+			"svgY": "984"
+		}, {
+			"id": "017",
+			"start": "x02",
+			"end": "014",
+            "type": "elevator",
+			"accessible": "true",
+			"degrees": "315",
+			"svgX": "760",
+			"svgY": "976"
+		}, {
+			"id": "018",
+			"start": "015",
+			"end": "016",
+			"accessible": "true",
+			"degrees": "225",
+			"svgX": "774",
+			"svgY": "984"
+		}]
+	}]
+} 
