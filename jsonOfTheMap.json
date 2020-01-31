@@ -5,7 +5,7 @@
       "latitude": "44.496847",
       "longitude": "11.3517677",
       "proximityUUID": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-      "floors": [
+      "level": [
         {
           "level": "1"
         },
@@ -22,7 +22,7 @@
       "beacons": [
         {
           "id": "1",
-          "major": "2"
+          "major": "3"
         },
         {
           "id": "2",
@@ -94,7 +94,7 @@
         },
         {
           "id": "19",
-          "major": "3"
+          "major": "2"
         },
         {
           "id": "20",
@@ -170,7 +170,7 @@
         },
         {
           "id": "38",
-          "major": "4"
+          "major": "3"
         },
         {
           "id": "39",
@@ -178,23 +178,23 @@
         },
         {
           "id": "40",
-          "major": "null"
+          "major": "4"
         },
         {
           "id": "41",
-          "major": "4"
+          "major": "null"
         },
         {
           "id": "42",
-          "major": "2"
+          "major": "4"
         },
         {
           "id": "43",
-          "major": "3"
+          "major": "2"
         },
         {
           "id": "44",
-          "major": "4"
+          "major": "3"
         },
         {
           "id": "45",
@@ -494,11 +494,11 @@
         },
         {
           "id": "119",
-          "major": "null"
+          "major": "4"
         },
         {
           "id": "120",
-          "major": "3"
+          "major": "null"
         },
         {
           "id": "121",
@@ -506,7 +506,7 @@
         },
         {
           "id": "122",
-          "major": "4"
+          "major": "3"
         },
         {
           "id": "123",
@@ -518,7 +518,7 @@
         },
         {
           "id": "125",
-          "major": "2"
+          "major": "4"
         },
         {
           "id": "126",
@@ -534,15 +534,15 @@
         },
         {
           "id": "129",
-          "major": "3"
+          "major": "2"
         },
         {
           "id": "130",
-          "major": "null"
+          "major": "3"
         },
         {
           "id": "131",
-          "major": "4"
+          "major": "null"
         },
         {
           "id": "132",
@@ -562,10 +562,14 @@
         },
         {
           "id": "136",
-          "major": "null"
+          "major": "4"
         },
         {
           "id": "137",
+          "major": "null"
+        },
+        {
+          "id": "138",
           "major": "null"
         }
       ],
@@ -575,8 +579,7 @@
           "beacon": "1",
           "type": "room",
           "name": [
-            "aula 2.8",
-            "stanza 2001"
+            "ingresso principale"
           ],
           "degrees": "270",
           "info": ""
@@ -586,8 +589,8 @@
           "beacon": "2",
           "type": "room",
           "name": [
-            "aula 2.7",
-            "stanza 2002"
+            "aula 2.8",
+            "stanza 2001"
           ],
           "degrees": "270",
           "info": ""
@@ -597,8 +600,8 @@
           "beacon": "3",
           "type": "room",
           "name": [
-            "aula 2.6",
-            "stanza 2003"
+            "aula 2.7",
+            "stanza 2002"
           ],
           "degrees": "270",
           "info": ""
@@ -608,8 +611,8 @@
           "beacon": "4",
           "type": "room",
           "name": [
-            "aula 2.5",
-            "stanza 2004"
+            "aula 2.6",
+            "stanza 2003"
           ],
           "degrees": "270",
           "info": ""
@@ -619,8 +622,8 @@
           "beacon": "5",
           "type": "room",
           "name": [
-            "aula 2.4",
-            "stanza 2005"
+            "aula 2.5",
+            "stanza 2004"
           ],
           "degrees": "270",
           "info": ""
@@ -630,8 +633,8 @@
           "beacon": "6",
           "type": "room",
           "name": [
-            "aula 2.3",
-            "stanza 2006"
+            "aula 2.4",
+            "stanza 2005"
           ],
           "degrees": "270",
           "info": ""
@@ -641,8 +644,8 @@
           "beacon": "7",
           "type": "room",
           "name": [
-            "laboratorio informatico vela 2.2",
-            "stanza 2007"
+            "aula 2.3",
+            "stanza 2006"
           ],
           "degrees": "270",
           "info": ""
@@ -652,8 +655,8 @@
           "beacon": "8",
           "type": "room",
           "name": [
-            "aula 2.1",
-            "stanza 2008"
+            "laboratorio informatico vela 2.2",
+            "stanza 2007"
           ],
           "degrees": "270",
           "info": ""
@@ -663,7 +666,8 @@
           "beacon": "9",
           "type": "room",
           "name": [
-            "locale tecnico"
+            "aula 2.1",
+            "stanza 2008"
           ],
           "degrees": "270",
           "info": ""
@@ -673,8 +677,7 @@
           "beacon": "10",
           "type": "room",
           "name": [
-            "aula 2.9",
-            "stanza 2015"
+            "locale tecnico"
           ],
           "degrees": "270",
           "info": ""
@@ -684,8 +687,8 @@
           "beacon": "11",
           "type": "room",
           "name": [
-            "aula 2.10",
-            "stanza 2014"
+            "aula 2.9",
+            "stanza 2015"
           ],
           "degrees": "270",
           "info": ""
@@ -695,8 +698,8 @@
           "beacon": "12",
           "type": "room",
           "name": [
-            "aula 2.11",
-            "stanza 2020"
+            "aula 2.10",
+            "stanza 2014"
           ],
           "degrees": "270",
           "info": ""
@@ -706,8 +709,8 @@
           "beacon": "13",
           "type": "room",
           "name": [
-            "aula 2.12",
-            "stanza 2025"
+            "aula 2.11",
+            "stanza 2020"
           ],
           "degrees": "270",
           "info": ""
@@ -717,8 +720,8 @@
           "beacon": "14",
           "type": "room",
           "name": [
-            "aula 2.13",
-            "stanza 2026"
+            "aula 2.12",
+            "stanza 2025"
           ],
           "degrees": "270",
           "info": ""
@@ -728,8 +731,8 @@
           "beacon": "15",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.17",
-            "stanza 2066"
+            "aula 2.13",
+            "stanza 2026"
           ],
           "degrees": "270",
           "info": ""
@@ -739,8 +742,8 @@
           "beacon": "16",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.16",
-            "stanza 2065"
+            "laboratorio disegno 2.17",
+            "stanza 2066"
           ],
           "degrees": "270",
           "info": ""
@@ -750,8 +753,8 @@
           "beacon": "17",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.15",
-            "stanza 2056"
+            "laboratorio disegno 2.16",
+            "stanza 2065"
           ],
           "degrees": "270",
           "info": ""
@@ -761,8 +764,8 @@
           "beacon": "18",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.14",
-            "stanza 2055"
+            "laboratorio disegno 2.15",
+            "stanza 2056"
           ],
           "degrees": "270",
           "info": ""
@@ -772,8 +775,8 @@
           "beacon": "19",
           "type": "room",
           "name": [
-            "laboratorio",
-            "stanza 3001"
+            "laboratorio disegno 2.14",
+            "stanza 2055"
           ],
           "degrees": "270",
           "info": ""
@@ -783,8 +786,8 @@
           "beacon": "20",
           "type": "room",
           "name": [
-            "laboratorio lele 3.2",
-            "stanza 3003"
+            "laboratorio",
+            "stanza 3001"
           ],
           "degrees": "270",
           "info": ""
@@ -794,8 +797,8 @@
           "beacon": "21",
           "type": "room",
           "name": [
-            "laboratorio informatico 3.1",
-            "stanza 3004"
+            "laboratorio lele 3.2",
+            "stanza 3003"
           ],
           "degrees": "270",
           "info": ""
@@ -805,8 +808,8 @@
           "beacon": "22",
           "type": "room",
           "name": [
-            "aula magna 3.4 ",
-            "stanza 3034"
+            "laboratorio informatico 3.1",
+            "stanza 3004"
           ],
           "degrees": "270",
           "info": ""
@@ -816,8 +819,8 @@
           "beacon": "23",
           "type": "room",
           "name": [
-            "laboratorio 1 elettronica e telecomunicazioni",
-            "stanza 3009"
+            "aula magna 3.4 ",
+            "stanza 3034"
           ],
           "degrees": "270",
           "info": ""
@@ -827,8 +830,8 @@
           "beacon": "24",
           "type": "room",
           "name": [
-            "laboratorio informatico 3.3",
-            "stanza 3021"
+            "laboratorio 1 elettronica e telecomunicazioni",
+            "stanza 3009"
           ],
           "degrees": "270",
           "info": ""
@@ -838,8 +841,8 @@
           "beacon": "25",
           "type": "room",
           "name": [
-            "laboratorio lamovida",
-            "stanza 3065"
+            "laboratorio informatico 3.3",
+            "stanza 3021"
           ],
           "degrees": "270",
           "info": ""
@@ -849,8 +852,8 @@
           "beacon": "26",
           "type": "room",
           "name": [
-            "aula 3.10",
-            "stanza 3064"
+            "laboratorio lamovida",
+            "stanza 3065"
           ],
           "degrees": "270",
           "info": ""
@@ -860,8 +863,8 @@
           "beacon": "27",
           "type": "room",
           "name": [
-            "aula 3.11",
-            "stanza 3069"
+            "aula 3.10",
+            "stanza 3064"
           ],
           "degrees": "270",
           "info": ""
@@ -871,8 +874,8 @@
           "beacon": "28",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.12",
-            "stanza 3056"
+            "aula 3.11",
+            "stanza 3069"
           ],
           "degrees": "270",
           "info": ""
@@ -882,8 +885,8 @@
           "beacon": "29",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.13",
-            "stanza 3055"
+            "laboratorio di sintesi 3.12",
+            "stanza 3056"
           ],
           "degrees": "270",
           "info": ""
@@ -893,8 +896,8 @@
           "beacon": "30",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.14",
-            "stanza 3054"
+            "laboratorio di sintesi 3.13",
+            "stanza 3055"
           ],
           "degrees": "270",
           "info": ""
@@ -904,8 +907,8 @@
           "beacon": "31",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.15",
-            "stanza 3053"
+            "laboratorio di sintesi 3.14",
+            "stanza 3054"
           ],
           "degrees": "270",
           "info": ""
@@ -915,8 +918,8 @@
           "beacon": "32",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.16",
-            "stanza 3052"
+            "laboratorio di sintesi 3.15",
+            "stanza 3053"
           ],
           "degrees": "270",
           "info": ""
@@ -926,8 +929,8 @@
           "beacon": "33",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.9",
-            "stanza 3071"
+            "laboratorio di sintesi 3.16",
+            "stanza 3052"
           ],
           "degrees": "270",
           "info": ""
@@ -937,8 +940,8 @@
           "beacon": "34",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.8",
-            "stanza 3070"
+            "laboratorio disegno 3.9",
+            "stanza 3071"
           ],
           "degrees": "270",
           "info": ""
@@ -948,8 +951,8 @@
           "beacon": "35",
           "type": "room",
           "name": [
-            "aula 3.7",
-            "stanza 3063"
+            "laboratorio disegno 3.8",
+            "stanza 3070"
           ],
           "degrees": "270",
           "info": ""
@@ -959,8 +962,8 @@
           "beacon": "36",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.6",
-            "stanza 3068"
+            "aula 3.7",
+            "stanza 3063"
           ],
           "degrees": "270",
           "info": ""
@@ -970,8 +973,8 @@
           "beacon": "37",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.5",
-            "stanza 3067"
+            "laboratorio disegno 3.6",
+            "stanza 3068"
           ],
           "degrees": "270",
           "info": ""
@@ -981,8 +984,8 @@
           "beacon": "38",
           "type": "room",
           "name": [
-            "aula 4.1",
-            "stanza 4116"
+            "laboratorio disegno 3.5",
+            "stanza 3067"
           ],
           "degrees": "270",
           "info": ""
@@ -992,8 +995,8 @@
           "beacon": "39",
           "type": "room",
           "name": [
-            "laboratorio informatico cad 4.2",
-            "stanza 4118"
+            "aula 4.1",
+            "stanza 4116"
           ],
           "degrees": "270",
           "info": ""
@@ -1003,7 +1006,8 @@
           "beacon": "40",
           "type": "room",
           "name": [
-            "sensore canarin"
+            "laboratorio informatico cad 4.2",
+            "stanza 4118"
           ],
           "degrees": "270",
           "info": ""
@@ -1013,8 +1017,7 @@
           "beacon": "41",
           "type": "room",
           "name": [
-            "mario bravetti",
-            "stanza 4022c"
+            "sensore canarin"
           ],
           "degrees": "270",
           "info": ""
@@ -1024,8 +1027,8 @@
           "beacon": "42",
           "type": "room",
           "name": [
-            "laboratorio lamo",
-            "stanza 2068"
+            "mario bravetti",
+            "stanza 4022c"
           ],
           "degrees": "270",
           "info": ""
@@ -1035,7 +1038,8 @@
           "beacon": "43",
           "type": "room",
           "name": [
-            "lab icm"
+            "laboratorio lamo",
+            "stanza 2068"
           ],
           "degrees": "270",
           "info": ""
@@ -1045,8 +1049,7 @@
           "beacon": "44",
           "type": "room",
           "name": [
-            "vittorio ghini",
-            "stanza 4022b"
+            "lab icm"
           ],
           "degrees": "270",
           "info": ""
@@ -1056,8 +1059,8 @@
           "beacon": "45",
           "type": "room",
           "name": [
-            "antonella carbonaro",
-            "stanza 4022a"
+            "vittorio ghini",
+            "stanza 4022b"
           ],
           "degrees": "270",
           "info": ""
@@ -1067,8 +1070,8 @@
           "beacon": "46",
           "type": "room",
           "name": [
-            "alessandro ricci",
-            "stanza 4022"
+            "antonella carbonaro",
+            "stanza 4022a"
           ],
           "degrees": "270",
           "info": ""
@@ -1078,8 +1081,8 @@
           "beacon": "47",
           "type": "room",
           "name": [
-            "franco callegati",
-            "stanza 4021"
+            "alessandro ricci",
+            "stanza 4022"
           ],
           "degrees": "270",
           "info": ""
@@ -1089,8 +1092,8 @@
           "beacon": "48",
           "type": "room",
           "name": [
-            "daniele morbidelli, luca pasquini",
-            "stanza 4020"
+            "franco callegati",
+            "stanza 4021"
           ],
           "degrees": "270",
           "info": ""
@@ -1100,8 +1103,8 @@
           "beacon": "49",
           "type": "room",
           "name": [
-            "claudia cevenini, mirko ravaioli, giuseppe levi",
-            "stanza 4019"
+            "daniele morbidelli, luca pasquini",
+            "stanza 4020"
           ],
           "degrees": "270",
           "info": ""
@@ -1111,8 +1114,8 @@
           "beacon": "50",
           "type": "room",
           "name": [
-            "davide dardari",
-            "stanza 4018"
+            "claudia cevenini, mirko ravaioli, giuseppe levi",
+            "stanza 4019"
           ],
           "degrees": "270",
           "info": ""
@@ -1122,8 +1125,8 @@
           "beacon": "51",
           "type": "room",
           "name": [
-            "michele mulazzani, stefano severi",
-            "stanza 4017"
+            "davide dardari",
+            "stanza 4018"
           ],
           "degrees": "270",
           "info": ""
@@ -1133,8 +1136,8 @@
           "beacon": "52",
           "type": "room",
           "name": [
-            "marco chiani",
-            "stanza 4016"
+            "michele mulazzani, stefano severi",
+            "stanza 4017"
           ],
           "degrees": "270",
           "info": ""
@@ -1144,8 +1147,8 @@
           "beacon": "53",
           "type": "room",
           "name": [
-            "claudio fiegna",
-            "stanza 4015"
+            "marco chiani",
+            "stanza 4016"
           ],
           "degrees": "270",
           "info": ""
@@ -1155,8 +1158,8 @@
           "beacon": "54",
           "type": "room",
           "name": [
-            "mauro ursino",
-            "stanza 4014"
+            "claudio fiegna",
+            "stanza 4015"
           ],
           "degrees": "270",
           "info": ""
@@ -1166,8 +1169,8 @@
           "beacon": "55",
           "type": "room",
           "name": [
-            "lorenzo chiari",
-            "stanza 4013"
+            "mauro ursino",
+            "stanza 4014"
           ],
           "degrees": "270",
           "info": ""
@@ -1177,8 +1180,8 @@
           "beacon": "56",
           "type": "room",
           "name": [
-            "alberto bellini",
-            "stanza 4012"
+            "lorenzo chiari",
+            "stanza 4013"
           ],
           "degrees": "270",
           "info": ""
@@ -1188,8 +1191,8 @@
           "beacon": "57",
           "type": "room",
           "name": [
-            "roberto baldacci",
-            "stanza 4008"
+            "alberto bellini",
+            "stanza 4012"
           ],
           "degrees": "270",
           "info": ""
@@ -1199,8 +1202,8 @@
           "beacon": "58",
           "type": "room",
           "name": [
-            "monica mariotti",
-            "stanza 4006"
+            "roberto baldacci",
+            "stanza 4008"
           ],
           "degrees": "270",
           "info": ""
@@ -1210,8 +1213,8 @@
           "beacon": "59",
           "type": "room",
           "name": [
-            "paolo castaldi",
-            "stanza 4005"
+            "monica mariotti",
+            "stanza 4006"
           ],
           "degrees": "270",
           "info": ""
@@ -1221,8 +1224,8 @@
           "beacon": "60",
           "type": "room",
           "name": [
-            "sergio callegari",
-            "stanza 4004"
+            "paolo castaldi",
+            "stanza 4005"
           ],
           "degrees": "270",
           "info": ""
@@ -1232,8 +1235,8 @@
           "beacon": "61",
           "type": "room",
           "name": [
-            "marco crescentini",
-            "stanza 4003"
+            "sergio callegari",
+            "stanza 4004"
           ],
           "degrees": "270",
           "info": ""
@@ -1243,8 +1246,8 @@
           "beacon": "62",
           "type": "room",
           "name": [
-            "aldo romani",
-            "stanza 4002"
+            "marco crescentini",
+            "stanza 4003"
           ],
           "degrees": "270",
           "info": ""
@@ -1254,8 +1257,8 @@
           "beacon": "63",
           "type": "room",
           "name": [
-            "marco tartagni",
-            "stanza 4010"
+            "aldo romani",
+            "stanza 4002"
           ],
           "degrees": "270",
           "info": ""
@@ -1265,8 +1268,8 @@
           "beacon": "64",
           "type": "room",
           "name": [
-            "serena morigi",
-            "stanza 4034"
+            "marco tartagni",
+            "stanza 4010"
           ],
           "degrees": "270",
           "info": ""
@@ -1276,8 +1279,8 @@
           "beacon": "65",
           "type": "room",
           "name": [
-            "emanuele domenico giordano",
-            "stanza 4035"
+            "serena morigi",
+            "stanza 4034"
           ],
           "degrees": "270",
           "info": ""
@@ -1287,8 +1290,8 @@
           "beacon": "66",
           "type": "room",
           "name": [
-            "alessandra costanzo",
-            "stanza 4036"
+            "emanuele domenico giordano",
+            "stanza 4035"
           ],
           "degrees": "270",
           "info": ""
@@ -1298,8 +1301,8 @@
           "beacon": "67",
           "type": "room",
           "name": [
-            "enrico maria vitucci",
-            "stanza 4037"
+            "alessandra costanzo",
+            "stanza 4036"
           ],
           "degrees": "270",
           "info": ""
@@ -1309,8 +1312,8 @@
           "beacon": "68",
           "type": "room",
           "name": [
-            "vittorio degli esposti",
-            "stanza 4038"
+            "enrico maria vitucci",
+            "stanza 4037"
           ],
           "degrees": "270",
           "info": ""
@@ -1320,8 +1323,8 @@
           "beacon": "69",
           "type": "room",
           "name": [
-            "franco mastri",
-            "stanza 4039"
+            "vittorio degli esposti",
+            "stanza 4038"
           ],
           "degrees": "270",
           "info": ""
@@ -1331,8 +1334,8 @@
           "beacon": "70",
           "type": "room",
           "name": [
-            "cristiana corsi",
-            "stanza 4040"
+            "franco mastri",
+            "stanza 4039"
           ],
           "degrees": "270",
           "info": ""
@@ -1342,8 +1345,8 @@
           "beacon": "71",
           "type": "room",
           "name": [
-            "rita stagni",
-            "stanza 4041"
+            "cristiana corsi",
+            "stanza 4040"
           ],
           "degrees": "270",
           "info": ""
@@ -1353,8 +1356,8 @@
           "beacon": "72",
           "type": "room",
           "name": [
-            "debora cesari",
-            "stanza 4042"
+            "rita stagni",
+            "stanza 4041"
           ],
           "degrees": "270",
           "info": ""
@@ -1364,8 +1367,8 @@
           "beacon": "73",
           "type": "room",
           "name": [
-            "cristiano cuppini",
-            "stanza 4043"
+            "debora cesari",
+            "stanza 4042"
           ],
           "degrees": "270",
           "info": ""
@@ -1375,8 +1378,8 @@
           "beacon": "74",
           "type": "room",
           "name": [
-            "elisa magosso",
-            "stanza 4044"
+            "cristiano cuppini",
+            "stanza 4043"
           ],
           "degrees": "270",
           "info": ""
@@ -1386,8 +1389,8 @@
           "beacon": "75",
           "type": "room",
           "name": [
-            "stefano diciotti",
-            "stanza 4045"
+            "elisa magosso",
+            "stanza 4044"
           ],
           "degrees": "270",
           "info": ""
@@ -1397,8 +1400,8 @@
           "beacon": "76",
           "type": "room",
           "name": [
-            "walter cerroni",
-            "stanza 4046"
+            "stefano diciotti",
+            "stanza 4045"
           ],
           "degrees": "270",
           "info": ""
@@ -1408,8 +1411,8 @@
           "beacon": "77",
           "type": "room",
           "name": [
-            "nicola arcozzi",
-            "stanza 4047"
+            "walter cerroni",
+            "stanza 4046"
           ],
           "degrees": "270",
           "info": ""
@@ -1419,8 +1422,8 @@
           "beacon": "78",
           "type": "room",
           "name": [
-            "luca cristofolini, enrico paolini",
-            "stanza 4049"
+            "nicola arcozzi",
+            "stanza 4047"
           ],
           "degrees": "270",
           "info": ""
@@ -1430,8 +1433,8 @@
           "beacon": "79",
           "type": "room",
           "name": [
-            "andrea giorgetti, roberto naldi",
-            "stanza 4051"
+            "luca cristofolini, enrico paolini",
+            "stanza 4049"
           ],
           "degrees": "270",
           "info": ""
@@ -1441,8 +1444,8 @@
           "beacon": "80",
           "type": "room",
           "name": [
-            "enrico sangiorgi",
-            "stanza 4052"
+            "andrea giorgetti, roberto naldi",
+            "stanza 4051"
           ],
           "degrees": "270",
           "info": ""
@@ -1452,8 +1455,8 @@
           "beacon": "81",
           "type": "room",
           "name": [
-            "massimo cicognani",
-            "stanza 4053"
+            "enrico sangiorgi",
+            "stanza 4052"
           ],
           "degrees": "270",
           "info": ""
@@ -1463,8 +1466,8 @@
           "beacon": "82",
           "type": "room",
           "name": [
-            "gianluca moro",
-            "stanza 4054"
+            "massimo cicognani",
+            "stanza 4053"
           ],
           "degrees": "270",
           "info": ""
@@ -1474,8 +1477,8 @@
           "beacon": "83",
           "type": "room",
           "name": [
-            "aristide mingozzi",
-            "stanza 4123"
+            "gianluca moro",
+            "stanza 4054"
           ],
           "degrees": "270",
           "info": ""
@@ -1485,8 +1488,8 @@
           "beacon": "84",
           "type": "room",
           "name": [
-            "paola salomoni",
-            "stanza 4148"
+            "aristide mingozzi",
+            "stanza 4123"
           ],
           "degrees": "270",
           "info": ""
@@ -1496,8 +1499,8 @@
           "beacon": "85",
           "type": "room",
           "name": [
-            "nicoletta cantarini, fabrizio caselli",
-            "stanza 4146"
+            "paola salomoni",
+            "stanza 4148"
           ],
           "degrees": "270",
           "info": ""
@@ -1507,8 +1510,8 @@
           "beacon": "86",
           "type": "room",
           "name": [
-            "vittorio maniezzo",
-            "stanza 4145"
+            "nicoletta cantarini, fabrizio caselli",
+            "stanza 4146"
           ],
           "degrees": "270",
           "info": ""
@@ -1518,8 +1521,8 @@
           "beacon": "87",
           "type": "room",
           "name": [
-            "raffaele cappelli, marco antonio boschetti",
-            "stanza 4144"
+            "vittorio maniezzo",
+            "stanza 4145"
           ],
           "degrees": "270",
           "info": ""
@@ -1529,8 +1532,8 @@
           "beacon": "88",
           "type": "room",
           "name": [
-            "matteo ferrara, annalisa franco",
-            "stanza 4143"
+            "raffaele cappelli, marco antonio boschetti",
+            "stanza 4144"
           ],
           "degrees": "270",
           "info": ""
@@ -1540,8 +1543,8 @@
           "beacon": "89",
           "type": "room",
           "name": [
-            "alessandro bevilacqua, andrea roli",
-            "stanza 4142"
+            "matteo ferrara, annalisa franco",
+            "stanza 4143"
           ],
           "degrees": "270",
           "info": ""
@@ -1551,8 +1554,8 @@
           "beacon": "90",
           "type": "room",
           "name": [
-            "alessandra lumini, damiana lazzaro",
-            "stanza 4141"
+            "alessandro bevilacqua, andrea roli",
+            "stanza 4142"
           ],
           "degrees": "270",
           "info": ""
@@ -1562,8 +1565,8 @@
           "beacon": "91",
           "type": "room",
           "name": [
-            "matteo golfarelli",
-            "stanza 4140"
+            "alessandra lumini, damiana lazzaro",
+            "stanza 4141"
           ],
           "degrees": "270",
           "info": ""
@@ -1573,8 +1576,8 @@
           "beacon": "92",
           "type": "room",
           "name": [
-            "moreno marzolla, gabriele d'angelo",
-            "stanza 4139"
+            "matteo golfarelli",
+            "stanza 4140"
           ],
           "degrees": "270",
           "info": ""
@@ -1584,8 +1587,8 @@
           "beacon": "93",
           "type": "room",
           "name": [
-            "pietro di lena",
-            "stanza 4138"
+            "moreno marzolla, gabriele d'angelo",
+            "stanza 4139"
           ],
           "degrees": "270",
           "info": ""
@@ -1595,8 +1598,8 @@
           "beacon": "94",
           "type": "room",
           "name": [
-            "davide maltoni",
-            "stanza 4132"
+            "pietro di lena",
+            "stanza 4138"
           ],
           "degrees": "270",
           "info": ""
@@ -1606,8 +1609,8 @@
           "beacon": "95",
           "type": "room",
           "name": [
-            "dario maio",
-            "stanza 4131"
+            "davide maltoni",
+            "stanza 4132"
           ],
           "degrees": "270",
           "info": ""
@@ -1617,8 +1620,8 @@
           "beacon": "96",
           "type": "room",
           "name": [
-            "stefano rizzi",
-            "stanza 4130"
+            "dario maio",
+            "stanza 4131"
           ],
           "degrees": "270",
           "info": ""
@@ -1628,8 +1631,8 @@
           "beacon": "97",
           "type": "room",
           "name": [
-            "luciano margara",
-            "stanza 4129"
+            "stefano rizzi",
+            "stanza 4130"
           ],
           "degrees": "270",
           "info": ""
@@ -1639,8 +1642,8 @@
           "beacon": "98",
           "type": "room",
           "name": [
-            "mirko viroli",
-            "stanza 4128"
+            "luciano margara",
+            "stanza 4129"
           ],
           "degrees": "270",
           "info": ""
@@ -1650,8 +1653,8 @@
           "beacon": "99",
           "type": "room",
           "name": [
-            "antonio natali",
-            "stanza 4127"
+            "mirko viroli",
+            "stanza 4128"
           ],
           "degrees": "270",
           "info": ""
@@ -1661,8 +1664,8 @@
           "beacon": "100",
           "type": "room",
           "name": [
-            "andrea omicini",
-            "stanza 4126"
+            "antonio natali",
+            "stanza 4127"
           ],
           "degrees": "270",
           "info": ""
@@ -1672,8 +1675,8 @@
           "beacon": "101",
           "type": "room",
           "name": [
-            "giovanni pau",
-            "stanza 4125"
+            "andrea omicini",
+            "stanza 4126"
           ],
           "degrees": "270",
           "info": ""
@@ -1683,8 +1686,8 @@
           "beacon": "102",
           "type": "room",
           "name": [
-            "ernesto antonini, jacopo gaspari",
-            "stanza 4097"
+            "giovanni pau",
+            "stanza 4125"
           ],
           "degrees": "270",
           "info": ""
@@ -1694,8 +1697,8 @@
           "beacon": "103",
           "type": "room",
           "name": [
-            "andrea boeri, danila longo",
-            "stanza 4098"
+            "ernesto antonini, jacopo gaspari",
+            "stanza 4097"
           ],
           "degrees": "270",
           "info": ""
@@ -1705,8 +1708,8 @@
           "beacon": "104",
           "type": "room",
           "name": [
-            "gino malacarne, walter balducci",
-            "stanza 4099"
+            "andrea boeri, danila longo",
+            "stanza 4098"
           ],
           "degrees": "270",
           "info": ""
@@ -1716,8 +1719,8 @@
           "beacon": "105",
           "type": "room",
           "name": [
-            "francesco ceccarelli, piergiorgio massarenti, kristian fabbri",
-            "stanza 4100"
+            "gino malacarne, walter balducci",
+            "stanza 4099"
           ],
           "degrees": "270",
           "info": ""
@@ -1727,8 +1730,8 @@
           "beacon": "106",
           "type": "room",
           "name": [
-            "lamberto tronchin",
-            "stanza 4101"
+            "francesco ceccarelli, piergiorgio massarenti, kristian fabbri",
+            "stanza 4100"
           ],
           "degrees": "270",
           "info": ""
@@ -1738,8 +1741,8 @@
           "beacon": "107",
           "type": "room",
           "name": [
-            "matteo agnoletto, antonio esposito",
-            "stanza 4102"
+            "lamberto tronchin",
+            "stanza 4101"
           ],
           "degrees": "270",
           "info": ""
@@ -1749,8 +1752,8 @@
           "beacon": "108",
           "type": "room",
           "name": [
-            "francesco saverio fera, annalisa trentin",
-            "stanza 4103"
+            "matteo agnoletto, antonio esposito",
+            "stanza 4102"
           ],
           "degrees": "270",
           "info": ""
@@ -1760,8 +1763,8 @@
           "beacon": "109",
           "type": "room",
           "name": [
-            "lamberto amistadi, ildebrando clemente",
-            "stanza 4104"
+            "francesco saverio fera, annalisa trentin",
+            "stanza 4103"
           ],
           "degrees": "270",
           "info": ""
@@ -1771,8 +1774,8 @@
           "beacon": "110",
           "type": "room",
           "name": [
-            "maura savini, andreina milan",
-            "stanza 4105"
+            "lamberto amistadi, ildebrando clemente",
+            "stanza 4104"
           ],
           "degrees": "270",
           "info": ""
@@ -1782,8 +1785,8 @@
           "beacon": "111",
           "type": "room",
           "name": [
-            "francesco gulinello, elena mucelli, stefania rössl",
-            "stanza 4106"
+            "maura savini, andreina milan",
+            "stanza 4105"
           ],
           "degrees": "270",
           "info": ""
@@ -1793,8 +1796,8 @@
           "beacon": "112",
           "type": "room",
           "name": [
-            "valentina orioli",
-            "stanza 4096"
+            "francesco gulinello, elena mucelli, stefania rössl",
+            "stanza 4106"
           ],
           "degrees": "270",
           "info": ""
@@ -1804,8 +1807,8 @@
           "beacon": "113",
           "type": "room",
           "name": [
-            "giovanni leoni, andrea borsari",
-            "stanza 4095"
+            "valentina orioli",
+            "stanza 4096"
           ],
           "degrees": "270",
           "info": ""
@@ -1815,8 +1818,8 @@
           "beacon": "114",
           "type": "room",
           "name": [
-            "marco pretelli, andrea ugolini",
-            "stanza 4094"
+            "giovanni leoni, andrea borsari",
+            "stanza 4095"
           ],
           "degrees": "270",
           "info": ""
@@ -1826,8 +1829,8 @@
           "beacon": "115",
           "type": "room",
           "name": [
-            "nicoletta cantarini, marco lenci, tommaso trombetti, giada gasparini",
-            "stanza 4092"
+            "marco pretelli, andrea ugolini",
+            "stanza 4094"
           ],
           "degrees": "270",
           "info": ""
@@ -1837,8 +1840,8 @@
           "beacon": "116",
           "type": "room",
           "name": [
-            "lucio nobile, cristina gentilini, luisa molari",
-            "stanza 4091"
+            "nicoletta cantarini, marco lenci, tommaso trombetti, giada gasparini",
+            "stanza 4092"
           ],
           "degrees": "270",
           "info": ""
@@ -1848,8 +1851,8 @@
           "beacon": "117",
           "type": "room",
           "name": [
-            "anna maria manfredini, federico fallavollita",
-            "stanza 4090"
+            "lucio nobile, cristina gentilini, luisa molari",
+            "stanza 4091"
           ],
           "degrees": "270",
           "info": ""
@@ -1859,8 +1862,8 @@
           "beacon": "118",
           "type": "room",
           "name": [
-            "fabrizio ivan apollonio, alessandro marata",
-            "stanza 4089"
+            "anna maria manfredini, federico fallavollita",
+            "stanza 4090"
           ],
           "degrees": "270",
           "info": ""
@@ -1870,7 +1873,8 @@
           "beacon": "119",
           "type": "room",
           "name": [
-            "sensore canarin 2"
+            "fabrizio ivan apollonio, alessandro marata",
+            "stanza 4089"
           ],
           "degrees": "270",
           "info": ""
@@ -1880,8 +1884,7 @@
           "beacon": "120",
           "type": "room",
           "name": [
-            "laboratorio lib (m)",
-            "stanza 3007"
+            "sensore canarin 2"
           ],
           "degrees": "270",
           "info": ""
@@ -1891,8 +1894,8 @@
           "beacon": "121",
           "type": "room",
           "name": [
-            "laboratorio lib (i)",
-            "stanza 3008"
+            "laboratorio lib (m)",
+            "stanza 3007"
           ],
           "degrees": "270",
           "info": ""
@@ -1902,8 +1905,8 @@
           "beacon": "122",
           "type": "room",
           "name": [
-            "laboratorio offline",
-            "stanza 4117"
+            "laboratorio lib (i)",
+            "stanza 3008"
           ],
           "degrees": "270",
           "info": ""
@@ -1913,8 +1916,8 @@
           "beacon": "123",
           "type": "room",
           "name": [
-            "sala riprese",
-            "stanza 4119"
+            "laboratorio offline",
+            "stanza 4117"
           ],
           "degrees": "270",
           "info": ""
@@ -1924,8 +1927,8 @@
           "beacon": "124",
           "type": "room",
           "name": [
-            "laboratorio fotografico",
-            "stanza 4120"
+            "sala riprese",
+            "stanza 4119"
           ],
           "degrees": "270",
           "info": ""
@@ -1935,8 +1938,8 @@
           "beacon": "125",
           "type": "room",
           "name": [
-            "aula magna 3.4 ",
-            "stanza 2011"
+            "laboratorio fotografico",
+            "stanza 4120"
           ],
           "degrees": "270",
           "info": ""
@@ -1946,7 +1949,8 @@
           "beacon": "126",
           "type": "room",
           "name": [
-            "biblioteca"
+            "aula magna 3.4 ",
+            "stanza 2011"
           ],
           "degrees": "270",
           "info": ""
@@ -1956,8 +1960,7 @@
           "beacon": "127",
           "type": "room",
           "name": [
-            "spazio studenti",
-            "stanza 2010"
+            "biblioteca"
           ],
           "degrees": "270",
           "info": ""
@@ -1967,8 +1970,8 @@
           "beacon": "128",
           "type": "room",
           "name": [
-            "laboratorio di ricerca e2",
-            "stanza 2046"
+            "spazio studenti",
+            "stanza 2010"
           ],
           "degrees": "270",
           "info": ""
@@ -1978,8 +1981,8 @@
           "beacon": "129",
           "type": "room",
           "name": [
-            "laboratorio lamo",
-            "stanza 3073"
+            "laboratorio di ricerca e2",
+            "stanza 2046"
           ],
           "degrees": "270",
           "info": ""
@@ -1989,7 +1992,8 @@
           "beacon": "130",
           "type": "room",
           "name": [
-            "distributore dell'acqua"
+            "laboratorio lamo",
+            "stanza 3073"
           ],
           "degrees": "270",
           "info": ""
@@ -1999,8 +2003,7 @@
           "beacon": "131",
           "type": "room",
           "name": [
-            "laboratorio di laurea",
-            "stanza 4093"
+            "distributore dell'acqua"
           ],
           "degrees": "270",
           "info": ""
@@ -2010,8 +2013,8 @@
           "beacon": "132",
           "type": "room",
           "name": [
-            "laboratorio di fisica ambientale",
-            "stanza 4086"
+            "laboratorio di laurea",
+            "stanza 4093"
           ],
           "degrees": "270",
           "info": ""
@@ -2021,8 +2024,8 @@
           "beacon": "133",
           "type": "room",
           "name": [
-            "daniele vigo",
-            "stanza 4032"
+            "laboratorio di fisica ambientale",
+            "stanza 4086"
           ],
           "degrees": "270",
           "info": ""
@@ -2032,8 +2035,8 @@
           "beacon": "134",
           "type": "room",
           "name": [
-            "ernesto antonini, jacopo gaspari",
-            "stanza 4097"
+            "daniele vigo",
+            "stanza 4032"
           ],
           "degrees": "270",
           "info": ""
@@ -2043,8 +2046,8 @@
           "beacon": "135",
           "type": "room",
           "name": [
-            "silvia mirri, catia prandi",
-            "stanza 4124"
+            "ernesto antonini, jacopo gaspari",
+            "stanza 4097"
           ],
           "degrees": "270",
           "info": ""
@@ -2054,7 +2057,8 @@
           "beacon": "136",
           "type": "room",
           "name": [
-            "sensore canarin archivio"
+            "silvia mirri, catia prandi",
+            "stanza 4124"
           ],
           "degrees": "270",
           "info": ""
@@ -2062,6 +2066,16 @@
         {
           "id": "137",
           "beacon": "137",
+          "type": "room",
+          "name": [
+            "sensore canarin archivio"
+          ],
+          "degrees": "270",
+          "info": ""
+        },
+        {
+          "id": "138",
+          "beacon": "138",
           "type": "room",
           "name": [
             "sensore canarin 3"
@@ -2072,15 +2086,15 @@
       ],
       "arcs": [
         {
-          "id": "2",
+          "id": "1",
           "start": "1",
           "end": "2",
-          "type": "",
+          "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
-          "id": "3",
+          "id": "2",
           "start": "2",
           "end": "3",
           "type": "",
@@ -2088,7 +2102,7 @@
           "degrees": "270"
         },
         {
-          "id": "4",
+          "id": "3",
           "start": "3",
           "end": "4",
           "type": "",
@@ -2096,7 +2110,7 @@
           "degrees": "270"
         },
         {
-          "id": "5",
+          "id": "4",
           "start": "4",
           "end": "5",
           "type": "",
@@ -2104,7 +2118,7 @@
           "degrees": "270"
         },
         {
-          "id": "6",
+          "id": "5",
           "start": "5",
           "end": "6",
           "type": "",
@@ -2112,7 +2126,7 @@
           "degrees": "270"
         },
         {
-          "id": "7",
+          "id": "6",
           "start": "6",
           "end": "7",
           "type": "",
@@ -2120,7 +2134,7 @@
           "degrees": "270"
         },
         {
-          "id": "8",
+          "id": "7",
           "start": "7",
           "end": "8",
           "type": "",
@@ -2128,7 +2142,7 @@
           "degrees": "270"
         },
         {
-          "id": "9",
+          "id": "8",
           "start": "8",
           "end": "9",
           "type": "",
@@ -2136,7 +2150,7 @@
           "degrees": "270"
         },
         {
-          "id": "10",
+          "id": "9",
           "start": "9",
           "end": "10",
           "type": "",
@@ -2144,7 +2158,7 @@
           "degrees": "270"
         },
         {
-          "id": "11",
+          "id": "10",
           "start": "10",
           "end": "11",
           "type": "",
@@ -2152,7 +2166,7 @@
           "degrees": "270"
         },
         {
-          "id": "12",
+          "id": "11",
           "start": "11",
           "end": "12",
           "type": "",
@@ -2160,7 +2174,7 @@
           "degrees": "270"
         },
         {
-          "id": "13",
+          "id": "12",
           "start": "12",
           "end": "13",
           "type": "",
@@ -2168,7 +2182,7 @@
           "degrees": "270"
         },
         {
-          "id": "14",
+          "id": "13",
           "start": "13",
           "end": "14",
           "type": "",
@@ -2176,7 +2190,7 @@
           "degrees": "270"
         },
         {
-          "id": "15",
+          "id": "14",
           "start": "14",
           "end": "15",
           "type": "",
@@ -2184,7 +2198,7 @@
           "degrees": "270"
         },
         {
-          "id": "16",
+          "id": "15",
           "start": "15",
           "end": "16",
           "type": "",
@@ -2192,7 +2206,7 @@
           "degrees": "270"
         },
         {
-          "id": "17",
+          "id": "16",
           "start": "16",
           "end": "17",
           "type": "",
@@ -2200,7 +2214,7 @@
           "degrees": "270"
         },
         {
-          "id": "18",
+          "id": "17",
           "start": "17",
           "end": "18",
           "type": "",
@@ -2208,23 +2222,23 @@
           "degrees": "270"
         },
         {
-          "id": "19",
+          "id": "18",
           "start": "18",
           "end": "19",
+          "type": "",
+          "accessible": "true",
+          "degrees": "270"
+        },
+        {
+          "id": "19",
+          "start": "19",
+          "end": "20",
           "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
           "id": "20",
-          "start": "19",
-          "end": "20",
-          "type": "",
-          "accessible": "true",
-          "degrees": "270"
-        },
-        {
-          "id": "21",
           "start": "20",
           "end": "21",
           "type": "",
@@ -2232,7 +2246,7 @@
           "degrees": "270"
         },
         {
-          "id": "22",
+          "id": "21",
           "start": "21",
           "end": "22",
           "type": "",
@@ -2240,7 +2254,7 @@
           "degrees": "270"
         },
         {
-          "id": "23",
+          "id": "22",
           "start": "22",
           "end": "23",
           "type": "",
@@ -2248,7 +2262,7 @@
           "degrees": "270"
         },
         {
-          "id": "24",
+          "id": "23",
           "start": "23",
           "end": "24",
           "type": "",
@@ -2256,7 +2270,7 @@
           "degrees": "270"
         },
         {
-          "id": "25",
+          "id": "24",
           "start": "24",
           "end": "25",
           "type": "",
@@ -2264,7 +2278,7 @@
           "degrees": "270"
         },
         {
-          "id": "26",
+          "id": "25",
           "start": "25",
           "end": "26",
           "type": "",
@@ -2272,7 +2286,7 @@
           "degrees": "270"
         },
         {
-          "id": "27",
+          "id": "26",
           "start": "26",
           "end": "27",
           "type": "",
@@ -2280,7 +2294,7 @@
           "degrees": "270"
         },
         {
-          "id": "28",
+          "id": "27",
           "start": "27",
           "end": "28",
           "type": "",
@@ -2288,7 +2302,7 @@
           "degrees": "270"
         },
         {
-          "id": "29",
+          "id": "28",
           "start": "28",
           "end": "29",
           "type": "",
@@ -2296,7 +2310,7 @@
           "degrees": "270"
         },
         {
-          "id": "30",
+          "id": "29",
           "start": "29",
           "end": "30",
           "type": "",
@@ -2304,7 +2318,7 @@
           "degrees": "270"
         },
         {
-          "id": "31",
+          "id": "30",
           "start": "30",
           "end": "31",
           "type": "",
@@ -2312,7 +2326,7 @@
           "degrees": "270"
         },
         {
-          "id": "32",
+          "id": "31",
           "start": "31",
           "end": "32",
           "type": "",
@@ -2320,7 +2334,7 @@
           "degrees": "270"
         },
         {
-          "id": "33",
+          "id": "32",
           "start": "32",
           "end": "33",
           "type": "",
@@ -2328,7 +2342,7 @@
           "degrees": "270"
         },
         {
-          "id": "34",
+          "id": "33",
           "start": "33",
           "end": "34",
           "type": "",
@@ -2336,7 +2350,7 @@
           "degrees": "270"
         },
         {
-          "id": "35",
+          "id": "34",
           "start": "34",
           "end": "35",
           "type": "",
@@ -2344,7 +2358,7 @@
           "degrees": "270"
         },
         {
-          "id": "36",
+          "id": "35",
           "start": "35",
           "end": "36",
           "type": "",
@@ -2352,7 +2366,7 @@
           "degrees": "270"
         },
         {
-          "id": "37",
+          "id": "36",
           "start": "36",
           "end": "37",
           "type": "",
@@ -2360,31 +2374,31 @@
           "degrees": "270"
         },
         {
-          "id": "38",
+          "id": "37",
           "start": "37",
           "end": "38",
+          "type": "",
+          "accessible": "true",
+          "degrees": "270"
+        },
+        {
+          "id": "38",
+          "start": "38",
+          "end": "39",
           "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
           "id": "39",
-          "start": "38",
-          "end": "39",
+          "start": "39",
+          "end": "40",
           "type": "",
           "accessible": "true",
           "degrees": "270"
         },
         {
           "id": "40",
-          "start": "39",
-          "end": "40",
-          "type": "stairs",
-          "accessible": "true",
-          "degrees": "270"
-        },
-        {
-          "id": "41",
           "start": "40",
           "end": "41",
           "type": "stairs",
@@ -2392,7 +2406,7 @@
           "degrees": "270"
         },
         {
-          "id": "42",
+          "id": "41",
           "start": "41",
           "end": "42",
           "type": "stairs",
@@ -2400,7 +2414,7 @@
           "degrees": "270"
         },
         {
-          "id": "43",
+          "id": "42",
           "start": "42",
           "end": "43",
           "type": "stairs",
@@ -2408,7 +2422,7 @@
           "degrees": "270"
         },
         {
-          "id": "44",
+          "id": "43",
           "start": "43",
           "end": "44",
           "type": "stairs",
@@ -2416,15 +2430,15 @@
           "degrees": "270"
         },
         {
-          "id": "45",
+          "id": "44",
           "start": "44",
           "end": "45",
-          "type": "",
+          "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
-          "id": "46",
+          "id": "45",
           "start": "45",
           "end": "46",
           "type": "",
@@ -2432,7 +2446,7 @@
           "degrees": "270"
         },
         {
-          "id": "47",
+          "id": "46",
           "start": "46",
           "end": "47",
           "type": "",
@@ -2440,7 +2454,7 @@
           "degrees": "270"
         },
         {
-          "id": "48",
+          "id": "47",
           "start": "47",
           "end": "48",
           "type": "",
@@ -2448,7 +2462,7 @@
           "degrees": "270"
         },
         {
-          "id": "49",
+          "id": "48",
           "start": "48",
           "end": "49",
           "type": "",
@@ -2456,7 +2470,7 @@
           "degrees": "270"
         },
         {
-          "id": "50",
+          "id": "49",
           "start": "49",
           "end": "50",
           "type": "",
@@ -2464,7 +2478,7 @@
           "degrees": "270"
         },
         {
-          "id": "51",
+          "id": "50",
           "start": "50",
           "end": "51",
           "type": "",
@@ -2472,7 +2486,7 @@
           "degrees": "270"
         },
         {
-          "id": "52",
+          "id": "51",
           "start": "51",
           "end": "52",
           "type": "",
@@ -2480,7 +2494,7 @@
           "degrees": "270"
         },
         {
-          "id": "53",
+          "id": "52",
           "start": "52",
           "end": "53",
           "type": "",
@@ -2488,7 +2502,7 @@
           "degrees": "270"
         },
         {
-          "id": "54",
+          "id": "53",
           "start": "53",
           "end": "54",
           "type": "",
@@ -2496,7 +2510,7 @@
           "degrees": "270"
         },
         {
-          "id": "55",
+          "id": "54",
           "start": "54",
           "end": "55",
           "type": "",
@@ -2504,7 +2518,7 @@
           "degrees": "270"
         },
         {
-          "id": "56",
+          "id": "55",
           "start": "55",
           "end": "56",
           "type": "",
@@ -2512,7 +2526,7 @@
           "degrees": "270"
         },
         {
-          "id": "57",
+          "id": "56",
           "start": "56",
           "end": "57",
           "type": "",
@@ -2520,7 +2534,7 @@
           "degrees": "270"
         },
         {
-          "id": "58",
+          "id": "57",
           "start": "57",
           "end": "58",
           "type": "",
@@ -2528,7 +2542,7 @@
           "degrees": "270"
         },
         {
-          "id": "59",
+          "id": "58",
           "start": "58",
           "end": "59",
           "type": "",
@@ -2536,7 +2550,7 @@
           "degrees": "270"
         },
         {
-          "id": "60",
+          "id": "59",
           "start": "59",
           "end": "60",
           "type": "",
@@ -2544,7 +2558,7 @@
           "degrees": "270"
         },
         {
-          "id": "61",
+          "id": "60",
           "start": "60",
           "end": "61",
           "type": "",
@@ -2552,7 +2566,7 @@
           "degrees": "270"
         },
         {
-          "id": "62",
+          "id": "61",
           "start": "61",
           "end": "62",
           "type": "",
@@ -2560,7 +2574,7 @@
           "degrees": "270"
         },
         {
-          "id": "63",
+          "id": "62",
           "start": "62",
           "end": "63",
           "type": "",
@@ -2568,7 +2582,7 @@
           "degrees": "270"
         },
         {
-          "id": "64",
+          "id": "63",
           "start": "63",
           "end": "64",
           "type": "",
@@ -2576,7 +2590,7 @@
           "degrees": "270"
         },
         {
-          "id": "65",
+          "id": "64",
           "start": "64",
           "end": "65",
           "type": "",
@@ -2584,7 +2598,7 @@
           "degrees": "270"
         },
         {
-          "id": "66",
+          "id": "65",
           "start": "65",
           "end": "66",
           "type": "",
@@ -2592,7 +2606,7 @@
           "degrees": "270"
         },
         {
-          "id": "67",
+          "id": "66",
           "start": "66",
           "end": "67",
           "type": "",
@@ -2600,7 +2614,7 @@
           "degrees": "270"
         },
         {
-          "id": "68",
+          "id": "67",
           "start": "67",
           "end": "68",
           "type": "",
@@ -2608,7 +2622,7 @@
           "degrees": "270"
         },
         {
-          "id": "69",
+          "id": "68",
           "start": "68",
           "end": "69",
           "type": "",
@@ -2616,7 +2630,7 @@
           "degrees": "270"
         },
         {
-          "id": "70",
+          "id": "69",
           "start": "69",
           "end": "70",
           "type": "",
@@ -2624,7 +2638,7 @@
           "degrees": "270"
         },
         {
-          "id": "71",
+          "id": "70",
           "start": "70",
           "end": "71",
           "type": "",
@@ -2632,7 +2646,7 @@
           "degrees": "270"
         },
         {
-          "id": "72",
+          "id": "71",
           "start": "71",
           "end": "72",
           "type": "",
@@ -2640,7 +2654,7 @@
           "degrees": "270"
         },
         {
-          "id": "73",
+          "id": "72",
           "start": "72",
           "end": "73",
           "type": "",
@@ -2648,7 +2662,7 @@
           "degrees": "270"
         },
         {
-          "id": "74",
+          "id": "73",
           "start": "73",
           "end": "74",
           "type": "",
@@ -2656,7 +2670,7 @@
           "degrees": "270"
         },
         {
-          "id": "75",
+          "id": "74",
           "start": "74",
           "end": "75",
           "type": "",
@@ -2664,7 +2678,7 @@
           "degrees": "270"
         },
         {
-          "id": "76",
+          "id": "75",
           "start": "75",
           "end": "76",
           "type": "",
@@ -2672,7 +2686,7 @@
           "degrees": "270"
         },
         {
-          "id": "77",
+          "id": "76",
           "start": "76",
           "end": "77",
           "type": "",
@@ -2680,7 +2694,7 @@
           "degrees": "270"
         },
         {
-          "id": "78",
+          "id": "77",
           "start": "77",
           "end": "78",
           "type": "",
@@ -2688,7 +2702,7 @@
           "degrees": "270"
         },
         {
-          "id": "79",
+          "id": "78",
           "start": "78",
           "end": "79",
           "type": "",
@@ -2696,7 +2710,7 @@
           "degrees": "270"
         },
         {
-          "id": "80",
+          "id": "79",
           "start": "79",
           "end": "80",
           "type": "",
@@ -2704,7 +2718,7 @@
           "degrees": "270"
         },
         {
-          "id": "81",
+          "id": "80",
           "start": "80",
           "end": "81",
           "type": "",
@@ -2712,7 +2726,7 @@
           "degrees": "270"
         },
         {
-          "id": "82",
+          "id": "81",
           "start": "81",
           "end": "82",
           "type": "",
@@ -2720,7 +2734,7 @@
           "degrees": "270"
         },
         {
-          "id": "83",
+          "id": "82",
           "start": "82",
           "end": "83",
           "type": "",
@@ -2728,7 +2742,7 @@
           "degrees": "270"
         },
         {
-          "id": "84",
+          "id": "83",
           "start": "83",
           "end": "84",
           "type": "",
@@ -2736,7 +2750,7 @@
           "degrees": "270"
         },
         {
-          "id": "85",
+          "id": "84",
           "start": "84",
           "end": "85",
           "type": "",
@@ -2744,7 +2758,7 @@
           "degrees": "270"
         },
         {
-          "id": "86",
+          "id": "85",
           "start": "85",
           "end": "86",
           "type": "",
@@ -2752,7 +2766,7 @@
           "degrees": "270"
         },
         {
-          "id": "87",
+          "id": "86",
           "start": "86",
           "end": "87",
           "type": "",
@@ -2760,7 +2774,7 @@
           "degrees": "270"
         },
         {
-          "id": "88",
+          "id": "87",
           "start": "87",
           "end": "88",
           "type": "",
@@ -2768,7 +2782,7 @@
           "degrees": "270"
         },
         {
-          "id": "89",
+          "id": "88",
           "start": "88",
           "end": "89",
           "type": "",
@@ -2776,7 +2790,7 @@
           "degrees": "270"
         },
         {
-          "id": "90",
+          "id": "89",
           "start": "89",
           "end": "90",
           "type": "",
@@ -2784,7 +2798,7 @@
           "degrees": "270"
         },
         {
-          "id": "91",
+          "id": "90",
           "start": "90",
           "end": "91",
           "type": "",
@@ -2792,7 +2806,7 @@
           "degrees": "270"
         },
         {
-          "id": "92",
+          "id": "91",
           "start": "91",
           "end": "92",
           "type": "",
@@ -2800,7 +2814,7 @@
           "degrees": "270"
         },
         {
-          "id": "93",
+          "id": "92",
           "start": "92",
           "end": "93",
           "type": "",
@@ -2808,7 +2822,7 @@
           "degrees": "270"
         },
         {
-          "id": "94",
+          "id": "93",
           "start": "93",
           "end": "94",
           "type": "",
@@ -2816,7 +2830,7 @@
           "degrees": "270"
         },
         {
-          "id": "95",
+          "id": "94",
           "start": "94",
           "end": "95",
           "type": "",
@@ -2824,7 +2838,7 @@
           "degrees": "270"
         },
         {
-          "id": "96",
+          "id": "95",
           "start": "95",
           "end": "96",
           "type": "",
@@ -2832,7 +2846,7 @@
           "degrees": "270"
         },
         {
-          "id": "97",
+          "id": "96",
           "start": "96",
           "end": "97",
           "type": "",
@@ -2840,7 +2854,7 @@
           "degrees": "270"
         },
         {
-          "id": "98",
+          "id": "97",
           "start": "97",
           "end": "98",
           "type": "",
@@ -2848,7 +2862,7 @@
           "degrees": "270"
         },
         {
-          "id": "99",
+          "id": "98",
           "start": "98",
           "end": "99",
           "type": "",
@@ -2856,7 +2870,7 @@
           "degrees": "270"
         },
         {
-          "id": "100",
+          "id": "99",
           "start": "99",
           "end": "100",
           "type": "",
@@ -2864,7 +2878,7 @@
           "degrees": "270"
         },
         {
-          "id": "101",
+          "id": "100",
           "start": "100",
           "end": "101",
           "type": "",
@@ -2872,7 +2886,7 @@
           "degrees": "270"
         },
         {
-          "id": "102",
+          "id": "101",
           "start": "101",
           "end": "102",
           "type": "",
@@ -2880,7 +2894,7 @@
           "degrees": "270"
         },
         {
-          "id": "103",
+          "id": "102",
           "start": "102",
           "end": "103",
           "type": "",
@@ -2888,7 +2902,7 @@
           "degrees": "270"
         },
         {
-          "id": "104",
+          "id": "103",
           "start": "103",
           "end": "104",
           "type": "",
@@ -2896,7 +2910,7 @@
           "degrees": "270"
         },
         {
-          "id": "105",
+          "id": "104",
           "start": "104",
           "end": "105",
           "type": "",
@@ -2904,7 +2918,7 @@
           "degrees": "270"
         },
         {
-          "id": "106",
+          "id": "105",
           "start": "105",
           "end": "106",
           "type": "",
@@ -2912,7 +2926,7 @@
           "degrees": "270"
         },
         {
-          "id": "107",
+          "id": "106",
           "start": "106",
           "end": "107",
           "type": "",
@@ -2920,7 +2934,7 @@
           "degrees": "270"
         },
         {
-          "id": "108",
+          "id": "107",
           "start": "107",
           "end": "108",
           "type": "",
@@ -2928,7 +2942,7 @@
           "degrees": "270"
         },
         {
-          "id": "109",
+          "id": "108",
           "start": "108",
           "end": "109",
           "type": "",
@@ -2936,7 +2950,7 @@
           "degrees": "270"
         },
         {
-          "id": "110",
+          "id": "109",
           "start": "109",
           "end": "110",
           "type": "",
@@ -2944,7 +2958,7 @@
           "degrees": "270"
         },
         {
-          "id": "111",
+          "id": "110",
           "start": "110",
           "end": "111",
           "type": "",
@@ -2952,7 +2966,7 @@
           "degrees": "270"
         },
         {
-          "id": "112",
+          "id": "111",
           "start": "111",
           "end": "112",
           "type": "",
@@ -2960,7 +2974,7 @@
           "degrees": "270"
         },
         {
-          "id": "113",
+          "id": "112",
           "start": "112",
           "end": "113",
           "type": "",
@@ -2968,7 +2982,7 @@
           "degrees": "270"
         },
         {
-          "id": "114",
+          "id": "113",
           "start": "113",
           "end": "114",
           "type": "",
@@ -2976,7 +2990,7 @@
           "degrees": "270"
         },
         {
-          "id": "115",
+          "id": "114",
           "start": "114",
           "end": "115",
           "type": "",
@@ -2984,7 +2998,7 @@
           "degrees": "270"
         },
         {
-          "id": "116",
+          "id": "115",
           "start": "115",
           "end": "116",
           "type": "",
@@ -2992,7 +3006,7 @@
           "degrees": "270"
         },
         {
-          "id": "117",
+          "id": "116",
           "start": "116",
           "end": "117",
           "type": "",
@@ -3000,7 +3014,7 @@
           "degrees": "270"
         },
         {
-          "id": "118",
+          "id": "117",
           "start": "117",
           "end": "118",
           "type": "",
@@ -3008,15 +3022,15 @@
           "degrees": "270"
         },
         {
-          "id": "119",
+          "id": "118",
           "start": "118",
           "end": "119",
-          "type": "stairs",
+          "type": "",
           "accessible": "true",
           "degrees": "270"
         },
         {
-          "id": "120",
+          "id": "119",
           "start": "119",
           "end": "120",
           "type": "stairs",
@@ -3024,31 +3038,31 @@
           "degrees": "270"
         },
         {
-          "id": "121",
+          "id": "120",
           "start": "120",
           "end": "121",
+          "type": "stairs",
+          "accessible": "true",
+          "degrees": "270"
+        },
+        {
+          "id": "121",
+          "start": "121",
+          "end": "122",
           "type": "",
           "accessible": "true",
           "degrees": "270"
         },
         {
           "id": "122",
-          "start": "121",
-          "end": "122",
+          "start": "122",
+          "end": "123",
           "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
           "id": "123",
-          "start": "122",
-          "end": "123",
-          "type": "",
-          "accessible": "true",
-          "degrees": "270"
-        },
-        {
-          "id": "124",
           "start": "123",
           "end": "124",
           "type": "",
@@ -3056,23 +3070,23 @@
           "degrees": "270"
         },
         {
-          "id": "125",
+          "id": "124",
           "start": "124",
           "end": "125",
+          "type": "",
+          "accessible": "true",
+          "degrees": "270"
+        },
+        {
+          "id": "125",
+          "start": "125",
+          "end": "126",
           "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
           "id": "126",
-          "start": "125",
-          "end": "126",
-          "type": "",
-          "accessible": "true",
-          "degrees": "270"
-        },
-        {
-          "id": "127",
           "start": "126",
           "end": "127",
           "type": "",
@@ -3080,7 +3094,7 @@
           "degrees": "270"
         },
         {
-          "id": "128",
+          "id": "127",
           "start": "127",
           "end": "128",
           "type": "",
@@ -3088,15 +3102,15 @@
           "degrees": "270"
         },
         {
-          "id": "129",
+          "id": "128",
           "start": "128",
           "end": "129",
-          "type": "stairs",
+          "type": "",
           "accessible": "true",
           "degrees": "270"
         },
         {
-          "id": "130",
+          "id": "129",
           "start": "129",
           "end": "130",
           "type": "stairs",
@@ -3104,7 +3118,7 @@
           "degrees": "270"
         },
         {
-          "id": "131",
+          "id": "130",
           "start": "130",
           "end": "131",
           "type": "stairs",
@@ -3112,15 +3126,15 @@
           "degrees": "270"
         },
         {
-          "id": "132",
+          "id": "131",
           "start": "131",
           "end": "132",
-          "type": "",
+          "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
-          "id": "133",
+          "id": "132",
           "start": "132",
           "end": "133",
           "type": "",
@@ -3128,7 +3142,7 @@
           "degrees": "270"
         },
         {
-          "id": "134",
+          "id": "133",
           "start": "133",
           "end": "134",
           "type": "",
@@ -3136,7 +3150,7 @@
           "degrees": "270"
         },
         {
-          "id": "135",
+          "id": "134",
           "start": "134",
           "end": "135",
           "type": "",
@@ -3144,17 +3158,25 @@
           "degrees": "270"
         },
         {
-          "id": "136",
+          "id": "135",
           "start": "135",
           "end": "136",
+          "type": "",
+          "accessible": "true",
+          "degrees": "270"
+        },
+        {
+          "id": "136",
+          "start": "136",
+          "end": "137",
           "type": "stairs",
           "accessible": "true",
           "degrees": "270"
         },
         {
           "id": "137",
-          "start": "136",
-          "end": "137",
+          "start": "137",
+          "end": "138",
           "type": "",
           "accessible": "true",
           "degrees": "270"

@@ -15,6 +15,15 @@ var edgeIndex = 1;
 var previousBeaconLevel;
 if (needToUpdateJsonOfTheMap) {
     mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
+
+    // per prima cosa aggiungo il nodo e il beacon relativi all'ingresso (e quindi alla torretta di Alexa), che purtroppo non è presente nel DB
+    const destination = [];
+    destination.push(`[\"ingresso principale\"]`);
+    mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "${degrees}",\"info\": \"\"}`));
+    mapBeacons.push(JSON.parse(`{\"id\": \"${beaconIndex}\", \"major\": \"3\"}`));
+    previousBeaconLevel = 3;
+    nodeIndex = nodeIndex + 1;
+    beaconIndex = beaconIndex +1;
 }
 
 // qua mi salvo il file JSON
@@ -140,25 +149,18 @@ function addName(name, loc, partOfTheName) {
     loc.push(partOfTheName + "" + arr[arr.length - 1]);
 }
 
-function addNodeAndBeacon(destination, level) { //, arrayOfDestination) {
-    // arrayOfDestination,push(destination);
-    // `{\"name\": {\"value\": \"${element}\"}}`
+function addNodeAndBeacon(destination, level) {
     const degrees = (Math.random() * 4) === 0 ? 0 : (Math.random() * 4) === 1 ? 90 : (Math.random() * 4) === 2 ? 180 : 270;
-    // mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "${degrees}",\"info\": \"\"}`));
     mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "${degrees}",\"info\": \"\"}`));
-    // mapJson.buildings[0].nodes = mapNodes;
-    // mapJson.buildings[0].nodes[nodeIndex].name = destination;
     mapBeacons.push(JSON.parse(`{\"id\": \"${beaconIndex}\", \"major\": \"${level}\"}`));
-    if (mapBeacons.length > 1) {
-        // se i beacons sono a livelli diversi, metto una scala
-        const type = (previousBeaconLevel != level) ? "stairs" : ""
-        mapEdges.push(JSON.parse(`{\"id\": \"${edgeIndex}\",\"start\": \"${beaconIndex - 1}\",\"end\": \"${beaconIndex}\",\"type\": \"${type}\",\"accessible\": \"true\",\"degrees\": \"${degrees}\"}`));
-    }
+    // se i beacons sono a livelli diversi, metto una scala
+    const type = (previousBeaconLevel != level) ? "stairs" : ""
+    // avendo già un altro beacon (quello dell'ingresso) posso procedere con gli archi (mi servono 2 beacon per cominciare)
+    mapEdges.push(JSON.parse(`{\"id\": \"${edgeIndex}\",\"start\": \"${beaconIndex - 1}\",\"end\": \"${beaconIndex}\",\"type\": \"${type}\",\"accessible\": \"true\",\"degrees\": \"${degrees}\"}`));
+    edgeIndex = edgeIndex + 1;
     previousBeaconLevel = level;
     nodeIndex = nodeIndex + 1;
     beaconIndex = beaconIndex +1;
-    edgeIndex = edgeIndex + 1;
-    // return arrayOfDestination;
 }
 
 // salvo i nuovi valori nel JSON scaricato

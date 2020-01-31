@@ -208,7 +208,9 @@ function tempor() {
   const edges = mapJson.buildings[0].arcs;
   // beaconsList.forEach(beacon => console.log("beaconsID: " + beacon.id));
   const beaconMap = new BeaconMap(beaconsList, edges);
-  const path = beaconMap.getPath(beaconsList[3], beaconsList[9]);
+  const startBeacon;
+  const finiscBeacon;
+  const path = beaconMap.getPath(startBeacon, finiscBeacon);
   path.beacons.forEach(beacon => console.log("beacon ID: " + beacon.id));
   path.edges.forEach(edge => {
     console.log("edge id: " + edge.id);
