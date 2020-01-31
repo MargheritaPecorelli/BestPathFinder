@@ -7,109 +7,27 @@ const stringSimilarity = require('string-similarity');
 const fs = require('fs');
 const BeaconMap = require('./BeaconMap');
 
-// const MySyncModule = require('./syncConnectionToDB');
-// const Location = require('./model/location');
-
 // const today = new Date().toLocaleDateString();
 // const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
 const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=29/11/2019&Edificio=EST_EXZUCC1";
+
+// startBeaconID è sempre quello della torretta di Alexa
+var startBeaconID;
+const mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
+mapJson.buildings[0].nodes.forEach(node => {
+  if (node.name[0] === "ingresso principale") {
+    startBeaconID = node.beacon; 
+  }
+});
 
 const right = "gira a destra";
 const left = "gira a sinistra";
 const straight = "vai dritto";
 const back = "torna indietro";
 
-// const locations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Posti FROM informazioni", (error, result) => {
-//   if (error) {
-//     throw error;
-//   }
-//   const locs = [];
-//   result.forEach(item => {
-//     // new Location(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats)
-//     var name = item.Nome;
-//     var description = item.Descrizione;
-//     var roomNumeber = null;
-//     var level;
-//     var floor;
-//     var seats = item.Posti;
-//     if (item.Nome.includes("-")) {
-//       name = item.Nome.split("-")[1];
-//       if (item.Nome.startsWith("S")) {
-//         roomNumeber = item.Nome.split(" ")[1];
-//       } else {
-//         roomNumeber = item.Nome.split("-")[0].split(" ")[0];
-//       }
-//       switch(roomNumeber.substring(0, 1)) {
-//         case '1':
-//           level = 1;
-//           floor = 'piano interrato';
-//           break;
-//         case '2':
-//           level = 2;
-//           floor = 'piano terra';
-//           break;
-//         case '3':
-//           level = 3;
-//           floor = 'primo piano';
-//           break;
-//         case '4':
-//           level = 4;
-//           floor = 'secondo piano';
-//           break;
-//       }
-//     }
-//     if (typeof level === "undefined") {
-//       if (description.includes("piano interrato")) {
-//         level = 1;
-//         floor = 'piano interrato';
-//       } else if (description.includes("piano terra")) {
-//         level = 2;
-//         floor = 'piano terra';
-//       } else if (description.includes("primo piano")) {
-//         level = 3;
-//         floor = 'primo piano';
-//       } else if (description.includes("secondo piano")) {
-//         level = 4;
-//         floor = 'secondo piano';
-//       } else {
-//         level = null;
-//         floor = null;
-//       }
-//     }
-//     locs.push(new Location(name, description, roomNumeber, level, floor, seats));
-//   });
-//   return locs;
-// });
-// console.log(locations[83]);
+// =======================================================================================================================================================================
 
-// const professors = [];
-// locations.forEach(item => {
-//   if (item.description().includes("Ufficio")) {
-//     if (item.name().includes(",")) {
-//       var names = item.name().split(",");
-//       names.forEach(name => {
-//         professors.push(name);
-//       });
-//     } else {
-//       professors.push(item.name());
-//     }
-//   }
-// });
-// console.log(professors);
-
-// const activities = [];
-// var res = Request('GET', myUrl);
-// const body = res.getBody().toString('utf8');
-// body.split("<Evento>").forEach(item => {
-//   if (!item.includes("?xml")) {
-//     activities.push(item.split("<Descrizione>")[1].split("<")[0]);
-//   }
-// });
-// console.log(activities);
-
-// ==============================================================================================================================================================
-
-tempor();
+// tempor("laboratorio 2.2");
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -149,9 +67,7 @@ const CompletedPathFinderHandler = {
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
-
-    
-
+    var speechOutput = `Mi dispiace, ma non capisco`;
 
     // VECCHIA VERSIONE
     // var speechOutput = `mi dispiace ma non capisco: ${destination}`;
@@ -196,33 +112,82 @@ const CompletedPathFinderHandler = {
     //   */
     // }
     
+    const beaconsList = mapJson.buildings[0].beacons;
+    const edges = mapJson.buildings[0].arcs;
+
+    const beaconMap = new BeaconMap(beaconsList, edges);
+    
+    // console.log("startBeaconID: " + startBeaconID);
+    var finiscBeacon;
+    mapJson.buildings[0].nodes.forEach(node => {
+      if ((destination.includes("laboratorio")) && (destination.includes("."))) {
+        const labNumber = destination.split(" ")[1];
+        if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
+          finiscBeacon = node.beacon;
+        }
+      } else if ((node.name[0] === destination) || (node.name[1] === destination) || (node.name[0].includes(destination))) {
+        finiscBeacon = node.beacon;
+      }
+    });
+    // console.log("finiscBeacon: " + finiscBeacon);
+
+    if (finiscBeacon != undefined) {
+      const path = beaconMap.getPath(startBeacon, finiscBeacon);
+      // path.beacons.forEach(beacon => console.log("beacon ID: " + beacon.id));
+      // path.edges.forEach(edge => {
+      //   console.log("edge id: " + edge.id);
+      //   console.log("edge start: " + edge.start);
+      //   console.log("edge end: " + edge.end);
+      //   console.log("edge accessible: " + edge.accessible);
+      //   console.log("edge degrees: " + edge.degrees);
+      //   console.log("edge type: " + edge.type);
+      // });
+      const indications = getRemainingDirections(path.edges);
+      indications.forEach(indication => {
+        speechOutput = indication + " poi ";
+      });
+      speechOutput = speechOutput.substring(0,speechOutput.length - 5);
+    }
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
   }
 }
 
-function tempor() {
-  var mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
-  const beaconsList = mapJson.buildings[0].beacons;
-  const edges = mapJson.buildings[0].arcs;
-  // beaconsList.forEach(beacon => console.log("beaconsID: " + beacon.id));
-  const beaconMap = new BeaconMap(beaconsList, edges);
-  const startBeacon;
-  const finiscBeacon;
-  const path = beaconMap.getPath(startBeacon, finiscBeacon);
-  path.beacons.forEach(beacon => console.log("beacon ID: " + beacon.id));
-  path.edges.forEach(edge => {
-    console.log("edge id: " + edge.id);
-    // console.log("edge start: " + edge.start);
-    // console.log("edge end: " + edge.end);
-    // console.log("edge accessible: " + edge.accessible);
-    // console.log("edge degrees: " + edge.degrees);
-    // console.log("edge type: " + edge.type);
-  });
-  const indications = getRemainingDirections(path.edges);
-  indications.forEach(indication => console.log(indication + " poi "));
-}
+// function tempor(destination) {
+  // const mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
+  // const beaconsList = mapJson.buildings[0].beacons;
+  // const edges = mapJson.buildings[0].arcs;
+  // // beaconsList.forEach(beacon => console.log("beaconsID: " + beacon.id));
+  // const beaconMap = new BeaconMap(beaconsList, edges);
+  // // console.log("startBeaconID: " + startBeaconID);
+  // var finiscBeacon;
+  // mapJson.buildings[0].nodes.forEach(node => {
+  //   if ((destination.includes("laboratorio")) && (destination.includes("."))) {
+  //     const labNumber = destination.split(" ")[1];
+  //     if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
+  //       finiscBeacon = node.beacon;
+  //     }
+  //   } else if ((node.name[0] === destination) || (node.name[1] === destination) || (node.name[0].includes(destination))) {
+  //     finiscBeacon = node.beacon;
+  //   }
+  // });
+  // // console.log("finiscBeacon: " + finiscBeacon);
+  // if (finiscBeacon != undefined) {
+  //   const path = beaconMap.getPath(startBeacon, finiscBeacon);
+  //   path.beacons.forEach(beacon => console.log("beacon ID: " + beacon.id));
+  //   path.edges.forEach(edge => {
+  //     console.log("edge id: " + edge.id);
+  //     // console.log("edge start: " + edge.start);
+  //     // console.log("edge end: " + edge.end);
+  //     // console.log("edge accessible: " + edge.accessible);
+  //     // console.log("edge degrees: " + edge.degrees);
+  //     // console.log("edge type: " + edge.type);
+  //   });
+  //   const indications = getRemainingDirections(path.edges);
+  //   indications.forEach(indication => console.log(indication + " poi "));
+  // }
+// }
 
 // funzione simile a quella di Giacomo Mambelli (mandata per email)
 function getRemainingDirections(edges) {
