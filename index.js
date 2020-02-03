@@ -24,10 +24,12 @@ const right = "gira a destra";
 const left = "gira a sinistra";
 const straight = "vai dritto";
 const back = "torna indietro";
+const stairs = "sali le scale";
 
 // =======================================================================================================================================================================
 
 // tempor("laboratorio 2.2");
+// tempor("stanza 2003");
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -69,84 +71,38 @@ const CompletedPathFinderHandler = {
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
     var speechOutput = `Mi dispiace, ma non capisco`;
 
-    // VECCHIA VERSIONE
-    // var speechOutput = `mi dispiace ma non capisco: ${destination}`;
-    // var speechOutput;
-    // var isLocation = false;
-    // locations.forEach(item => {
-    //   const locaName = item.name();
-    //   if(destination.includes(locaName)) {
-    //     isLocation = true;
-    //     if (disability.includes('no') || disability.includes('nesssuna')) {
-    //       speechOutput = `per raggiungere ${locaName} devi ...`;
-    //     } else {
-    //       speechOutput = `per raggiungere ${locaName} con disabilità ${disability}, devi ...`;
-    //     }
-    //   }
-    // });
-    
-    // if(!isLocation) {
-    //   var professorName;
-    //   var thereIsProf = false;
-    //   professors.forEach(prof => {
-    //     if(destination.includes(prof)) {
-    //       professorName = `${prof}`;
-    //       thereIsProf = true;
-    //       speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`;
-    //     }
-    //   });
-      
-    //   activities.forEach(activity => {
-    //     if(destination.includes(activity)) {
-    //       speechOutput = `mi hai chiesto dove si trova ${activity}`;
-    //       if(thereIsProf) {
-    //         speechOutput = speechOutput + ` del prof ${professorName}`;
-    //       }
-    //     }
-    //   });
-    //   /*
-    //   // l'ho messo direttamente dentro a: if(!isLocation)
-    //   if(!isAnActivity && thereIsProf) {
-    //     speechOutput = `mi hai chiesto dove si trova il prof ${professorName}`
-    //   }
-    //   */
-    // }
-    
     const beaconsList = mapJson.buildings[0].beacons;
     const edges = mapJson.buildings[0].arcs;
-
+  
     const beaconMap = new BeaconMap(beaconsList, edges);
     
-    // console.log("startBeaconID: " + startBeaconID);
-    var finiscBeacon;
+    var finishBeacon;
     mapJson.buildings[0].nodes.forEach(node => {
       if ((destination.includes("laboratorio")) && (destination.includes("."))) {
         const labNumber = destination.split(" ")[1];
         if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
-          finiscBeacon = node.beacon;
+          finishBeacon = node.beacon;
         }
       } else if ((node.name[0] === destination) || (node.name[1] === destination) || (node.name[0].includes(destination))) {
-        finiscBeacon = node.beacon;
+        finishBeacon = node.beacon;
       }
     });
-    // console.log("finiscBeacon: " + finiscBeacon);
-
-    if (finiscBeacon != undefined) {
-      const path = beaconMap.getPath(startBeacon, finiscBeacon);
-      // path.beacons.forEach(beacon => console.log("beacon ID: " + beacon.id));
-      // path.edges.forEach(edge => {
-      //   console.log("edge id: " + edge.id);
-      //   console.log("edge start: " + edge.start);
-      //   console.log("edge end: " + edge.end);
-      //   console.log("edge accessible: " + edge.accessible);
-      //   console.log("edge degrees: " + edge.degrees);
-      //   console.log("edge type: " + edge.type);
-      // });
+    if (finishBeacon != undefined) {
+      speechOutput = "";
+      
+      const path = beaconMap.getPath(startBeaconID, finishBeacon);  
       const indications = getRemainingDirections(path.edges);
+  
+      var previousIndication;
       indications.forEach(indication => {
-        speechOutput = indication + " poi ";
+        // if (previousIndication === undefined || indication === stairs) {
+        if (previousIndication === undefined) {
+          speechOutput = speechOutput + indication;
+        } else if (!(indication === straight && previousIndication === straight)) {
+          speechOutput = speechOutput + " poi " + indication;
+        }
+        previousIndication = indication;
       });
-      speechOutput = speechOutput.substring(0,speechOutput.length - 5);
     }
     return handlerInput.responseBuilder
       .speak(speechOutput)
@@ -155,38 +111,46 @@ const CompletedPathFinderHandler = {
 }
 
 // function tempor(destination) {
-  // const mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
-  // const beaconsList = mapJson.buildings[0].beacons;
-  // const edges = mapJson.buildings[0].arcs;
-  // // beaconsList.forEach(beacon => console.log("beaconsID: " + beacon.id));
-  // const beaconMap = new BeaconMap(beaconsList, edges);
-  // // console.log("startBeaconID: " + startBeaconID);
-  // var finiscBeacon;
-  // mapJson.buildings[0].nodes.forEach(node => {
-  //   if ((destination.includes("laboratorio")) && (destination.includes("."))) {
-  //     const labNumber = destination.split(" ")[1];
-  //     if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
-  //       finiscBeacon = node.beacon;
-  //     }
-  //   } else if ((node.name[0] === destination) || (node.name[1] === destination) || (node.name[0].includes(destination))) {
-  //     finiscBeacon = node.beacon;
-  //   }
-  // });
-  // // console.log("finiscBeacon: " + finiscBeacon);
-  // if (finiscBeacon != undefined) {
-  //   const path = beaconMap.getPath(startBeacon, finiscBeacon);
-  //   path.beacons.forEach(beacon => console.log("beacon ID: " + beacon.id));
-  //   path.edges.forEach(edge => {
-  //     console.log("edge id: " + edge.id);
-  //     // console.log("edge start: " + edge.start);
-  //     // console.log("edge end: " + edge.end);
-  //     // console.log("edge accessible: " + edge.accessible);
-  //     // console.log("edge degrees: " + edge.degrees);
-  //     // console.log("edge type: " + edge.type);
-  //   });
-  //   const indications = getRemainingDirections(path.edges);
-  //   indications.forEach(indication => console.log(indication + " poi "));
-  // }
+//   var speechOutput = `Mi dispiace, ma non capisco`;
+//   const beaconsList = mapJson.buildings[0].beacons;
+//   const edges = mapJson.buildings[0].arcs;
+
+//   const beaconMap = new BeaconMap(beaconsList, edges);
+  
+//   var finishBeacon;
+//   mapJson.buildings[0].nodes.forEach(node => {
+//     if ((destination.includes("laboratorio")) && (destination.includes("."))) {
+//       const labNumber = destination.split(" ")[1];
+//       if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
+//         finishBeacon = node.beacon;
+//       }
+//     } else if ((node.name[0] === destination) || (node.name[1] === destination) || (node.name[0].includes(destination))) {
+//       finishBeacon = node.beacon;
+//     }
+//   });
+
+//   if (finishBeacon != undefined) {
+//     speechOutput = "";
+    
+//     const path = beaconMap.getPath(startBeaconID, finishBeacon);
+//     // path.beacons.forEach(beacon => speechOutput = speechOutput + "beacon: " + beacon.id + "\n");
+//     // path.edges.forEach(edge => speechOutput = speechOutput + "edge: " + edge.id + "\n");
+//     // speechOutput = speechOutput + "length (3*edges): " + path.length + "\n";
+
+//     const indications = getRemainingDirections(path.edges);
+
+//     var previousIndication;
+//     indications.forEach(indication => {
+//       // if (previousIndication === undefined || indication === stairs) {
+//       if (previousIndication === undefined) {
+//         speechOutput = speechOutput + indication;
+//       } else if (!(indication === straight && previousIndication === straight)) {
+//         speechOutput = speechOutput + " poi " + indication;
+//       }
+//       previousIndication = indication;
+//     });
+//   }
+//   console.log(speechOutput);
 // }
 
 // funzione simile a quella di Giacomo Mambelli (mandata per email)
@@ -195,35 +159,50 @@ function getRemainingDirections(edges) {
   const indications = [];
   edges.forEach(edge => {
     if (previousEdge === undefined) {
-      console.log("il primo è undefined");
+      // il primo è undefined
       // sto ipotizzando che la torretta di Alexa sia sotto gli schermi che ci sono all'ingresso di via dell'università 50,
       // quindi se si guarda verso la torretta, si sta guardando a nord (circa) secondo Google Maps
-      if (edge.degrees >= 0 && edge.degrees < 90) {
-        indications.push(`dirigiti verso est, ovvero ${right}`);
-      } else if (edge.degrees >= 90 && edge.degrees < 180) {
-        indications.push(`dirigiti verso sud, ovvero ${back}`);
-      } else if (edge.degrees >= 180 && edge.degrees < 270) {
-        indications.push(`dirigiti verso ovest, ovvero ${left}`);
-      } else if (edge.degrees >= 270 && edge.degrees < 360) {
-        indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight}`);
-      }
+      // if (edge.degrees >= 0 && edge.degrees < 90) {
+      //   indications.push(`dirigiti verso est, ovvero ${right},`);
+      // } else if (edge.degrees >= 90 && edge.degrees < 180) {
+      //   indications.push(`dirigiti verso sud, ovvero ${back},`);
+      // } else if (edge.degrees >= 180 && edge.degrees < 270) {
+      //   indications.push(`dirigiti verso ovest, ovvero ${left},`);
+      // } else if (edge.degrees >= 270 && edge.degrees < 360) {
+      //   indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight},`);
+      // }
+      if (edge.degrees === '0') {
+        indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight},`);
+      } else if (edge.degrees === '90') {        
+        indications.push(`dirigiti verso est, ovvero ${right},`);
+      } else if (edge.degrees === '180') {
+        indications.push(`dirigiti verso sud, ovvero ${back},`);
+      } else if (edge.degrees === '270') {
+        indications.push(`dirigiti verso ovest, ovvero ${left},`);
+      } 
     } else if(previousEdge.degrees === edge.degrees) {
       // hanno gli stessi gradi rispetto al nord => sono nella stessa direzione
       indications.push(straight);
-    } else if(((previousEdge.degrees + 90) % 360) === edge.degrees) {
-      // se c'è una differenza di esattamente 90° (non mi piace che debba essere esattamente 90, avrei preferito una range es tra 80 e 100), allora devo girare a destra
+    } else if(((parseInt(previousEdge.degrees) + 90) % 360) === parseInt(edge.degrees)) {
+      // se c'è una differenza di esattamente 90°, allora devo girare a destra
       indications.push(right);
-    } else if(((previousEdge.degrees + 270) % 360) === edge.degrees) {
+    } else if(((parseInt(previousEdge.degrees) + 270) % 360) === parseInt(edge.degrees)) {
       // se c'è una differenza di esattamente 270°, allora devo girare a sinistra
       indications.push(left);
-    } else if(((previousEdge.degrees + 180) % 360) === edge.degrees) {
+    } else if(((parseInt(previousEdge.degrees) + 180) % 360) === parseInt(edge.degrees)) {
       // se c'è una differenza di esattamente 180°, allora devo tornare indietro (altrimenti devo finire le scale => non dico nulla)
       if(!(previousEdge.type == "stairs" && edge.type == "stairs")) {
         indications.push(back);
       }
     }
+    // se sono delle scale, glielo dico (così l'informazione è più precisa)
+    if (edge.type == "stairs") {
+      indications.push(stairs);
+    }
+
     previousEdge = edge;
   });
+
   indications.push("sei arrivato!")
   return indications;
 }

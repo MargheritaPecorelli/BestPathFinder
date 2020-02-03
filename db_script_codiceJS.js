@@ -19,7 +19,7 @@ if (needToUpdateJsonOfTheMap) {
     // per prima cosa aggiungo il nodo e il beacon relativi all'ingresso (e quindi alla torretta di Alexa), che purtroppo non è presente nel DB
     const destination = [];
     destination.push(`[\"ingresso principale\"]`);
-    mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "${degrees}",\"info\": \"\"}`));
+    mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "0",\"info\": \"\"}`));
     mapBeacons.push(JSON.parse(`{\"id\": \"${beaconIndex}\", \"major\": \"3\"}`));
     previousBeaconLevel = 3;
     nodeIndex = nodeIndex + 1;
@@ -136,7 +136,6 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
             }
         }
     });
-    // console.log(`locs: ${locs}`);
     return locations;
 });
 
@@ -150,7 +149,8 @@ function addName(name, loc, partOfTheName) {
 }
 
 function addNodeAndBeacon(destination, level) {
-    const degrees = (Math.random() * 4) === 0 ? 0 : (Math.random() * 4) === 1 ? 90 : (Math.random() * 4) === 2 ? 180 : 270;
+    const random = Math.floor(Math.random() * 4);
+    const degrees = (random === 0) ? 0 : (random === 1) ? 90 : (random === 2) ? 180 : 270;
     mapNodes.push(JSON.parse(`{\"id\": \"${nodeIndex}\",\"beacon\": \"${beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "${degrees}",\"info\": \"\"}`));
     mapBeacons.push(JSON.parse(`{\"id\": \"${beaconIndex}\", \"major\": \"${level}\"}`));
     // se i beacons sono a livelli diversi, metto una scala

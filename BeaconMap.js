@@ -48,7 +48,7 @@ class BeaconMap {
               "edges": [],
               "length": pathIDs.cost
           };
-          for (var i=0; i<pathIDs.path.length-1; i++) {
+          for (var i = 0; i < pathIDs.path.length - 1; i++) {
               const start = pathIDs.path[i];
               const endIndex = i+1;
               const end = pathIDs.path[endIndex];
@@ -56,7 +56,7 @@ class BeaconMap {
               path.edges[i] = this.matrix[start][end];
           }
           return path;
-      }else return null;
+      } else return null;
   }
 
 
