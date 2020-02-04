@@ -21,7 +21,7 @@ class BeaconMap {
     this.isAccessible = accessible;
     this.defaultEdgeLength = defaultEdgeLength;
     const beaconEdges = (this.isAccessible) ? edges.filter((edge) => {
-      return edge.accessible == "true"
+      return edge.accessible === "true"
     }) : edges;
     this.initGraph(beaconEdges);
   }
