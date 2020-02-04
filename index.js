@@ -20,20 +20,23 @@ mapJson.buildings[0].nodes.forEach(node => {
   }
 });
 
-const right = " poi gira a destra";
-const left = " poi gira a sinistra";
-const straight = " poi vai dritto";
-const back = " poi torna indietro";
-const stairs = " e prendi le scale";
-const elevator = " e prendi l'ascensore";
+const right = "gira a destra, poi";
+const left = "gira a sinistra, poi";
+const straight = "vai dritto, poi";
+const back = "torna indietro, poi";
+const stairs = "prendi le scale";
+const elevator = "prendi l'ascensore";
 
 // =======================================================================================================================================================================
 
-// tempor("laboratorio 2.2");
+// tempor("laboratorio 2.2", "no");
 // tempor("stanza 2003", "visiva");
 // tempor("stanza 2003", "no");
 // tempor("stanza 2003", "motoria");
-// tempor("viroli", "no");
+// tempor("viroli", "motoria");
+// tempor("aula 2.11", "no");
+// tempor("aula 2.1", "no");
+// tempor("aula 2.13", "no");
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -77,18 +80,30 @@ const CompletedPathFinderHandler = {
 
     const beaconsList = mapJson.buildings[0].beacons;
     const edges = mapJson.buildings[0].arcs;
+    const nodes = mapJson.buildings[0].nodes;
     
     var finishBeacon;
-    mapJson.buildings[0].nodes.forEach(node => {
+    nodes.forEach(node => {
       if ((destination.includes("laboratorio")) && (destination.includes("."))) {
         const labNumber = destination.split(" ")[1];
         if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
           finishBeacon = node.beacon;
         }
-      } else if ((node.name[0] === destination) || (node.name[1] === destination) || (node.name[0].includes(destination))) {
+      } else if ((node.name[0] === destination) || (node.name[2] === destination)) {
         finishBeacon = node.beacon;
       }
     });
+
+    // se finishBeacon è undefined, vuol dire che non l'ho trovato, allora provo a vedere se destination è inclusa in qualche nodo.
+    // non l'ho fatto prima in quanto con destination = aula 2.1, mi tornava aula 2.13, perché prima di verificare node.name[0] === destination
+    // verificava node.name[0].includes(destination).
+    if (finishBeacon === undefined) {nishBeacon = node.beacon;
+      nodes.forEach(node => {
+        if (node.name[0].includes(destination)) {
+          finishBeacon = node.beacon;
+        }
+      });
+    }
 
     if (finishBeacon != undefined) {
       speechOutput = "";
@@ -104,15 +119,12 @@ const CompletedPathFinderHandler = {
       }
       
       const path = beaconMap.getPath(startBeaconID, finishBeacon);
-      // path.beacons.forEach(beacon => speechOutput = speechOutput + "beacon: " + beacon.id + "\n");
-      path.edges.forEach(edge => speechOutput = speechOutput + "edge: " + edge.id + "\n");
-      // speechOutput = speechOutput + "length (3*edges): " + path.length + "\n";
 
-      const indications = getRemainingDirections(path.edges, beaconsList);
+      // const indications = getRemainingDirections(path.edges, beaconsList);
+      const indications = getRemainingDirections(path.edges, path.beacons, nodes);
 
       var previousIndication;
       indications.forEach(indication => {
-        // if (previousIndication === undefined || indication === stairs) {
         if (previousIndication === undefined || indication.includes("fino al livello numero")) {
           speechOutput = speechOutput + indication;
         } else if (!(indication === straight && previousIndication === straight)) {
@@ -131,18 +143,30 @@ const CompletedPathFinderHandler = {
 //   var speechOutput = `Mi dispiace, ma non capisco`;
 //   const beaconsList = mapJson.buildings[0].beacons;
 //   const edges = mapJson.buildings[0].arcs;
+//   const nodes = mapJson.buildings[0].nodes;
   
 //   var finishBeacon;
-//   mapJson.buildings[0].nodes.forEach(node => {
+//   nodes.forEach(node => {
 //     if ((destination.includes("laboratorio")) && (destination.includes("."))) {
 //       const labNumber = destination.split(" ")[1];
 //       if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
 //         finishBeacon = node.beacon;
 //       }
-//     } else if ((node.name[0] === destination) || (node.name[1] === destination) || (node.name[0].includes(destination))) {
+//     } else if ((node.name[0] === destination) || (node.name[2] === destination)) {
 //       finishBeacon = node.beacon;
 //     }
 //   });
+
+//   // se finishBeacon è undefined, vuol dire che non l'ho trovato, allora provo a vedere se destination è inclusa in qualche nodo.
+//   // non l'ho fatto prima in quanto con destination = aula 2.1, mi tornava aula 2.13, perché prima di verificare node.name[0] === destination
+//   // verificava node.name[0].includes(destination).
+//   if (finishBeacon === undefined) {nishBeacon = node.beacon;
+//     nodes.forEach(node => {
+//       if (node.name[0].includes(destination)) {
+//         finishBeacon = node.beacon;
+//       }
+//     });
+//   }
 
 //   if (finishBeacon != undefined) {
 //     speechOutput = "";
@@ -158,15 +182,12 @@ const CompletedPathFinderHandler = {
 //     }
     
 //     const path = beaconMap.getPath(startBeaconID, finishBeacon);
-//     // path.beacons.forEach(beacon => speechOutput = speechOutput + "beacon: " + beacon.id + "\n");
-//     path.edges.forEach(edge => speechOutput = speechOutput + "edge: " + edge.id + "\n");
-//     // speechOutput = speechOutput + "length (3*edges): " + path.length + "\n";
 
-//     const indications = getRemainingDirections(path.edges, beaconsList);
+//     // const indications = getRemainingDirections(path.edges, beaconsList);
+//     const indications = getRemainingDirections(path.edges, path.beacons, nodes);
 
 //     var previousIndication;
 //     indications.forEach(indication => {
-//       // if (previousIndication === undefined || indication === stairs) {
 //       if (previousIndication === undefined || indication.includes("fino al livello numero")) {
 //         speechOutput = speechOutput + indication;
 //       } else if (!(indication === straight && previousIndication === straight)) {
@@ -179,82 +200,32 @@ const CompletedPathFinderHandler = {
 // }
 
 // funzione simile a quella di Giacomo Mambelli (mandata per email)
-function getRemainingDirections(edges, beaconsList) {
+function getRemainingDirections(edges, beacons, nodes) {
   var previousEdge;
   const indications = [];
   edges.forEach(edge => {
+    const names = nodes.find(node => node.beacon === edge.end).name;
+    const goal = (names.length === 3) ? names[1] : names[0];
     if (previousEdge === undefined) {
-      // il primo è undefined
-      // sto ipotizzando che la torretta di Alexa sia sotto gli schermi che ci sono all'ingresso di via dell'università 50,
-      // quindi se si guarda verso la torretta, si sta guardando a nord (circa) secondo Google Maps
-      // if (edge.degrees >= 0 && edge.degrees < 90) {
-      //   indications.push(`dirigiti verso est, ovvero ${right},`);
-      // } else if (edge.degrees >= 90 && edge.degrees < 180) {
-      //   indications.push(`dirigiti verso sud, ovvero ${back},`);
-      // } else if (edge.degrees >= 180 && edge.degrees < 270) {
-      //   indications.push(`dirigiti verso ovest, ovvero ${left},`);
-      // } else if (edge.degrees >= 270 && edge.degrees < 360) {
-      //   indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight},`);
-      // }
       if (edge.degrees === '0') {
-        indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight},`);
-        // indications.push(` (${edge.end}) - (${edge.id}) `);
-      } else if (edge.degrees === '90') {        
-        indications.push(`dirigiti verso est, ovvero ${right},`);
-        // indications.push(` (${edge.end}) - (${edge.id}) `);
+        indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight} arriva fino ${goal} e `);
+      } else if (edge.degrees === '90') {
+        indications.push(`dirigiti verso est, ovvero ${right} arriva fino ${goal} e `);
       } else if (edge.degrees === '180') {
-        indications.push(`dirigiti verso sud, ovvero ${back},`);
-        // indications.push(` (${edge.end}) - (${edge.id}) `);
+        indications.push(`dirigiti verso sud, ovvero ${back} arriva fino ${goal} e `);
       } else if (edge.degrees === '270') {
-        indications.push(`dirigiti verso ovest, ovvero ${left},`);
-        // indications.push(` (${edge.end}) - (${edge.id}) `);
+        indications.push(`dirigiti verso ovest, ovvero ${left} arriva fino ${goal} e `);
       } 
     } else {
-      // if(previousEdge.type === "stairs" || previousEdge.type === "elevator") {
-      //   // se sono altre scale/ascensore non c'è bisogno di dirlo, se non lo sono, allora salvo il livello a cui bisogna arrivare -> dovrebbe essere così, ma:
-      //   // nel mio caso, essendo archi a caso, potrebbe capitare che ti dica: prendi le scale fino al livello 2 poi gira a destra poi prendi le scale fino al livello 3
-      //   // poi prendi le scale fino al livello 2 -> se togliessimo il primo "prendi le scale fino al livello 3" => avremmo:
-      //   // prendi le scale fino al livello 2 poi gira a destra poi prendi le scale fino al livello 2, che non avrebbe senso
-      //   if (edge.type != "stairs" && edge.type != "elevator") {
-      //     indications.push(" fino al livello numero " + beaconsList.find(item => item.id === edge.end).major);
-      //     indications.push(` (${previousEdge.end}) - (${edge.end}) - (${previousEdge.id}) - (${edge.id}) `);
-      //     getDegrees(previousEdge, edge, indications)
-      //   }
-      // // se quelle prima non erano nè scale nè ascensore e adesso sono delle scale o ascensore, glielo dico (così l'informazione è più precisa)
-      // } else {
-        getDegrees(previousEdge, edge, indications)
-        // if(previousEdge.degrees === edge.degrees) {
-        //   // hanno gli stessi gradi rispetto al nord => sono nella stessa direzione
-        //   indications.push(straight);
-        //   indications.push(` (${edge.end}) - (${edge.id}) `);
-        // } else if(((parseInt(previousEdge.degrees) + 90) % 360) === parseInt(edge.degrees)) {
-        //   // se c'è una differenza di esattamente 90°, allora devo girare a destra
-        //   indications.push(right);
-        //   indications.push(` (${edge.end}) - (${edge.id}) `);
-        // } else if(((parseInt(previousEdge.degrees) + 270) % 360) === parseInt(edge.degrees)) {
-        //   // se c'è una differenza di esattamente 270°, allora devo girare a sinistra
-        //   indications.push(left);
-        //   indications.push(` (${edge.end}) - (${edge.id}) `);
-        // } else if(((parseInt(previousEdge.degrees) + 180) % 360) === parseInt(edge.degrees)) {
-        //   // se c'è una differenza di esattamente 180°, allora devo tornare indietro (altrimenti devo finire le scale => non dico nulla)
-        //   if(!(previousEdge.type === "stairs" && edge.type === "stairs")) {
-        //     indications.push(back);
-        //     indications.push(` (${edge.end}) - (${edge.id}) `);
-        //   }
-        // }
+      getDegrees(previousEdge, edge, indications, goal)
 
-        if (edge.type === "stairs") {
-          indications.push(stairs);
-          // questo dovrebbe essere in if(previousEdge.type === "stairs" || previousEdge.type === "elevator") (parte commentata)
-          indications.push(" fino al livello numero " + beaconsList.find(item => item.id === edge.end).major);
-          // indications.push(` (${previousEdge.end}) - (${edge.end}) - (${previousEdge.id}) - (${edge.id}) `);
-        } else if (edge.type === "elevator") {
-          indications.push(elevator);
-          // questo dovrebbe essere in if(previousEdge.type === "stairs" || previousEdge.type === "elevator") (parte commentata)
-          indications.push(" fino al livello numero " + beaconsList.find(item => item.id === edge.end).major);
-          // indications.push(` (${previousEdge.end}) - (${edge.end}) - (${previousEdge.id}) - (${edge.id}) `);
-        }
-      // }
+      if (edge.type === "stairs") {
+        indications.push(stairs);
+        indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).major + " e ");
+      } else if (edge.type === "elevator") {
+        indications.push(elevator);
+        indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).major + " e ");
+      }
     }
     previousEdge = edge;
   });
@@ -263,24 +234,20 @@ function getRemainingDirections(edges, beaconsList) {
   return indications;
 }
 
-function getDegrees(previousEdge, edge, indications) {
+function getDegrees(previousEdge, edge, indications, goal) {
   if(previousEdge.degrees === edge.degrees) {
     // hanno gli stessi gradi rispetto al nord => sono nella stessa direzione
-    indications.push(straight);
-    // indications.push(` (${edge.end}) - (${edge.id}) `);
+    indications.push(`${straight} arriva fino ${goal} e `);
   } else if(((parseInt(previousEdge.degrees) + 90) % 360) === parseInt(edge.degrees)) {
     // se c'è una differenza di esattamente 90°, allora devo girare a destra
-    indications.push(right);
-    // indications.push(` (${edge.end}) - (${edge.id}) `);
+    indications.push(`${right} arriva fino ${goal} e `);
   } else if(((parseInt(previousEdge.degrees) + 270) % 360) === parseInt(edge.degrees)) {
     // se c'è una differenza di esattamente 270°, allora devo girare a sinistra
-    indications.push(left);
-    // indications.push(` (${edge.end}) - (${edge.id}) `);
+    indications.push(`${left} arriva fino ${goal} e `);
   } else if(((parseInt(previousEdge.degrees) + 180) % 360) === parseInt(edge.degrees)) {
     // se c'è una differenza di esattamente 180°, allora devo tornare indietro (altrimenti devo finire le scale => non dico nulla)
     if(!(previousEdge.type === "stairs" && edge.type === "stairs")) {
-      indications.push(back);
-      // indications.push(` (${edge.end}) - (${edge.id}) `);
+      indications.push(`${back} arriva fino ${goal} e `);
     }
   }
 }

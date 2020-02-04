@@ -128,23 +128,68 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         // salvo anche i numeri delle stanze
         if (roomNumeber != null) {
             locations.push(`stanza ${roomNumeber}`);
-            if (needToUpdateJsonOfTheMap) {
-                const destination = [];
-                // destination.push(JSON.parse(`{\"${name}\"}`));
-                // destination.push(JSON.parse(`{\"stanza ${roomNumeber}\"}`));
-                destination.push(`[\"${name}\"`);
-                // destination.push(`\"prova\"]`);
-                destination.push(`\"stanza ${roomNumeber}\"]`);
-                addNodeAndBeacon(destination, level);
-            }
-        } else {
-            if (needToUpdateJsonOfTheMap) {
-                const destination = [];
-                destination.push(`[\"${name}\"]`);
-                // destination.push(name);
-                addNodeAndBeacon(destination, level);
-            }
         }
+        
+        const nodeName = [];
+        if (needToUpdateJsonOfTheMap) {
+            var start = `[\"${name}\"]`;
+            var ufficio;
+            var room;
+            // nodeName.push(`[\"${name}\"`);
+
+            if (description.includes("Ufficio")) {
+                ufficio = `\"ufficio di ${name}\"`;
+                // nodeName.push(`\"ufficio di ${name}\"`);
+            }
+
+            if (roomNumeber != null) {
+                room = `\"stanza ${roomNumeber}\"]`;
+                // nodeName.push(`\"stanza ${roomNumeber}\"]`);
+            }
+
+            if (ufficio === undefined && roomNumeber === null) {
+                nodeName.push(start);
+            } else {
+                start = start.substring(0, start.length - 1);
+                nodeName.push(start);
+                if (ufficio === undefined) {
+                    nodeName.push(room);
+                } else if (roomNumeber === null) {
+                    ufficio = ufficio + `]`;
+                    nodeName.push(ufficio);
+                } else {
+                    nodeName.push(ufficio);
+                    nodeName.push(room);
+                }
+            }
+
+            addNodeAndBeacon(nodeName, level);
+        }
+        // const nodeName = [];
+        // if (roomNumeber != null) {
+        //     locations.push(`stanza ${roomNumeber}`);
+        //     if (needToUpdateJsonOfTheMap) {
+        //         // const destination = [];
+        //         // destination.push(JSON.parse(`{\"${name}\"}`));
+        //         // destination.push(JSON.parse(`{\"stanza ${roomNumeber}\"}`));
+        //         nodeName.push(`[\"${name}\"`);
+        //         // destination.push(`\"prova\"]`);
+        //         nodeName.push(`\"stanza ${roomNumeber}\"`);
+        //     }
+        // } else {
+        //     if (needToUpdateJsonOfTheMap) {
+        //         // const destination = [];
+        //         nodeName.push(`[\"${name}\"`);
+        //         // destination.push(name);
+        //     }
+        // }
+        // if (description.includes("Ufficio")) {
+        //     nodeName.push(`\"ufficio di ${name}\"]`);
+        // } else {
+        //     nodeName.push(`]`);
+        // }
+        // addNodeAndBeacon(nodeName, level);
+
     });
     return locations;
 });
