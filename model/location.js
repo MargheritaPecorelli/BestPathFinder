@@ -1,5 +1,5 @@
 class Location {
-
+    
     // `informazioni` (`IdInfo`, `Nome`, `Descrizione`, `Posti`)
     // manca il blocco (che sarebbe carino avere)
     constructor(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats) {
@@ -34,12 +34,6 @@ class Location {
     seats() {
         return this.mySeats;
     }
-
-    /*
-    path() {
-        return 'this is location path';
-    }
-    */
 }
 
  module.exports = Location;
