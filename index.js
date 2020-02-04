@@ -7,6 +7,7 @@ const stringSimilarity = require('string-similarity');
 const fs = require('fs');
 const BeaconMap = require('./BeaconMap');
 
+
 // const today = new Date().toLocaleDateString();
 // const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
 const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=29/11/2019&Edificio=EST_EXZUCC1";
@@ -29,14 +30,14 @@ const elevator = "prendi l'ascensore";
 
 // =======================================================================================================================================================================
 
-// tempor("laboratorio 2.2", "no");
-// tempor("stanza 2003", "visiva");
-// tempor("stanza 2003", "no");
-// tempor("stanza 2003", "motoria");
-// tempor("viroli", "motoria");
-// tempor("aula 2.11", "no");
-// tempor("aula 2.1", "motoria");
-// tempor("aula 2.13", "no");
+// tempor("laboratorio 2.2", "no", "");
+// tempor("stanza 2003", "visiva", "");
+// tempor("stanza 2003", "no", "");
+// tempor("stanza 2003", "motoria", "");
+// tempor("viroli", "motoria", "");
+// tempor("aula 2.11", "no", "");
+// tempor("aula 2.1", "motoria", "");
+// tempor("aula 2.13", "no", "");
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -76,136 +77,156 @@ const CompletedPathFinderHandler = {
   handle(handlerInput) {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
+    const pathDetailedOrNot = handlerInput.requestEnvelope.request.intent.slots.pathDetailedOrNot.value;
     var speechOutput = `Mi dispiace, ma non capisco`;
 
     const beaconsList = mapJson.buildings[0].beacons;
     const edges = mapJson.buildings[0].arcs;
     const nodes = mapJson.buildings[0].nodes;
-    
-    var finishBeacon;
+
+    var finishBeaconID;
     nodes.forEach(node => {
       if ((destination.includes("laboratorio")) && (destination.includes("."))) {
         const labNumber = destination.split(" ")[1];
         if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
-          finishBeacon = node.beacon;
+          finishBeaconID = node.beacon;
         }
-      } else if ((node.name[0] === destination) || (node.name[2] === destination)) {
-        finishBeacon = node.beacon;
+      } else if ((node.name[0] === destination) || (node.name[1] === destination)) {
+        finishBeaconID = node.beacon;
       }
     });
 
     // se finishBeacon è undefined, vuol dire che non l'ho trovato, allora provo a vedere se destination è inclusa in qualche nodo.
     // non l'ho fatto prima in quanto con destination = aula 2.1, mi tornava aula 2.13, perché prima di verificare node.name[0] === destination
     // verificava node.name[0].includes(destination).
-    if (finishBeacon === undefined) {nishBeacon = node.beacon;
+    if (finishBeaconID === undefined) {
       nodes.forEach(node => {
         if (node.name[0].includes(destination)) {
-          finishBeacon = node.beacon;
+          finishBeaconID = node.beacon;
         }
       });
     }
 
-    if (finishBeacon != undefined) {
-      speechOutput = "";
+    if (finishBeaconID != undefined) {
+      if (pathDetailedOrNot.includes("percorso dettagliato")) {
+        speechOutput = "";
 
-      var beaconMap;
-      if (disability.includes('motoria')) {
-        beaconMap = new BeaconMap(beaconsList, edges, true);
-      } else {
-        if (disability.includes('visiva')) {
-          speechOutput = "Forse sarebbe meglio che scaricassi l'app per cellulare. Detto questo, "
-        }
-        beaconMap = new BeaconMap(beaconsList, edges);
-      }
-      
-      const path = beaconMap.getPath(startBeaconID, finishBeacon);
-
-      const indications = getRemainingDirections(path.edges, path.beacons, nodes);
-
-      var previousIndication;
-      indications.forEach(indication => {
-        // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
-        if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
-          const lastElem = speechOutput.split("fino ").pop();
-          speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
-          const elemToPush = indication.split("fino ").pop();
-          speechOutput = speechOutput + elemToPush;
+        var beaconMap;
+        if (disability.includes('motoria')) {
+          beaconMap = new BeaconMap(beaconsList, edges, true);
         } else {
-          speechOutput = speechOutput + indication;
+          if (disability.includes('visiva')) {
+            speechOutput = "Forse sarebbe meglio che scaricassi l'app per cellulare. Detto questo, "
+          }
+          beaconMap = new BeaconMap(beaconsList, edges);
         }
-        previousIndication = indication;
-      });
+        
+        const path = beaconMap.getPath(startBeaconID, finishBeaconID);
+
+        const indications = getRemainingDirections(path.edges, path.beacons, nodes);
+
+        var previousIndication;
+        indications.forEach(indication => {
+          // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
+          if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
+            const lastElem = speechOutput.split("fino ").pop();
+            speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
+            const elemToPush = indication.split("fino ").pop();
+            speechOutput = speechOutput + elemToPush;
+          } else {
+            speechOutput = speechOutput + indication;
+          }
+          previousIndication = indication;
+        });
+      } else {
+        const level = beaconsList.find(beacon => beacon.id === finishBeaconID).level;
+        const floor = beaconsList.find(beacon => beacon.id === finishBeaconID).floor;
+        const block = beaconsList.find(beacon => beacon.id === finishBeaconID).block;
+        const information = beaconsList.find(beacon => beacon.id === finishBeaconID).information;
+        speechOutput = `${destination} si trova al livello ${level}, al ${floor}, nel blocco ${block}.`;
+        if (information != undefined) {
+          speechOutput = speechOutput + information;
+        }
+      }
     }
+    
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .getResponse();
   }
 }
 
-// function tempor(destination, disability) {
+// function tempor(destination, disability, pathDetailedOrNot) {
 //   var speechOutput = `Mi dispiace, ma non capisco`;
 
 //   const beaconsList = mapJson.buildings[0].beacons;
 //   const edges = mapJson.buildings[0].arcs;
 //   const nodes = mapJson.buildings[0].nodes;
-  
-//   var finishBeacon;
+
+//   var finishBeaconID;
 //   nodes.forEach(node => {
 //     if ((destination.includes("laboratorio")) && (destination.includes("."))) {
 //       const labNumber = destination.split(" ")[1];
 //       if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
-//         finishBeacon = node.beacon;
+//         finishBeaconID = node.beacon;
 //       }
-//     } else if ((node.name[0] === destination) || (node.name[2] === destination)) {
-//       finishBeacon = node.beacon;
+//     } else if ((node.name[0] === destination) || (node.name[1] === destination)) {
+//       finishBeaconID = node.beacon;
 //     }
 //   });
 
 //   // se finishBeacon è undefined, vuol dire che non l'ho trovato, allora provo a vedere se destination è inclusa in qualche nodo.
 //   // non l'ho fatto prima in quanto con destination = aula 2.1, mi tornava aula 2.13, perché prima di verificare node.name[0] === destination
 //   // verificava node.name[0].includes(destination).
-//   if (finishBeacon === undefined) {nishBeacon = node.beacon;
+//   if (finishBeaconID === undefined) {
 //     nodes.forEach(node => {
 //       if (node.name[0].includes(destination)) {
-//         finishBeacon = node.beacon;
+//         finishBeaconID = node.beacon;
 //       }
 //     });
 //   }
 
-//   if (finishBeacon != undefined) {
-//     speechOutput = "";
+//   if (finishBeaconID != undefined) {
+//     if (pathDetailedOrNot.includes("percorso dettagliato")) {
+//       speechOutput = "";
 
-//     var beaconMap;
-//     if (disability.includes('motoria')) {
-//       beaconMap = new BeaconMap(beaconsList, edges, true);
-//     } else {
-//       if (disability.includes('visiva')) {
-//         speechOutput = "Forse sarebbe meglio che scaricassi l'app per cellulare. Detto questo, "
-//       }
-//       beaconMap = new BeaconMap(beaconsList, edges);
-//     }
-    
-//     const path = beaconMap.getPath(startBeaconID, finishBeacon);
-
-//     const indications = getRemainingDirections(path.edges, path.beacons, nodes);
-
-//     var previousIndication;
-//     indications.forEach(indication => {
-//       // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
-//       // console.log("(previousIndication)" + previousIndication);
-//       if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
-//         // console.log("(1)" + speechOutput);
-//         const lastElem = speechOutput.split("fino ").pop();
-//         speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
-//         // console.log("(2)" + speechOutput);
-//         const elemToPush = indication.split("fino ").pop();
-//         speechOutput = speechOutput + elemToPush;
-//         // console.log("(3)" + speechOutput);
+//       var beaconMap;
+//       if (disability.includes('motoria')) {
+//         beaconMap = new BeaconMap(beaconsList, edges, true);
 //       } else {
-//         speechOutput = speechOutput + indication;
+//         if (disability.includes('visiva')) {
+//           speechOutput = "Forse sarebbe meglio che scaricassi l'app per cellulare. Detto questo, "
+//         }
+//         beaconMap = new BeaconMap(beaconsList, edges);
 //       }
-//       previousIndication = indication;
-//     });
+      
+//       const path = beaconMap.getPath(startBeaconID, finishBeaconID);
+
+//       const indications = getRemainingDirections(path.edges, path.beacons, nodes);
+
+//       var previousIndication;
+//       indications.forEach(indication => {
+//         // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
+//         if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
+//           const lastElem = speechOutput.split("fino ").pop();
+//           speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
+//           const elemToPush = indication.split("fino ").pop();
+//           speechOutput = speechOutput + elemToPush;
+//         } else {
+//           speechOutput = speechOutput + indication;
+//         }
+//         previousIndication = indication;
+//       });
+//     } else {
+//       const level = beaconsList.find(beacon => beacon.id === finishBeaconID).level;
+//       const floor = beaconsList.find(beacon => beacon.id === finishBeaconID).floor;
+//       const block = beaconsList.find(beacon => beacon.id === finishBeaconID).block;
+//       const information = beaconsList.find(beacon => beacon.id === finishBeaconID).information;
+//       speechOutput = `${destination} si trova al livello ${level}, al ${floor}, nel blocco ${block}.`;
+//       if (information != undefined) {
+//         speechOutput = speechOutput + information;
+//       }
+//     }
 //   }
 
 //   console.log(speechOutput);
@@ -224,7 +245,7 @@ function getRemainingDirections(edges, beacons, nodes) {
   const indications = [];
   edges.forEach(edge => {
     const names = nodes.find(node => node.beacon === edge.end).name;
-    const goal = (names.length === 3) ? names[1] : names[0];
+    const goal = (names.length === 3) ? names[2] : names[0];
     if (previousEdge === undefined) {
       if (edge.degrees === '0') {
         indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight} fino ${goal} e `);
@@ -242,10 +263,10 @@ function getRemainingDirections(edges, beacons, nodes) {
 
       if (edge.type === "stairs") {
         indications.push(stairs);
-        indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).major + " e ");
+        indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).level + " e ");
       } else if (edge.type === "elevator") {
         indications.push(elevator);
-        indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).major + " e ");
+        indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).level + " e ");
       }
     }
     previousEdge = edge;

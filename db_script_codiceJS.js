@@ -21,6 +21,8 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         var roomNumeber = null;
         var level;
         var floor;
+        var random = Math.floor(Math.random() * 4);
+        const block = (random === 0) ? 'A' : (random === 1) ? 'B' : (random === 2) ? 'C' : 'D';
         var seats = item.Posti;
         if (item.Nome.includes("-")) {
             name = item.Nome.split("-")[1];
@@ -71,7 +73,7 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         if (name.startsWith(" ")) {
             name = name.substring(1);
         }
-        locations.push(new Location(name, description, roomNumeber, level, floor, seats));
+        locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
 
 
         // se è un professore (allora nella descrizione è presente la parola "Ufficio")

@@ -1,13 +1,13 @@
 class Location {
     
     // `informazioni` (`IdInfo`, `Nome`, `Descrizione`, `Posti`)
-    // manca il blocco (che sarebbe carino avere)
-    constructor(locName, locDescription, locRoomNumber, locLevel, locFloor, locSeats) {
+    constructor(locName, locDescription, locRoomNumber, locLevel, locFloor, locBlock, locSeats) {
         this.myName = locName;
         this.myDescription = locDescription;
         this.myRoomNumber = locRoomNumber;
         this.myLevel = locLevel;
         this.myFloor = locFloor;
+        this.myBlock = locBlock;
         this.mySeats = locSeats;
     }
   
@@ -29,6 +29,10 @@ class Location {
 
     floor() {
         return this.myFloor;
+    }
+
+    block() {
+        return this.myBlock;
     }
 
     seats() {

@@ -18,6 +18,7 @@ if (scriptText.split("# additionalDailyDestinations: ")[1] != undefined) {
     scriptText.split("# additionalDailyDestinations: ")[1].split(",").forEach(p => {
         const index = pathDestinations.indexOf(p);
         if (index > -1) {
+            // partendo dalla posizione index, tolgo 1 elemento (lo faccio perché era un elemento relativo al giorno scorso - ieri - e quindi non mi serve più)
             pathDestinations.splice(index, 1);
         }
     });
@@ -67,6 +68,7 @@ body.split("<Evento>").forEach(item => {
 
 function addElement(element) {
     element = removeSpaces(element);
+    // if -> per evitare che ci siano doppioni
     if (timeTableDestinations.indexOf(element) === -1) {
         pathDestinations.push(element);
         timeTableDestinations.push(element);
