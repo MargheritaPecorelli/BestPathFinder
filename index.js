@@ -320,6 +320,7 @@ const TimeTableHandler = {
       
       informations = getInformations(body, placeOrEvent);
   
+      // se non ho trovato quello che cercavo => mi salvo tutte le dest che contengono quello che mi ha questo l'utente, così ... (continua dopo)
       if (!informations[0]) {
         const similarDest = [];
         body.split("<Evento>").forEach(item => {
@@ -331,6 +332,7 @@ const TimeTableHandler = {
           }
         });
 
+        // ... posso confrontarli tutti e prendere quello che ci si avvicina di più
         if (similarDest.length != 0) {
           var indexOfBestMatch = 0;
           if (similarDest.length > 1) {
