@@ -49,6 +49,7 @@ const GetNewFactHandler = {
     console.log(speechOutput);    
     return handlerInput.responseBuilder
       .speak(speechOutput)
+      .reprompt(speechOutput)
       .getResponse();
   },
 };
@@ -152,6 +153,7 @@ const CompletedPathFinderHandler = {
     
     return handlerInput.responseBuilder
       .speak(speechOutput)
+      .reprompt(speechOutput)
       .getResponse();
   }
 }
@@ -350,6 +352,7 @@ const TimeTableHandler = {
 
     return handlerInput.responseBuilder
       .speak(speechOutput)
+      .reprompt(speechOutput)
       .getResponse();
   }
 }
