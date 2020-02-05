@@ -30,7 +30,7 @@ const elevator = "prendi l'ascensore";
 
 // =======================================================================================================================================================================
 
-// tempor("laboratorio 2.2", "no", "");
+// tempor("laboratorio 2,2", "no", "");
 // tempor("stanza 2003", "visiva", "");
 // tempor("stanza 2003", "no", "");
 // tempor("stanza 2003", "motoria", "");
@@ -79,7 +79,7 @@ const CompletedPathFinderHandler = {
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
     const pathDetailedOrNot = handlerInput.requestEnvelope.request.intent.slots.pathDetailedOrNot.value;
-    var speechOutput = `Mi dispiace, ma non capisco`;
+    var speechOutput = `Mi dispiace, ma non ho trovato nulla`;
 
     const beaconsList = mapJson.buildings[0].beacons;
     const edges = mapJson.buildings[0].arcs;
@@ -87,7 +87,7 @@ const CompletedPathFinderHandler = {
 
     var finishBeaconID;
     nodes.forEach(node => {
-      if ((destination.includes("laboratorio")) && (destination.includes("."))) {
+      if ((destination.includes("laboratorio")) && (destination.includes(","))) {
         const labNumber = destination.split(" ")[1];
         if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
           finishBeaconID = node.beacon;
@@ -167,7 +167,7 @@ const CompletedPathFinderHandler = {
 
 //   var finishBeaconID;
 //   nodes.forEach(node => {
-//     if ((destination.includes("laboratorio")) && (destination.includes("."))) {
+//     if ((destination.includes("laboratorio")) && (destination.includes(","))) {
 //       const labNumber = destination.split(" ")[1];
 //       if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
 //         finishBeaconID = node.beacon;
@@ -315,7 +315,7 @@ const TimeTableHandler = {
     const placeOrEvent = handlerInput.requestEnvelope.request.intent.slots.placeOrEvent.value.toLowerCase();
     
     if (placeOrEvent != undefined) {
-      var speechOutput = "Non capisco, mi dispiace!";
+      var speechOutput = "Non ho trovato nulla, mi dispiace!";
       const res = Request('GET', myUrl);
       const body = res.getBody().toString('utf8');
       var informations = [];

@@ -81,7 +81,7 @@ class JsonMap {
             if(err) {
                 return console.log(err);
             }
-            console.log("The file has been saved!");
+            console.log("The jsonOfTheMap.json has been saved!");
         });
     }
 

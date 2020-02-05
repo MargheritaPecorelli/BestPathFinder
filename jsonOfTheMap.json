@@ -38,21 +38,21 @@
           "id": "3",
           "level": "2",
           "floor": "piano terra",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "4",
           "level": "2",
           "floor": "piano terra",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "5",
           "level": "2",
           "floor": "piano terra",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
@@ -73,21 +73,21 @@
           "id": "8",
           "level": "2",
           "floor": "piano terra",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
           "id": "9",
           "level": "2",
           "floor": "piano terra",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "10",
           "level": "2",
           "floor": "piano terra",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
@@ -101,7 +101,7 @@
           "id": "12",
           "level": "2",
           "floor": "piano terra",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
@@ -115,7 +115,7 @@
           "id": "14",
           "level": "2",
           "floor": "piano terra",
-          "block": "C",
+          "block": "A",
           "information": ""
         },
         {
@@ -129,14 +129,14 @@
           "id": "16",
           "level": "2",
           "floor": "piano terra",
-          "block": "A",
+          "block": "B",
           "information": ""
         },
         {
           "id": "17",
           "level": "2",
           "floor": "piano terra",
-          "block": "D",
+          "block": "A",
           "information": ""
         },
         {
@@ -150,21 +150,21 @@
           "id": "19",
           "level": "2",
           "floor": "piano terra",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
           "id": "20",
           "level": "2",
           "floor": "piano terra",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "21",
           "level": "3",
           "floor": "primo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
@@ -178,35 +178,35 @@
           "id": "23",
           "level": "3",
           "floor": "primo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "24",
           "level": "3",
           "floor": "primo piano",
-          "block": "C",
+          "block": "A",
           "information": ""
         },
         {
           "id": "25",
           "level": "3",
           "floor": "primo piano",
-          "block": "C",
+          "block": "B",
           "information": ""
         },
         {
           "id": "26",
           "level": "3",
           "floor": "primo piano",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "27",
           "level": "3",
           "floor": "primo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
@@ -220,14 +220,14 @@
           "id": "29",
           "level": "3",
           "floor": "primo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "30",
           "level": "3",
           "floor": "primo piano",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
@@ -269,7 +269,7 @@
           "id": "36",
           "level": "3",
           "floor": "primo piano",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
@@ -283,7 +283,7 @@
           "id": "38",
           "level": "3",
           "floor": "primo piano",
-          "block": "B",
+          "block": "C",
           "information": ""
         },
         {
@@ -297,28 +297,28 @@
           "id": "40",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
           "id": "41",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "42",
           "level": "null",
           "floor": "null",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
           "id": "43",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
@@ -332,7 +332,7 @@
           "id": "45",
           "level": "3",
           "floor": "primo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
@@ -346,28 +346,28 @@
           "id": "47",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "48",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "49",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
           "id": "50",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "B",
           "information": ""
         },
         {
@@ -381,7 +381,7 @@
           "id": "52",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "A",
           "information": ""
         },
         {
@@ -395,14 +395,14 @@
           "id": "54",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "55",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
@@ -423,49 +423,49 @@
           "id": "58",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "C",
           "information": ""
         },
         {
           "id": "59",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
           "id": "60",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "61",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
           "id": "62",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
           "id": "63",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "C",
           "information": ""
         },
         {
           "id": "64",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "B",
           "information": ""
         },
         {
@@ -479,14 +479,14 @@
           "id": "66",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "A",
           "information": ""
         },
         {
           "id": "67",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
@@ -500,35 +500,35 @@
           "id": "69",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "70",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
           "id": "71",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
           "id": "72",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "B",
           "information": ""
         },
         {
           "id": "73",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "A",
           "information": ""
         },
         {
@@ -542,56 +542,56 @@
           "id": "75",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "B",
           "information": ""
         },
         {
           "id": "76",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
           "id": "77",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "78",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
           "id": "79",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
           "id": "80",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "B",
           "information": ""
         },
         {
           "id": "81",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "82",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
@@ -612,14 +612,14 @@
           "id": "85",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "86",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
@@ -633,14 +633,14 @@
           "id": "88",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "89",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "A",
           "information": ""
         },
         {
@@ -654,28 +654,28 @@
           "id": "91",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "B",
           "information": ""
         },
         {
           "id": "92",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "B",
           "information": ""
         },
         {
           "id": "93",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "A",
           "information": ""
         },
         {
           "id": "94",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
@@ -689,35 +689,35 @@
           "id": "96",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "97",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "98",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "99",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
           "id": "100",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
@@ -738,7 +738,7 @@
           "id": "103",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
@@ -752,35 +752,35 @@
           "id": "105",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
           "id": "106",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "107",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "A",
           "information": ""
         },
         {
           "id": "108",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "109",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
@@ -794,7 +794,7 @@
           "id": "111",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
@@ -822,14 +822,14 @@
           "id": "115",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "B",
           "information": ""
         },
         {
           "id": "116",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
@@ -843,28 +843,28 @@
           "id": "118",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "D",
           "information": ""
         },
         {
           "id": "119",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
           "id": "120",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "A",
           "information": ""
         },
         {
           "id": "121",
           "level": "null",
           "floor": "null",
-          "block": "A",
+          "block": "C",
           "information": ""
         },
         {
@@ -878,35 +878,35 @@
           "id": "123",
           "level": "3",
           "floor": "primo piano",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
           "id": "124",
           "level": "4",
           "floor": "secondo piano",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "125",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "C",
           "information": ""
         },
         {
           "id": "126",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
           "id": "127",
           "level": "2",
           "floor": "piano terra",
-          "block": "D",
+          "block": "C",
           "information": ""
         },
         {
@@ -920,7 +920,7 @@
           "id": "129",
           "level": "2",
           "floor": "piano terra",
-          "block": "C",
+          "block": "B",
           "information": ""
         },
         {
@@ -934,63 +934,63 @@
           "id": "131",
           "level": "3",
           "floor": "primo piano",
-          "block": "A",
+          "block": "D",
           "information": ""
         },
         {
           "id": "132",
           "level": "null",
           "floor": "null",
-          "block": "B",
+          "block": "C",
           "information": ""
         },
         {
           "id": "133",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "C",
           "information": ""
         },
         {
           "id": "134",
           "level": "4",
           "floor": "secondo piano",
-          "block": "D",
+          "block": "B",
           "information": ""
         },
         {
           "id": "135",
           "level": "4",
           "floor": "secondo piano",
-          "block": "C",
+          "block": "A",
           "information": ""
         },
         {
           "id": "136",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
           "id": "137",
           "level": "4",
           "floor": "secondo piano",
-          "block": "B",
+          "block": "D",
           "information": ""
         },
         {
           "id": "138",
           "level": "null",
           "floor": "null",
-          "block": "D",
+          "block": "A",
           "information": ""
         },
         {
           "id": "139",
           "level": "null",
           "floor": "null",
-          "block": "B",
+          "block": "D",
           "information": ""
         }
       ],
@@ -1020,10 +1020,10 @@
           "beacon": "3",
           "type": "room",
           "name": [
-            "aula 2.8",
+            "aula 2,8",
             "stanza 2001"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1031,10 +1031,10 @@
           "beacon": "4",
           "type": "room",
           "name": [
-            "aula 2.7",
+            "aula 2,7",
             "stanza 2002"
           ],
-          "degrees": "180",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1042,10 +1042,10 @@
           "beacon": "5",
           "type": "room",
           "name": [
-            "aula 2.6",
+            "aula 2,6",
             "stanza 2003"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1053,10 +1053,10 @@
           "beacon": "6",
           "type": "room",
           "name": [
-            "aula 2.5",
+            "aula 2,5",
             "stanza 2004"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1064,10 +1064,10 @@
           "beacon": "7",
           "type": "room",
           "name": [
-            "aula 2.4",
+            "aula 2,4",
             "stanza 2005"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1075,10 +1075,10 @@
           "beacon": "8",
           "type": "room",
           "name": [
-            "aula 2.3",
+            "aula 2,3",
             "stanza 2006"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1086,10 +1086,10 @@
           "beacon": "9",
           "type": "room",
           "name": [
-            "laboratorio informatico vela 2.2",
+            "laboratorio informatico vela 2,2",
             "stanza 2007"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1097,10 +1097,10 @@
           "beacon": "10",
           "type": "room",
           "name": [
-            "aula 2.1",
+            "aula 2,1",
             "stanza 2008"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1110,7 +1110,7 @@
           "name": [
             "locale tecnico"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1118,10 +1118,10 @@
           "beacon": "12",
           "type": "room",
           "name": [
-            "aula 2.9",
+            "aula 2,9",
             "stanza 2015"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1129,7 +1129,7 @@
           "beacon": "13",
           "type": "room",
           "name": [
-            "aula 2.10",
+            "aula 2,10",
             "stanza 2014"
           ],
           "degrees": "180",
@@ -1140,10 +1140,10 @@
           "beacon": "14",
           "type": "room",
           "name": [
-            "aula 2.11",
+            "aula 2,11",
             "stanza 2020"
           ],
-          "degrees": "180",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1151,10 +1151,10 @@
           "beacon": "15",
           "type": "room",
           "name": [
-            "aula 2.12",
+            "aula 2,12",
             "stanza 2025"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1162,10 +1162,10 @@
           "beacon": "16",
           "type": "room",
           "name": [
-            "aula 2.13",
+            "aula 2,13",
             "stanza 2026"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1173,10 +1173,10 @@
           "beacon": "17",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.17",
+            "laboratorio disegno 2,17",
             "stanza 2066"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1184,10 +1184,10 @@
           "beacon": "18",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.16",
+            "laboratorio disegno 2,16",
             "stanza 2065"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1195,10 +1195,10 @@
           "beacon": "19",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.15",
+            "laboratorio disegno 2,15",
             "stanza 2056"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1206,10 +1206,10 @@
           "beacon": "20",
           "type": "room",
           "name": [
-            "laboratorio disegno 2.14",
+            "laboratorio disegno 2,14",
             "stanza 2055"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1220,7 +1220,7 @@
             "laboratorio",
             "stanza 3001"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1228,10 +1228,10 @@
           "beacon": "22",
           "type": "room",
           "name": [
-            "laboratorio lele 3.2",
+            "laboratorio lele 3,2",
             "stanza 3003"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1239,10 +1239,10 @@
           "beacon": "23",
           "type": "room",
           "name": [
-            "laboratorio informatico 3.1",
+            "laboratorio informatico 3,1",
             "stanza 3004"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1250,10 +1250,10 @@
           "beacon": "24",
           "type": "room",
           "name": [
-            "aula magna 3.4 ",
+            "aula magna 3,4 ",
             "stanza 3034"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1272,10 +1272,10 @@
           "beacon": "26",
           "type": "room",
           "name": [
-            "laboratorio informatico 3.3",
+            "laboratorio informatico 3,3",
             "stanza 3021"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1286,7 +1286,7 @@
             "laboratorio lamovida",
             "stanza 3065"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1294,10 +1294,10 @@
           "beacon": "28",
           "type": "room",
           "name": [
-            "aula 3.10",
+            "aula 3,10",
             "stanza 3064"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1305,7 +1305,7 @@
           "beacon": "29",
           "type": "room",
           "name": [
-            "aula 3.11",
+            "aula 3,11",
             "stanza 3069"
           ],
           "degrees": "180",
@@ -1316,10 +1316,10 @@
           "beacon": "30",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.12",
+            "laboratorio di sintesi 3,12",
             "stanza 3056"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1327,7 +1327,7 @@
           "beacon": "31",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.13",
+            "laboratorio di sintesi 3,13",
             "stanza 3055"
           ],
           "degrees": "180",
@@ -1338,10 +1338,10 @@
           "beacon": "32",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.14",
+            "laboratorio di sintesi 3,14",
             "stanza 3054"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1349,10 +1349,10 @@
           "beacon": "33",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.15",
+            "laboratorio di sintesi 3,15",
             "stanza 3053"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1360,7 +1360,7 @@
           "beacon": "34",
           "type": "room",
           "name": [
-            "laboratorio di sintesi 3.16",
+            "laboratorio di sintesi 3,16",
             "stanza 3052"
           ],
           "degrees": "0",
@@ -1371,10 +1371,10 @@
           "beacon": "35",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.9",
+            "laboratorio disegno 3,9",
             "stanza 3071"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1382,10 +1382,10 @@
           "beacon": "36",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.8",
+            "laboratorio disegno 3,8",
             "stanza 3070"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1393,10 +1393,10 @@
           "beacon": "37",
           "type": "room",
           "name": [
-            "aula 3.7",
+            "aula 3,7",
             "stanza 3063"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1404,7 +1404,7 @@
           "beacon": "38",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.6",
+            "laboratorio disegno 3,6",
             "stanza 3068"
           ],
           "degrees": "0",
@@ -1415,10 +1415,10 @@
           "beacon": "39",
           "type": "room",
           "name": [
-            "laboratorio disegno 3.5",
+            "laboratorio disegno 3,5",
             "stanza 3067"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1426,10 +1426,10 @@
           "beacon": "40",
           "type": "room",
           "name": [
-            "aula 4.1",
+            "aula 4,1",
             "stanza 4116"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1437,7 +1437,7 @@
           "beacon": "41",
           "type": "room",
           "name": [
-            "laboratorio informatico cad 4.2",
+            "laboratorio informatico cad 4,2",
             "stanza 4118"
           ],
           "degrees": "270",
@@ -1450,7 +1450,7 @@
           "name": [
             "sensore canarin"
           ],
-          "degrees": "90",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1473,7 +1473,7 @@
             "laboratorio lamo",
             "stanza 2068"
           ],
-          "degrees": "180",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1483,7 +1483,7 @@
           "name": [
             "lab icm"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1495,7 +1495,7 @@
             "stanza 4022b",
             "ufficio di vittorio ghini"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1507,7 +1507,7 @@
             "stanza 4022a",
             "ufficio di antonella carbonaro"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1519,7 +1519,7 @@
             "stanza 4022",
             "ufficio di alessandro ricci"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1543,7 +1543,7 @@
             "stanza 4020",
             "ufficio di daniele morbidelli, luca pasquini"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1567,7 +1567,7 @@
             "stanza 4018",
             "ufficio di davide dardari"
           ],
-          "degrees": "90",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1579,7 +1579,7 @@
             "stanza 4017",
             "ufficio di michele mulazzani, stefano severi"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1603,7 +1603,7 @@
             "stanza 4015",
             "ufficio di claudio fiegna"
           ],
-          "degrees": "180",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1627,7 +1627,7 @@
             "stanza 4013",
             "ufficio di lorenzo chiari"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1639,7 +1639,7 @@
             "stanza 4012",
             "ufficio di alberto bellini"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1651,7 +1651,7 @@
             "stanza 4008",
             "ufficio di roberto baldacci"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1663,7 +1663,7 @@
             "stanza 4006",
             "ufficio di monica mariotti"
           ],
-          "degrees": "180",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1687,7 +1687,7 @@
             "stanza 4004",
             "ufficio di sergio callegari"
           ],
-          "degrees": "180",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1699,7 +1699,7 @@
             "stanza 4003",
             "ufficio di marco crescentini"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1711,7 +1711,7 @@
             "stanza 4002",
             "ufficio di aldo romani"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1759,7 +1759,7 @@
             "stanza 4036",
             "ufficio di alessandra costanzo"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1771,7 +1771,7 @@
             "stanza 4037",
             "ufficio di enrico maria vitucci"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1795,7 +1795,7 @@
             "stanza 4039",
             "ufficio di franco mastri"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1807,7 +1807,7 @@
             "stanza 4040",
             "ufficio di cristiana corsi"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1831,7 +1831,7 @@
             "stanza 4042",
             "ufficio di debora cesari"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1855,7 +1855,7 @@
             "stanza 4044",
             "ufficio di elisa magosso"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1867,7 +1867,7 @@
             "stanza 4045",
             "ufficio di stefano diciotti"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -1891,7 +1891,7 @@
             "stanza 4047",
             "ufficio di nicola arcozzi"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -1927,7 +1927,7 @@
             "stanza 4052",
             "ufficio di enrico sangiorgi"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1939,7 +1939,7 @@
             "stanza 4053",
             "ufficio di massimo cicognani"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -1951,7 +1951,7 @@
             "stanza 4054",
             "ufficio di gianluca moro"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1963,7 +1963,7 @@
             "stanza 4123",
             "ufficio di aristide mingozzi"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1975,7 +1975,7 @@
             "stanza 4148",
             "ufficio di paola salomoni"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -1987,7 +1987,7 @@
             "stanza 4146",
             "ufficio di nicoletta cantarini, fabrizio caselli"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2011,7 +2011,7 @@
             "stanza 4144",
             "ufficio di raffaele cappelli, marco antonio boschetti"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2035,7 +2035,7 @@
             "stanza 4142",
             "ufficio di alessandro bevilacqua, andrea roli"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2047,7 +2047,7 @@
             "stanza 4141",
             "ufficio di alessandra lumini, damiana lazzaro"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2059,7 +2059,7 @@
             "stanza 4140",
             "ufficio di matteo golfarelli"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2071,7 +2071,7 @@
             "stanza 4139",
             "ufficio di moreno marzolla, gabriele d'angelo"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2083,7 +2083,7 @@
             "stanza 4138",
             "ufficio di pietro di lena"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2107,7 +2107,7 @@
             "stanza 4131",
             "ufficio di dario maio"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2119,7 +2119,7 @@
             "stanza 4130",
             "ufficio di stefano rizzi"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2131,7 +2131,7 @@
             "stanza 4129",
             "ufficio di luciano margara"
           ],
-          "degrees": "90",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2155,7 +2155,7 @@
             "stanza 4127",
             "ufficio di antonio natali"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2167,7 +2167,7 @@
             "stanza 4126",
             "ufficio di andrea omicini"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2179,7 +2179,7 @@
             "stanza 4125",
             "ufficio di giovanni pau"
           ],
-          "degrees": "180",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2191,7 +2191,7 @@
             "stanza 4097",
             "ufficio di ernesto antonini, jacopo gaspari"
           ],
-          "degrees": "90",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2203,7 +2203,7 @@
             "stanza 4098",
             "ufficio di andrea boeri, danila longo"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2239,7 +2239,7 @@
             "stanza 4101",
             "ufficio di lamberto tronchin"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2275,7 +2275,7 @@
             "stanza 4104",
             "ufficio di lamberto amistadi, ildebrando clemente"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2287,7 +2287,7 @@
             "stanza 4105",
             "ufficio di maura savini, andreina milan"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2299,7 +2299,7 @@
             "stanza 4106",
             "ufficio di francesco gulinello, elena mucelli, stefania rössl"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -2311,7 +2311,7 @@
             "stanza 4096",
             "ufficio di valentina orioli"
           ],
-          "degrees": "0",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2323,7 +2323,7 @@
             "stanza 4095",
             "ufficio di giovanni leoni, andrea borsari"
           ],
-          "degrees": "270",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -2335,7 +2335,7 @@
             "stanza 4094",
             "ufficio di marco pretelli, andrea ugolini"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2347,7 +2347,7 @@
             "stanza 4092",
             "ufficio di nicoletta cantarini, marco lenci, tommaso trombetti, giada gasparini"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -2359,7 +2359,7 @@
             "stanza 4091",
             "ufficio di lucio nobile, cristina gentilini, luisa molari"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2371,7 +2371,7 @@
             "stanza 4090",
             "ufficio di anna maria manfredini, federico fallavollita"
           ],
-          "degrees": "90",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2383,7 +2383,7 @@
             "stanza 4089",
             "ufficio di fabrizio ivan apollonio, alessandro marata"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2393,7 +2393,7 @@
           "name": [
             "sensore canarin 2"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2404,7 +2404,7 @@
             "laboratorio lib (m)",
             "stanza 3007"
           ],
-          "degrees": "180",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -2415,7 +2415,7 @@
             "laboratorio lib (i)",
             "stanza 3008"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -2426,7 +2426,7 @@
             "laboratorio offline",
             "stanza 4117"
           ],
-          "degrees": "0",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2448,7 +2448,7 @@
             "laboratorio fotografico",
             "stanza 4120"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -2456,10 +2456,10 @@
           "beacon": "127",
           "type": "room",
           "name": [
-            "aula magna 3.4 ",
+            "aula magna 3,4 ",
             "stanza 2011"
           ],
-          "degrees": "90",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2469,7 +2469,7 @@
           "name": [
             "biblioteca"
           ],
-          "degrees": "270",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2480,7 +2480,7 @@
             "spazio studenti",
             "stanza 2010"
           ],
-          "degrees": "270",
+          "degrees": "90",
           "info": ""
         },
         {
@@ -2491,7 +2491,7 @@
             "laboratorio di ricerca e2",
             "stanza 2046"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2523,7 +2523,7 @@
             "laboratorio di laurea",
             "stanza 4093"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2534,7 +2534,7 @@
             "laboratorio di fisica ambientale",
             "stanza 4086"
           ],
-          "degrees": "90",
+          "degrees": "0",
           "info": ""
         },
         {
@@ -2546,7 +2546,7 @@
             "stanza 4032",
             "ufficio di daniele vigo"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2558,7 +2558,7 @@
             "stanza 4097",
             "ufficio di ernesto antonini, jacopo gaspari"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         },
         {
@@ -2580,7 +2580,7 @@
           "name": [
             "sensore canarin archivio"
           ],
-          "degrees": "0",
+          "degrees": "180",
           "info": ""
         },
         {
@@ -2590,7 +2590,7 @@
           "name": [
             "sensore canarin 3"
           ],
-          "degrees": "180",
+          "degrees": "270",
           "info": ""
         }
       ],
@@ -2609,7 +2609,7 @@
           "end": "3",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "3",
@@ -2617,7 +2617,7 @@
           "end": "3",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "4",
@@ -2625,7 +2625,7 @@
           "end": "4",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "0"
         },
         {
           "id": "5",
@@ -2633,7 +2633,7 @@
           "end": "5",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "6",
@@ -2641,7 +2641,7 @@
           "end": "6",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "7",
@@ -2649,7 +2649,7 @@
           "end": "7",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "8",
@@ -2657,7 +2657,7 @@
           "end": "8",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "9",
@@ -2665,7 +2665,7 @@
           "end": "9",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "10",
@@ -2673,7 +2673,7 @@
           "end": "10",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "11",
@@ -2681,7 +2681,7 @@
           "end": "11",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "12",
@@ -2689,7 +2689,7 @@
           "end": "12",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "13",
@@ -2705,7 +2705,7 @@
           "end": "14",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "90"
         },
         {
           "id": "15",
@@ -2713,7 +2713,7 @@
           "end": "15",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "16",
@@ -2721,7 +2721,7 @@
           "end": "16",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "17",
@@ -2729,7 +2729,7 @@
           "end": "17",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "18",
@@ -2737,7 +2737,7 @@
           "end": "18",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "19",
@@ -2745,7 +2745,7 @@
           "end": "19",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "20",
@@ -2753,7 +2753,7 @@
           "end": "20",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "21",
@@ -2761,7 +2761,7 @@
           "end": "21",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "22",
@@ -2769,7 +2769,7 @@
           "end": "21",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "23",
@@ -2777,7 +2777,7 @@
           "end": "22",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "24",
@@ -2785,7 +2785,7 @@
           "end": "23",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "25",
@@ -2793,7 +2793,7 @@
           "end": "24",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "26",
@@ -2809,7 +2809,7 @@
           "end": "26",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "28",
@@ -2817,7 +2817,7 @@
           "end": "27",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "29",
@@ -2825,7 +2825,7 @@
           "end": "28",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "30",
@@ -2841,7 +2841,7 @@
           "end": "30",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "32",
@@ -2857,7 +2857,7 @@
           "end": "32",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "34",
@@ -2865,7 +2865,7 @@
           "end": "33",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "35",
@@ -2881,7 +2881,7 @@
           "end": "35",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "37",
@@ -2889,7 +2889,7 @@
           "end": "36",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "38",
@@ -2897,7 +2897,7 @@
           "end": "37",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "39",
@@ -2913,7 +2913,7 @@
           "end": "39",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "41",
@@ -2921,7 +2921,7 @@
           "end": "40",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "42",
@@ -2929,7 +2929,7 @@
           "end": "40",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "43",
@@ -2945,7 +2945,7 @@
           "end": "42",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "180"
         },
         {
           "id": "45",
@@ -2961,7 +2961,7 @@
           "end": "44",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "90"
         },
         {
           "id": "47",
@@ -2969,7 +2969,7 @@
           "end": "44",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "180"
+          "degrees": "90"
         },
         {
           "id": "48",
@@ -2977,7 +2977,7 @@
           "end": "45",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "49",
@@ -2985,7 +2985,7 @@
           "end": "45",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "50",
@@ -2993,7 +2993,7 @@
           "end": "46",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "51",
@@ -3001,7 +3001,7 @@
           "end": "46",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "52",
@@ -3009,7 +3009,7 @@
           "end": "47",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "53",
@@ -3017,7 +3017,7 @@
           "end": "48",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "54",
@@ -3033,7 +3033,7 @@
           "end": "50",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "56",
@@ -3049,7 +3049,7 @@
           "end": "52",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "180"
         },
         {
           "id": "58",
@@ -3057,7 +3057,7 @@
           "end": "53",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "59",
@@ -3073,7 +3073,7 @@
           "end": "55",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "90"
         },
         {
           "id": "61",
@@ -3089,7 +3089,7 @@
           "end": "57",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "63",
@@ -3097,7 +3097,7 @@
           "end": "58",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "64",
@@ -3105,7 +3105,7 @@
           "end": "59",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "65",
@@ -3113,7 +3113,7 @@
           "end": "60",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "90"
         },
         {
           "id": "66",
@@ -3129,7 +3129,7 @@
           "end": "62",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "90"
         },
         {
           "id": "68",
@@ -3137,7 +3137,7 @@
           "end": "63",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "69",
@@ -3145,7 +3145,7 @@
           "end": "64",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "70",
@@ -3177,7 +3177,7 @@
           "end": "68",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "74",
@@ -3185,7 +3185,7 @@
           "end": "69",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "75",
@@ -3201,7 +3201,7 @@
           "end": "71",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "77",
@@ -3209,7 +3209,7 @@
           "end": "72",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "78",
@@ -3225,7 +3225,7 @@
           "end": "74",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "80",
@@ -3241,7 +3241,7 @@
           "end": "76",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "82",
@@ -3249,7 +3249,7 @@
           "end": "77",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "83",
@@ -3265,7 +3265,7 @@
           "end": "79",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "85",
@@ -3289,7 +3289,7 @@
           "end": "82",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "88",
@@ -3297,7 +3297,7 @@
           "end": "83",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "89",
@@ -3305,7 +3305,7 @@
           "end": "84",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "90",
@@ -3313,7 +3313,7 @@
           "end": "85",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "91",
@@ -3321,7 +3321,7 @@
           "end": "86",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "92",
@@ -3329,7 +3329,7 @@
           "end": "87",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "93",
@@ -3345,7 +3345,7 @@
           "end": "89",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "95",
@@ -3361,7 +3361,7 @@
           "end": "91",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "97",
@@ -3369,7 +3369,7 @@
           "end": "92",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "98",
@@ -3377,7 +3377,7 @@
           "end": "93",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "99",
@@ -3385,7 +3385,7 @@
           "end": "94",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "100",
@@ -3393,7 +3393,7 @@
           "end": "95",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "101",
@@ -3409,7 +3409,7 @@
           "end": "97",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "103",
@@ -3417,7 +3417,7 @@
           "end": "98",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "104",
@@ -3425,7 +3425,7 @@
           "end": "99",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "180"
         },
         {
           "id": "105",
@@ -3441,7 +3441,7 @@
           "end": "101",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "107",
@@ -3449,7 +3449,7 @@
           "end": "102",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "108",
@@ -3457,7 +3457,7 @@
           "end": "103",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "90"
         },
         {
           "id": "109",
@@ -3465,7 +3465,7 @@
           "end": "104",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "180"
         },
         {
           "id": "110",
@@ -3473,7 +3473,7 @@
           "end": "105",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "111",
@@ -3497,7 +3497,7 @@
           "end": "108",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "114",
@@ -3521,7 +3521,7 @@
           "end": "111",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "117",
@@ -3529,7 +3529,7 @@
           "end": "112",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "118",
@@ -3537,7 +3537,7 @@
           "end": "113",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "119",
@@ -3545,7 +3545,7 @@
           "end": "114",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "90"
         },
         {
           "id": "120",
@@ -3553,7 +3553,7 @@
           "end": "115",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "0"
         },
         {
           "id": "121",
@@ -3561,7 +3561,7 @@
           "end": "116",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "122",
@@ -3569,7 +3569,7 @@
           "end": "117",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "123",
@@ -3577,7 +3577,7 @@
           "end": "118",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "124",
@@ -3585,7 +3585,7 @@
           "end": "119",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "270"
         },
         {
           "id": "125",
@@ -3593,7 +3593,7 @@
           "end": "120",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "126",
@@ -3601,7 +3601,7 @@
           "end": "121",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "127",
@@ -3609,7 +3609,7 @@
           "end": "122",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "0"
         },
         {
           "id": "128",
@@ -3617,7 +3617,7 @@
           "end": "123",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "129",
@@ -3625,7 +3625,7 @@
           "end": "124",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "130",
@@ -3633,7 +3633,7 @@
           "end": "124",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "0"
+          "degrees": "270"
         },
         {
           "id": "131",
@@ -3649,7 +3649,7 @@
           "end": "126",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "133",
@@ -3657,7 +3657,7 @@
           "end": "127",
           "type": "elevator",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "180"
         },
         {
           "id": "134",
@@ -3665,7 +3665,7 @@
           "end": "127",
           "type": "stairs",
           "accessible": "false",
-          "degrees": "90"
+          "degrees": "180"
         },
         {
           "id": "135",
@@ -3673,7 +3673,7 @@
           "end": "128",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "180"
         },
         {
           "id": "136",
@@ -3681,7 +3681,7 @@
           "end": "129",
           "type": "",
           "accessible": "true",
-          "degrees": "270"
+          "degrees": "90"
         },
         {
           "id": "137",
@@ -3689,7 +3689,7 @@
           "end": "130",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "138",
@@ -3721,7 +3721,7 @@
           "end": "133",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "142",
@@ -3729,7 +3729,7 @@
           "end": "134",
           "type": "",
           "accessible": "true",
-          "degrees": "90"
+          "degrees": "0"
         },
         {
           "id": "143",
@@ -3737,7 +3737,7 @@
           "end": "135",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "144",
@@ -3745,7 +3745,7 @@
           "end": "136",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         },
         {
           "id": "145",
@@ -3761,7 +3761,7 @@
           "end": "138",
           "type": "",
           "accessible": "true",
-          "degrees": "0"
+          "degrees": "180"
         },
         {
           "id": "147",
@@ -3769,7 +3769,7 @@
           "end": "139",
           "type": "",
           "accessible": "true",
-          "degrees": "180"
+          "degrees": "270"
         }
       ]
     }

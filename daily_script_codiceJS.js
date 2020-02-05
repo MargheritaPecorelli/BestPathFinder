@@ -139,7 +139,7 @@ fs.writeFile('./cartellaProvvisoria/InformationPoint/models/it-IT.json', JSON.st
     if(err) {
         return console.log(err);
     }
-    console.log("The file has been saved!");
+    console.log("The JSON of Alexa developer conole has been saved from daily script!");
 });
 
 scriptText = scriptText + `\n# additionalDailyDestinations: ${timeTableDestinations}`;
@@ -147,7 +147,7 @@ fs.writeFile('./daily_script.txt', scriptText , function(err) {
     if(err) {
         return console.log(err);
     }
-    console.log("The file has been saved!");
+    console.log("The daily script has been updated for the next time!");
 });
 
 //dopo di che, lo script carica il nuovo file JSON sull'Alexa Developer Console e rimuove la cartella provvisoria 

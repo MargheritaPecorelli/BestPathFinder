@@ -16,7 +16,7 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
     }
     const dests = [];
     result.forEach(item => {
-        var name = item.Nome;
+        var name = item.Nome.toLowerCase();
         var description = item.Descrizione;
         var roomNumeber = null;
         var level;
@@ -24,8 +24,14 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         var random = Math.floor(Math.random() * 4);
         const block = (random === 0) ? 'A' : (random === 1) ? 'B' : (random === 2) ? 'C' : 'D';
         var seats = item.Posti;
-        if (item.Nome.includes("-")) {
-            name = item.Nome.split("-")[1];
+        if ((name.includes("aula") || name.includes("laboratorio")) && name.includes(".")) {
+            name = name.replace(".", ",");
+        }
+        // console.log("1 " + name);
+        if (name.includes("-")) {
+            // console.log("2 " + name);
+            name = name.split("-")[1];
+            // console.log("3 " + name);
             if (item.Nome.startsWith("Stanza")) {
                 roomNumeber = item.Nome.split(" ")[1];
             } else {
@@ -68,7 +74,7 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
                 floor = null;
             }
         }
-        name = name.toLowerCase();
+        // name = name.toLowerCase();
         // tolgo gli spazi prima di un nome
         if (name.startsWith(" ")) {
             name = name.substring(1);
@@ -87,7 +93,7 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
                 // se invece è un unico professore, salvo anche il cognome
                 addName(name, dests, "");
             }
-        } else if (name.includes("laboratorio") && name.includes(".")) {
+        } else if (name.includes("laboratorio") && name.includes(",")) {
             // se è il nome di un Laboratorio che contiene anche un numero (=> contiene "."), salvo anche "laboratorio numero"
             addName(name, dests, "laboratorio ");
         } else {
@@ -98,6 +104,9 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         // salvo anche i numeri delle stanze
         if (roomNumeber != null) {
             dests.push(`stanza ${roomNumeber}`);
+        }
+        if (name.includes(".") || name.includes(",")) {
+            // console.log(name);
         }
     });
     return dests;
@@ -123,7 +132,7 @@ fs.writeFile('./cartellaProvvisoria/InformationPoint/models/it-IT.json', JSON.st
     if(err) {
         return console.log(err);
     }
-    console.log("The file has been saved!");
+    console.log("The JSON of Alexa developer conole has been saved from DB script!");
 });
 
 //dopo di che, lo script carica il nuovo file JSON sull'Alexa Developer Console e rimuove la cartella provvisoria 
