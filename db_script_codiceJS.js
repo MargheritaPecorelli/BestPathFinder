@@ -99,6 +99,7 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         } else {
             // tutti gli altri nomi vengno salvati così come sono
             dests.push(name);
+            // console.log(name);
         }
 
         // salvo anche i numeri delle stanze
@@ -109,6 +110,21 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
             // console.log(name);
         }
     });
+    // codice mio per aggiungere cose che non ci sono
+    // dests.push("casina acqua");
+    // locations.push(new Location("casina acqua", description, roomNumeber, level, floor, block, seats));
+    // dests.push("macchinette");
+    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
+    // dests.push("bar");
+    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
+    // dests.push("segreteria");
+    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
+    // dests.push("bagno");
+    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
+    // dests.push("cla");
+    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
+    // dests.push("spazio calmo");
+    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
     return dests;
 });
 
@@ -121,6 +137,13 @@ function addName(name, loc, partOfTheName) {
     loc.push(partOfTheName + "" + arr[arr.length - 1]);
 }
 
+// if (destinations.includes("bar") && destinations.includes("cla") && destinations.includes("macchinette")) {
+//     console.log("OK");
+// } else {
+//     console.log("NOOOOOOOOOOOOO");
+// }
+
+// descriptions.forEach(d => console.log(d));
 // salvo i nuovi valori nel JSON scaricato
 myJson.interactionModel.dialog.intents[0].slots[1].validations[0].values = destinations;
 // lo faccio qui in quanto destinations deve essere "pronta"

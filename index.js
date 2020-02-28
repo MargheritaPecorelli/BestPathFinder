@@ -1,11 +1,9 @@
-/* eslint-disable  func-names */
-/* eslint-disable  no-console */
-
 const Alexa = require('ask-sdk');
 const Request = require('sync-request');
 const stringSimilarity = require('string-similarity');
 const fs = require('fs');
 const BeaconMap = require('./BeaconMap');
+const mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
 
 
 // const today = new Date().toLocaleDateString();
@@ -14,7 +12,6 @@ const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.asp
 
 // startBeaconID è sempre quello della torretta di Alexa
 var startBeaconID;
-const mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
 mapJson.buildings[0].nodes.forEach(node => {
   if (node.name[0] === "ingresso principale") {
     startBeaconID = node.beacon; 
@@ -34,7 +31,7 @@ const elevator = "prendi l'ascensore";
 // tempor("stanza 2003", "visiva", "");
 // tempor("stanza 2003", "no", "");
 // tempor("stanza 2003", "motoria", "");
-// tempor("viroli", "motoria", "");
+// tempor("viroli", "motoria", "percorso dettagliato");
 // tempor("aula 2.11", "no", "");
 // tempor("aula 2.1", "motoria", "");
 // tempor("aula 2.13", "no", "");
@@ -234,13 +231,6 @@ const CompletedPathFinderHandler = {
 //   console.log(speechOutput);
 // }
 
-// const right = "gira a destra, poi";
-// const left = "gira a sinistra, poi";
-// const straight = "vai dritto";
-// const back = "torna indietro";
-// const stairs = "prendi le scale";
-// const elevator = "prendi l'ascensore";
-
 // funzione simile a quella di Giacomo Mambelli (mandata per email)
 function getRemainingDirections(edges, beacons, nodes) {
   var previousEdge;
@@ -278,13 +268,6 @@ function getRemainingDirections(edges, beacons, nodes) {
   return indications;
 }
 
-// const right = "gira a destra, poi";
-// const left = "gira a sinistra, poi";
-// const straight = "vai dritto";
-// const back = "torna indietro";
-// const stairs = "prendi le scale";
-// const elevator = "prendi l'ascensore";
-
 function getDegrees(previousEdge, edge, indications, goal) {
   if(previousEdge.degrees === edge.degrees) {
     // hanno gli stessi gradi rispetto al nord => sono nella stessa direzione
@@ -305,22 +288,22 @@ function getDegrees(previousEdge, edge, indications, goal) {
   }
 }
 
-const TimeTableHandler = {
+const DailyInformationIntent = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
     return request.type === "IntentRequest"
-      && request.intent.name === "TimeTableIntent";
+      && request.intent.name === "DailyInformationIntent";
   },
   handle(handlerInput) {
-    const placeOrEvent = handlerInput.requestEnvelope.request.intent.slots.placeOrEvent.value.toLowerCase();
+    const target = handlerInput.requestEnvelope.request.intent.slots.target.value.toLowerCase();
     
-    if (placeOrEvent != undefined) {
+    if (target != undefined) {
       var speechOutput = "Non ho trovato nulla, mi dispiace!";
       const res = Request('GET', myUrl);
       const body = res.getBody().toString('utf8');
       var informations = [];
       
-      informations = getInformations(body, placeOrEvent);
+      informations = getInformations(body, target);
   
       // se non ho trovato quello che cercavo => mi salvo tutte le dest che contengono quello che mi ha questo l'utente, così ... (continua dopo)
       if (!informations[0]) {
@@ -328,7 +311,7 @@ const TimeTableHandler = {
         body.split("<Evento>").forEach(item => {
           if (!item.includes("?xml")) {
             var dest = item.split("<Descrizione>")[1].split("<")[0].toLowerCase();
-            if(dest.includes(placeOrEvent)) {
+            if(dest.includes(target)) {
               similarDest.push(dest);
             }
           }
@@ -338,7 +321,7 @@ const TimeTableHandler = {
         if (similarDest.length != 0) {
           var indexOfBestMatch = 0;
           if (similarDest.length > 1) {
-            const matches = stringSimilarity.findBestMatch(placeOrEvent, similarDest);
+            const matches = stringSimilarity.findBestMatch(target, similarDest);
             indexOfBestMatch = matches.bestMatchIndex;
           }
           informations = getInformations(body, similarDest[indexOfBestMatch]);
@@ -346,7 +329,7 @@ const TimeTableHandler = {
       }    
   
       if (informations[0]) {
-        speechOutput = `${placeOrEvent} si trova a ${informations[3]}, inizia alle ${informations[1]} e finisce alle ${informations[2]}`;
+        speechOutput = `${target} si trova a ${informations[3]}, inizia alle ${informations[1]} e finisce alle ${informations[2]}`;
       }
     }
 
@@ -445,10 +428,8 @@ const ErrorHandler = {
   handle(handlerInput, error) {
     console.log(`Error handled: ${error.message}`);
     return handlerInput.responseBuilder
-      // .speak(`Sorry, an error occurred: ${error.message}`)
       .reprompt(`Sorry, an error occurred (Error handled): ${error.message}`)
       .speak(`Sorry, an error occurred (Error handled): ${handlerInput.requestEnvelope.request.intent}`)
-      // .reprompt(`Sorry, an error occurred: ${handlerInput.requestEnvelope.request.intent.slots.destination.value}`)
       .getResponse();
   },
 };
@@ -463,7 +444,7 @@ exports.handler = skillBuilder
     GetNewFactHandler,
     StartedPathFinderHandler,
     CompletedPathFinderHandler,
-    TimeTableHandler,
+    DailyInformationIntent,
     HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler
