@@ -296,9 +296,11 @@ const DailyInformationIntent = {
   },
   handle(handlerInput) {
     const target = handlerInput.requestEnvelope.request.intent.slots.target.value.toLowerCase();
-    
+    // const dish = handlerInput.requestEnvelope.request.intent.slots.dish.value.toLowerCase();
+    var speechOutput = "Mi dispiacema non ho capito!";
+
     if (target != undefined) {
-      var speechOutput = "Non ho trovato nulla, mi dispiace!";
+      speechOutput = "Non ho trovato nulla, mi dispiace!";
       const res = Request('GET', myUrl);
       const body = res.getBody().toString('utf8');
       var informations = [];
@@ -332,6 +334,14 @@ const DailyInformationIntent = {
         speechOutput = `${target} si trova a ${informations[3]}, inizia alle ${informations[1]} e finisce alle ${informations[2]}`;
       }
     }
+    // if (dish != undefined) {
+    //   speechOutput = `CE L'HO FATTAAAAAAAAAAAAA`;
+    // }
+
+    // if (request.includes("mangiare") || request.includes("caffè") || request.includes("bere") || request.includes("pranzare") || target.includes("mangiare") || target.includes("caffè") || target.includes("bere") || target.includes("pranzare")) {
+    //   // speechOutput = `puoi andare alle macchinette oppure al bar.`;
+    //   speechOutput = `CE L'HO FATTAAAAAAAAAAAAA`;
+    // }
 
     return handlerInput.responseBuilder
       .speak(speechOutput)
@@ -377,6 +387,31 @@ function getInformations(body, destination) {
     }
   });
   return informations;
+}
+
+const EatingAndDrinkingIntent = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === "IntentRequest"
+      && request.intent.name === "EatingAndDrinkingIntent";
+  },
+  handle(handlerInput) {
+    const dish = handlerInput.requestEnvelope.request.intent.slots.dish.value.toLowerCase();
+    var speechOutput = "Mi dispiacema non ho capito!";
+
+    if (dish != undefined) {
+      if (dish.includes("acqua")) {
+        speechOutput = `Se vuoi rimpire la tua borraccia, puoi andare alla casina dell'acqua, altrimenti puoi andare al bar o alle macchinette.`;
+      } else {
+        speechOutput = `Puoi andare al bar o alle macchinette.`;
+      }
+    }
+
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
+      .reprompt(speechOutput)
+      .getResponse();
+  }
 }
 
 const HelpHandler = {
@@ -445,6 +480,7 @@ exports.handler = skillBuilder
     StartedPathFinderHandler,
     CompletedPathFinderHandler,
     DailyInformationIntent,
+    EatingAndDrinkingIntent,
     HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler
