@@ -27,7 +27,9 @@ const elevator = "prendi l'ascensore";
 
 // =======================================================================================================================================================================
 
-// tempor("laboratorio 2,2", "no", "");
+// tempor("casina dell'acqua", "no", "percorso breve");
+// console.log("==================================");
+// tempor("laboratorio 2,2", "no", "percorso breve");
 // tempor("stanza 2003", "visiva", "");
 // tempor("stanza 2003", "no", "");
 // tempor("stanza 2003", "motoria", "");
@@ -106,7 +108,7 @@ const CompletedPathFinderHandler = {
     }
 
     if (finishBeaconID != undefined) {
-      if (pathDetailedOrNot.includes("percorso dettagliato")) {
+      if (pathDetailedOrNot.includes("percorso dettagliato") || pathDetailedOrNot.includes("percorso breve")) {
         speechOutput = "";
 
         var beaconMap;
@@ -118,24 +120,29 @@ const CompletedPathFinderHandler = {
           }
           beaconMap = new BeaconMap(beaconsList, edges);
         }
-        
         const path = beaconMap.getPath(startBeaconID, finishBeaconID);
 
-        const indications = getRemainingDirections(path.edges, path.beacons, nodes);
-
-        var previousIndication;
-        indications.forEach(indication => {
-          // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
-          if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
-            const lastElem = speechOutput.split("fino ").pop();
-            speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
-            const elemToPush = indication.split("fino ").pop();
-            speechOutput = speechOutput + elemToPush;
-          } else {
+        if (pathDetailedOrNot.includes("percorso breve")) {
+          const indications = getShortDirections(path.edges, path.beacons);
+          indications.forEach(indication => {
             speechOutput = speechOutput + indication;
-          }
-          previousIndication = indication;
-        });
+          });
+        } else {
+          const indications = getRemainingDirections(path.edges, path.beacons, nodes);
+          var previousIndication;
+          indications.forEach(indication => {
+            // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
+            if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
+              const lastElem = speechOutput.split("fino ").pop();
+              speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
+              const elemToPush = indication.split("fino ").pop();
+              speechOutput = speechOutput + elemToPush;
+            } else {
+              speechOutput = speechOutput + indication;
+            }
+            previousIndication = indication;
+          });
+        }
       } else {
         const level = beaconsList.find(beacon => beacon.id === finishBeaconID).level;
         const floor = beaconsList.find(beacon => beacon.id === finishBeaconID).floor;
@@ -156,8 +163,8 @@ const CompletedPathFinderHandler = {
 }
 
 // function tempor(destination, disability, pathDetailedOrNot) {
-//   var speechOutput = `Mi dispiace, ma non capisco`;
-
+//   var speechOutput = `Mi dispiace, ma non ho trovato nulla`;
+  
 //   const beaconsList = mapJson.buildings[0].beacons;
 //   const edges = mapJson.buildings[0].arcs;
 //   const nodes = mapJson.buildings[0].nodes;
@@ -186,7 +193,7 @@ const CompletedPathFinderHandler = {
 //   }
 
 //   if (finishBeaconID != undefined) {
-//     if (pathDetailedOrNot.includes("percorso dettagliato")) {
+//     if (pathDetailedOrNot.includes("percorso dettagliato") || pathDetailedOrNot.includes("percorso breve")) {
 //       speechOutput = "";
 
 //       var beaconMap;
@@ -198,24 +205,29 @@ const CompletedPathFinderHandler = {
 //         }
 //         beaconMap = new BeaconMap(beaconsList, edges);
 //       }
-      
 //       const path = beaconMap.getPath(startBeaconID, finishBeaconID);
 
-//       const indications = getRemainingDirections(path.edges, path.beacons, nodes);
-
-//       var previousIndication;
-//       indications.forEach(indication => {
-//         // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
-//         if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
-//           const lastElem = speechOutput.split("fino ").pop();
-//           speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
-//           const elemToPush = indication.split("fino ").pop();
-//           speechOutput = speechOutput + elemToPush;
-//         } else {
+//       if (pathDetailedOrNot.includes("percorso breve")) {
+//         const indications = getShortDirections(path.edges, path.beacons);
+//         indications.forEach(indication => {
 //           speechOutput = speechOutput + indication;
-//         }
-//         previousIndication = indication;
-//       });
+//         });
+//       } else {
+//         const indications = getRemainingDirections(path.edges, path.beacons, nodes);
+//         var previousIndication;
+//         indications.forEach(indication => {
+//           // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
+//           if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
+//             const lastElem = speechOutput.split("fino ").pop();
+//             speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
+//             const elemToPush = indication.split("fino ").pop();
+//             speechOutput = speechOutput + elemToPush;
+//           } else {
+//             speechOutput = speechOutput + indication;
+//           }
+//           previousIndication = indication;
+//         });
+//       }
 //     } else {
 //       const level = beaconsList.find(beacon => beacon.id === finishBeaconID).level;
 //       const floor = beaconsList.find(beacon => beacon.id === finishBeaconID).floor;
@@ -286,6 +298,76 @@ function getDegrees(previousEdge, edge, indications, goal) {
     // in questa simulzione non voglio che mi dica "torna indietro", quindi gli faccio dire "gira a destra (ma nel caso vero è da sistemare)"
     indications.push(`${right} ${straight} fino ${goal} e `);
   }
+}
+
+function getShortDirections(edges, beacons, needElevator) {
+  // var previousEdge;
+  // previousWasStairsOrElevator = false;
+  const indications = [];
+  const first = edges[0];
+  const last = edges[edges.length - 1];
+  if (first.degrees === '0') {
+    indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight}, poi `);
+  } else if (first.degrees === '90') {
+    indications.push(`dirigiti verso est, ovvero ${right} `);
+  } else if (first.degrees === '180') {
+    indications.push(`dirigiti verso sud, ovvero ${back}, poi `);
+  } else if (first.degrees === '270') {
+    indications.push(`dirigiti verso ovest, ovvero ${left} `);
+  } 
+
+  const startLevel = beacons.find(item => item.id === first.start).level;
+  const endLevel = beacons.find(item => item.id === last.end).level
+  if (startLevel != endLevel) {
+    if(needElevator) {
+      indications.push(elevator);
+    } else {
+      indications.push(stairs);
+    }
+    indications.push(" fino al livello numero " + endLevel + " e poi ");
+  }
+  indications.push("sei arrivato!")
+
+
+
+  // edges.forEach(edge => {
+  //   if (previousEdge === undefined) {
+  //     if (edge.degrees === '0') {
+  //       indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight}, poi `);
+  //     } else if (edge.degrees === '90') {
+  //       indications.push(`dirigiti verso est, ovvero ${right} `);
+  //     } else if (edge.degrees === '180') {
+  //       indications.push(`dirigiti verso sud, ovvero ${back}, poi `);
+  //     } else if (edge.degrees === '270') {
+  //       indications.push(`dirigiti verso ovest, ovvero ${left} `);
+  //     } 
+  //     previousEdge = edge;
+  //   } else {
+  //     if (previousWasStairsOrElevator) {
+  //       getDegrees(previousEdge, edge, indications, "");
+  //       console.log("1");
+  //       console.log(indications[indications.length - 1]);
+  //       indications[indications.length - 1] = indications[indications.length - 1].split("fino ")[0];
+  //       console.log("2");
+  //       console.log(indications[indications.length - 1]);
+  //       previousWasStairsOrElevator = false;
+  //     }
+
+  //     if (edge.type === "stairs" || edge.type === "elevator") {
+  //       if (edge.type === "stairs") {
+  //         indications.push(stairs);
+  //       } else {
+  //         indications.push(elevator);
+  //       }
+  //       indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).level + " e ");
+  //       previousEdge = edge;
+  //       previousWasStairsOrElevator = true;
+  //     }
+  //   }
+  // });
+
+  // indications.push("poi sei arrivato!")
+  return indications;
 }
 
 const DailyInformationIntent = {
