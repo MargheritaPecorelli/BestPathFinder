@@ -27,11 +27,8 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
         if ((name.includes("aula") || name.includes("laboratorio")) && name.includes(".")) {
             name = name.replace(".", ",");
         }
-        // console.log("1 " + name);
         if (name.includes("-")) {
-            // console.log("2 " + name);
             name = name.split("-")[1];
-            // console.log("3 " + name);
             if (item.Nome.startsWith("Stanza")) {
                 roomNumeber = item.Nome.split(" ")[1];
             } else {
@@ -74,13 +71,11 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
                 floor = null;
             }
         }
-        // name = name.toLowerCase();
         // tolgo gli spazi prima di un nome
         if (name.startsWith(" ")) {
             name = name.substring(1);
         }
         locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
-
 
         // se è un professore (allora nella descrizione è presente la parola "Ufficio")
         if (description.includes("Ufficio")) {
@@ -98,33 +93,16 @@ const destinations = MySyncModule.executeSyncQuery("SELECT Nome, Descrizione, Po
             addName(name, dests, "laboratorio ");
         } else {
             // tutti gli altri nomi vengno salvati così come sono
-            dests.push(name);
-            // console.log(name);
+            dests.push(JSON.parse(`{\"name\": {\"value\": \"${name}\"}}`));
         }
 
         // salvo anche i numeri delle stanze
         if (roomNumeber != null) {
-            dests.push(`stanza ${roomNumeber}`);
+            dests.push(JSON.parse(`{\"name\": {\"value\": \"${roomNumeber}\"}}`));
         }
         if (name.includes(".") || name.includes(",")) {
-            // console.log(name);
         }
     });
-    // codice mio per aggiungere cose che non ci sono
-    // dests.push("casina acqua");
-    // locations.push(new Location("casina acqua", description, roomNumeber, level, floor, block, seats));
-    // dests.push("macchinette");
-    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
-    // dests.push("bar");
-    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
-    // dests.push("segreteria");
-    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
-    // dests.push("bagno");
-    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
-    // dests.push("cla");
-    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
-    // dests.push("spazio calmo");
-    // locations.push(new Location(name, description, roomNumeber, level, floor, block, seats));
     return dests;
 });
 
@@ -132,23 +110,14 @@ function addName(name, loc, partOfTheName) {
     if (name.startsWith(" ")) {
         name = name.substring(1);
     }
-    loc.push(name);
+    loc.push(JSON.parse(`{\"name\": {\"value\": \"${name}\"}}`));
     const arr = name.split(" ");
-    loc.push(partOfTheName + "" + arr[arr.length - 1]);
+    loc.push(JSON.parse(`{\"name\": {\"value\": \"${partOfTheName + "" + arr[arr.length - 1]}\"}}`));
 }
 
-// if (destinations.includes("bar") && destinations.includes("cla") && destinations.includes("macchinette")) {
-//     console.log("OK");
-// } else {
-//     console.log("NOOOOOOOOOOOOO");
-// }
+myJson.interactionModel.languageModel.types[0].values = destinations;
 
-// descriptions.forEach(d => console.log(d));
-// salvo i nuovi valori nel JSON scaricato
-myJson.interactionModel.dialog.intents[0].slots[1].validations[0].values = destinations;
-// lo faccio qui in quanto destinations deve essere "pronta"
 new JsonMap(locations).build();
-
 
 //qua riscrivo il file JSON con il nuovo file JSON (quello con i nuovi valori)
 fs.writeFile('./cartellaProvvisoria/InformationPoint/models/it-IT.json', JSON.stringify(myJson, false, 2), function(err) {

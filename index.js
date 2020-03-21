@@ -1,14 +1,15 @@
 const Alexa = require('ask-sdk');
-const Request = require('sync-request');
 const stringSimilarity = require('string-similarity');
 const fs = require('fs');
 const BeaconMap = require('./BeaconMap');
 const mapJson = JSON.parse(fs.readFileSync('./jsonOfTheMap.json').toString());
 
 
+const urlConn = require('./urlConnection');
+// const Request = require('sync-request');
 // const today = new Date().toLocaleDateString();
 // const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data="+today+"&Edificio=EST_EXZUCC1";
-const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=29/11/2019&Edificio=EST_EXZUCC1";
+// const myUrl = "https://www.unibo.it/UniboWeb/Utils/OrarioLezioni/RestService.aspx?SearchType=OccupazioneAule&Data=29/11/2019&Edificio=EST_EXZUCC1";
 
 // startBeaconID è sempre quello della torretta di Alexa
 var startBeaconID;
@@ -26,17 +27,6 @@ const stairs = "prendi le scale";
 const elevator = "prendi l'ascensore";
 
 // =======================================================================================================================================================================
-
-// tempor("casina dell'acqua", "no", "percorso breve");
-// console.log("==================================");
-// tempor("laboratorio 2,2", "no", "percorso breve");
-// tempor("stanza 2003", "visiva", "");
-// tempor("stanza 2003", "no", "");
-// tempor("stanza 2003", "motoria", "");
-// tempor("viroli", "motoria", "percorso dettagliato");
-// tempor("aula 2.11", "no", "");
-// tempor("aula 2.1", "motoria", "");
-// tempor("aula 2.13", "no", "");
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
@@ -75,10 +65,11 @@ const CompletedPathFinderHandler = {
       && request.dialogState === 'COMPLETED';
   },
   handle(handlerInput) {
+    var speechOutput = `Mi dispiace, ma non ho trovato nulla`;
+
     const destination = handlerInput.requestEnvelope.request.intent.slots.destination.value;
     const disability = handlerInput.requestEnvelope.request.intent.slots.disability.value;
-    const pathDetailedOrNot = handlerInput.requestEnvelope.request.intent.slots.pathDetailedOrNot.value;
-    var speechOutput = `Mi dispiace, ma non ho trovato nulla`;
+    const pathGranularity = handlerInput.requestEnvelope.request.intent.slots.pathGranularity.value;
 
     const beaconsList = mapJson.buildings[0].beacons;
     const edges = mapJson.buildings[0].arcs;
@@ -108,22 +99,29 @@ const CompletedPathFinderHandler = {
     }
 
     if (finishBeaconID != undefined) {
-      if (pathDetailedOrNot.includes("percorso dettagliato") || pathDetailedOrNot.includes("percorso breve")) {
+      // if (pathGranularity.includes("percorso dettagliato") || pathGranularity.includes("percorso breve")) {
+      if (pathGranularity.includes("percorso")) {
         speechOutput = "";
 
         var beaconMap;
         if (disability.includes('motoria')) {
           beaconMap = new BeaconMap(beaconsList, edges, true);
         } else {
-          if (disability.includes('visiva')) {
-            speechOutput = "Forse sarebbe meglio che scaricassi l'app per cellulare. Detto questo, "
-          }
+          // if (disability.includes('visiva')) {
+          //   speechOutput = "Forse sarebbe meglio che scaricassi l'app per cellulare. Detto questo, "
+          // }
           beaconMap = new BeaconMap(beaconsList, edges);
         }
         const path = beaconMap.getPath(startBeaconID, finishBeaconID);
 
-        if (pathDetailedOrNot.includes("percorso breve")) {
-          const indications = getShortDirections(path.edges, path.beacons);
+        if (pathGranularity.includes("percorso breve")) {
+          var indications;
+          if (disability.includes('motoria')) {
+            indications = getShortDirections(path.edges, path.beacons, true);
+          } else {
+            indications = getShortDirections(path.edges, path.beacons, false);
+          }
+          // const indications = getShortDirections(path.edges, path.beacons);
           indications.forEach(indication => {
             speechOutput = speechOutput + indication;
           });
@@ -161,87 +159,6 @@ const CompletedPathFinderHandler = {
       .getResponse();
   }
 }
-
-// function tempor(destination, disability, pathDetailedOrNot) {
-//   var speechOutput = `Mi dispiace, ma non ho trovato nulla`;
-  
-//   const beaconsList = mapJson.buildings[0].beacons;
-//   const edges = mapJson.buildings[0].arcs;
-//   const nodes = mapJson.buildings[0].nodes;
-
-//   var finishBeaconID;
-//   nodes.forEach(node => {
-//     if ((destination.includes("laboratorio")) && (destination.includes(","))) {
-//       const labNumber = destination.split(" ")[1];
-//       if ((node.name[0].includes("laboratorio")) && (node.name[0].includes(labNumber))) {
-//         finishBeaconID = node.beacon;
-//       }
-//     } else if ((node.name[0] === destination) || (node.name[1] === destination)) {
-//       finishBeaconID = node.beacon;
-//     }
-//   });
-
-//   // se finishBeacon è undefined, vuol dire che non l'ho trovato, allora provo a vedere se destination è inclusa in qualche nodo.
-//   // non l'ho fatto prima in quanto con destination = aula 2.1, mi tornava aula 2.13, perché prima di verificare node.name[0] === destination
-//   // verificava node.name[0].includes(destination).
-//   if (finishBeaconID === undefined) {
-//     nodes.forEach(node => {
-//       if (node.name[0].includes(destination)) {
-//         finishBeaconID = node.beacon;
-//       }
-//     });
-//   }
-
-//   if (finishBeaconID != undefined) {
-//     if (pathDetailedOrNot.includes("percorso dettagliato") || pathDetailedOrNot.includes("percorso breve")) {
-//       speechOutput = "";
-
-//       var beaconMap;
-//       if (disability.includes('motoria')) {
-//         beaconMap = new BeaconMap(beaconsList, edges, true);
-//       } else {
-//         if (disability.includes('visiva')) {
-//           speechOutput = "Forse sarebbe meglio che scaricassi l'app per cellulare. Detto questo, "
-//         }
-//         beaconMap = new BeaconMap(beaconsList, edges);
-//       }
-//       const path = beaconMap.getPath(startBeaconID, finishBeaconID);
-
-//       if (pathDetailedOrNot.includes("percorso breve")) {
-//         const indications = getShortDirections(path.edges, path.beacons);
-//         indications.forEach(indication => {
-//           speechOutput = speechOutput + indication;
-//         });
-//       } else {
-//         const indications = getRemainingDirections(path.edges, path.beacons, nodes);
-//         var previousIndication;
-//         indications.forEach(indication => {
-//           // se l'indicazione precedente era quella di andare dritto e anche quella di adesso è quella di andare dritto, allora voglio solo l'ultima
-//           if (previousIndication != undefined && !indication.includes(right) && !indication.includes(left) && indication.includes(straight)) {
-//             const lastElem = speechOutput.split("fino ").pop();
-//             speechOutput = speechOutput.substring(0,(speechOutput.length - lastElem.length));
-//             const elemToPush = indication.split("fino ").pop();
-//             speechOutput = speechOutput + elemToPush;
-//           } else {
-//             speechOutput = speechOutput + indication;
-//           }
-//           previousIndication = indication;
-//         });
-//       }
-//     } else {
-//       const level = beaconsList.find(beacon => beacon.id === finishBeaconID).level;
-//       const floor = beaconsList.find(beacon => beacon.id === finishBeaconID).floor;
-//       const block = beaconsList.find(beacon => beacon.id === finishBeaconID).block;
-//       const information = beaconsList.find(beacon => beacon.id === finishBeaconID).information;
-//       speechOutput = `${destination} si trova al livello ${level}, al ${floor}, nel blocco ${block}.`;
-//       if (information != undefined) {
-//         speechOutput = speechOutput + information;
-//       }
-//     }
-//   }
-
-//   console.log(speechOutput);
-// }
 
 // funzione simile a quella di Giacomo Mambelli (mandata per email)
 function getRemainingDirections(edges, beacons, nodes) {
@@ -301,8 +218,6 @@ function getDegrees(previousEdge, edge, indications, goal) {
 }
 
 function getShortDirections(edges, beacons, needElevator) {
-  // var previousEdge;
-  // previousWasStairsOrElevator = false;
   const indications = [];
   const first = edges[0];
   const last = edges[edges.length - 1];
@@ -328,45 +243,6 @@ function getShortDirections(edges, beacons, needElevator) {
   }
   indications.push("sei arrivato!")
 
-
-
-  // edges.forEach(edge => {
-  //   if (previousEdge === undefined) {
-  //     if (edge.degrees === '0') {
-  //       indications.push(`dirigiti verso nord, ovvero supera la torretta e ${straight}, poi `);
-  //     } else if (edge.degrees === '90') {
-  //       indications.push(`dirigiti verso est, ovvero ${right} `);
-  //     } else if (edge.degrees === '180') {
-  //       indications.push(`dirigiti verso sud, ovvero ${back}, poi `);
-  //     } else if (edge.degrees === '270') {
-  //       indications.push(`dirigiti verso ovest, ovvero ${left} `);
-  //     } 
-  //     previousEdge = edge;
-  //   } else {
-  //     if (previousWasStairsOrElevator) {
-  //       getDegrees(previousEdge, edge, indications, "");
-  //       console.log("1");
-  //       console.log(indications[indications.length - 1]);
-  //       indications[indications.length - 1] = indications[indications.length - 1].split("fino ")[0];
-  //       console.log("2");
-  //       console.log(indications[indications.length - 1]);
-  //       previousWasStairsOrElevator = false;
-  //     }
-
-  //     if (edge.type === "stairs" || edge.type === "elevator") {
-  //       if (edge.type === "stairs") {
-  //         indications.push(stairs);
-  //       } else {
-  //         indications.push(elevator);
-  //       }
-  //       indications.push(" fino al livello numero " + beacons.find(item => item.id === edge.end).level + " e ");
-  //       previousEdge = edge;
-  //       previousWasStairsOrElevator = true;
-  //     }
-  //   }
-  // });
-
-  // indications.push("poi sei arrivato!")
   return indications;
 }
 
@@ -378,13 +254,14 @@ const DailyInformationIntent = {
   },
   handle(handlerInput) {
     const target = handlerInput.requestEnvelope.request.intent.slots.target.value.toLowerCase();
-    // const dish = handlerInput.requestEnvelope.request.intent.slots.dish.value.toLowerCase();
-    var speechOutput = "Mi dispiacema non ho capito!";
+    var speechOutput = "Mi dispiace ma non ho capito!";
 
     if (target != undefined) {
       speechOutput = "Non ho trovato nulla, mi dispiace!";
-      const res = Request('GET', myUrl);
-      const body = res.getBody().toString('utf8');
+      // speechOutput = "viroli si trova a aula 3.7, inizia alle 9:00 e finisce alle 12:00";
+      // const res = Request('GET', myUrl);
+      // const body = res.getBody().toString('utf8');
+      const body = urlConn.getBody();
       var informations = [];
       
       informations = getInformations(body, target);
@@ -416,14 +293,6 @@ const DailyInformationIntent = {
         speechOutput = `${target} si trova a ${informations[3]}, inizia alle ${informations[1]} e finisce alle ${informations[2]}`;
       }
     }
-    // if (dish != undefined) {
-    //   speechOutput = `CE L'HO FATTAAAAAAAAAAAAA`;
-    // }
-
-    // if (request.includes("mangiare") || request.includes("caffè") || request.includes("bere") || request.includes("pranzare") || target.includes("mangiare") || target.includes("caffè") || target.includes("bere") || target.includes("pranzare")) {
-    //   // speechOutput = `puoi andare alle macchinette oppure al bar.`;
-    //   speechOutput = `CE L'HO FATTAAAAAAAAAAAAA`;
-    // }
 
     return handlerInput.responseBuilder
       .speak(speechOutput)
@@ -471,18 +340,18 @@ function getInformations(body, destination) {
   return informations;
 }
 
-const EatingAndDrinkingIntent = {
+const ServiceLocationIntent = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
     return request.type === "IntentRequest"
-      && request.intent.name === "EatingAndDrinkingIntent";
+      && request.intent.name === "ServiceLocationIntent";
   },
   handle(handlerInput) {
-    const dish = handlerInput.requestEnvelope.request.intent.slots.dish.value.toLowerCase();
+    const service = handlerInput.requestEnvelope.request.intent.slots.service.value.toLowerCase();
     var speechOutput = "Mi dispiacema non ho capito!";
 
-    if (dish != undefined) {
-      if (dish.includes("acqua")) {
+    if (service != undefined) {
+      if (service.includes("acqua")) {
         speechOutput = `Se vuoi rimpire la tua borraccia, puoi andare alla casina dell'acqua, altrimenti puoi andare al bar o alle macchinette.`;
       } else {
         speechOutput = `Puoi andare al bar o alle macchinette.`;
@@ -551,8 +420,8 @@ const ErrorHandler = {
   },
 };
 
-const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
-const HELP_REPROMPT = 'What can I help you with?';
+const HELP_MESSAGE = 'Puoi chiedere come arrivare in un aula oppere puoi chiedermi a che ora si terrà una certa lezione. Usami come punto informazione';
+const HELP_REPROMPT = 'Io sono il punto informazione. Come posso aiutarti?';
 
 const skillBuilder = Alexa.SkillBuilders.standard();
 
@@ -562,7 +431,7 @@ exports.handler = skillBuilder
     StartedPathFinderHandler,
     CompletedPathFinderHandler,
     DailyInformationIntent,
-    EatingAndDrinkingIntent,
+    ServiceLocationIntent,
     HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler

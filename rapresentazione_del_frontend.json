@@ -1,0 +1,4135 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "punto informazioni",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "PathFinderIntent",
+          "slots": [
+            {
+              "name": "disability",
+              "type": "disabilityType",
+              "samples": [
+                "nessuna",
+                "no",
+                "sì motoria",
+                "motoria",
+                "sì visiva",
+                "visiva"
+              ]
+            },
+            {
+              "name": "destination",
+              "type": "destinationType",
+              "samples": [
+                "devo andare a {destination}",
+                "all {destination}",
+                "a {destination}",
+                "nella {destination}",
+                "nel {destination}",
+                "alla {destination}",
+                "al {destination}",
+                "in {destination}",
+                "devo raggiungere il {destination}",
+                "devo raggiungere la {destination}",
+                "devo andare al {destination}",
+                "devo raggiungere {destination}",
+                "devo andare in {destination}",
+                "{destination}"
+              ]
+            },
+            {
+              "name": "pathGranularity",
+              "type": "pathGranularityType",
+              "samples": [
+                "dimmi {pathGranularity}",
+                "{pathGranularity}",
+                "voglio il {pathGranularity}",
+                "voglio sapere {pathGranularity}"
+              ]
+            }
+          ],
+          "samples": [
+            "dov è l aula {destination}",
+            "dov è l {destination}",
+            "dov è la {destination}",
+            "come arrivo in {destination}",
+            "come arrivo a {destination}",
+            "come arrivo alla {destination}",
+            "devo andare a {destination} ma non so dove si trova",
+            "devo andare in {destination} ma non so dove si trovi",
+            "come raggiungo il {destination}",
+            "come raggiungo le {destination}",
+            "come raggiungo {destination} con una disabilità {disability}",
+            "ho una disabilità {disability}",
+            "devo andare {destination} e ho una disabilità {disability}",
+            "devo raggiungere {destination} e ho una disabilità {disability}",
+            "ho una disabilità {disability} e devo andare {destination}",
+            "ho una disabilità {disability} e voglio raggiungere {destination}",
+            "con una disabilità {disability} come raggiungo {destination}",
+            "voglio raggiungere {destination}",
+            "con una {disability} come raggiungo {destination}",
+            "come raggiungo {destination} con una {disability}",
+            "come raggiungo {destination}",
+            "devo andare da {destination}",
+            "devo raggiungere la {destination}",
+            "devo raggiungere il {destination}",
+            "devo andare al {destination}",
+            "devo andare a {destination}",
+            "devo andare in {destination}",
+            "ho una {disability} e voglio raggiungere {destination}",
+            "ho una {disability} e devo andare {destination}",
+            "devo raggiungere {destination} e ho una {disability}",
+            "devo andare {destination} e ho una {disability}",
+            "devo raggiungere {destination}",
+            "devo andare {destination}",
+            "dove trovo {destination}",
+            "dov è {destination}",
+            "ho una {disability}"
+          ]
+        },
+        {
+          "name": "DailyInformationIntent",
+          "slots": [
+            {
+              "name": "target",
+              "type": "targetType",
+              "samples": [
+                "{target}"
+              ]
+            }
+          ],
+          "samples": [
+            "a che ora fa lezione di {target}",
+            "non mi ricordo a che ora fa lezione {target}",
+            "non mi ricordo l'orario della lezione di {target}",
+            "quando si svolgerà la lezione di {target}",
+            "quando si svolge la lezione di {target}",
+            "quando avrà luogo {target}",
+            "dove avrà luogo {target}",
+            "dove si svolge la lezione di {target}",
+            "a che ora è la lezione di {target}",
+            "a che ora è {target}",
+            "qual è l orario della {target}",
+            "a che ora chiude il {target}",
+            "a che ora apre il {target}",
+            "a che ora chiude la {target}",
+            "a che ora apre la {target}",
+            "a che ora è il {target}",
+            "a che ora chiude {target}",
+            "qual è l orario di chiusura della {target}",
+            "a che ora apre {target}",
+            "qual è l orario di apertura della {target}",
+            "qual è l orario di {target}"
+          ]
+        },
+        {
+          "name": "ServiceLocationIntent",
+          "slots": [
+            {
+              "name": "service",
+              "type": "AMAZON.Food"
+            }
+          ],
+          "samples": [
+            "vorrei mangiare qualcosa ma non so dove andare",
+            "vorrei mangiare {service} ma non so dove andare",
+            "dove posso prendere {service}",
+            "voglio un {service}",
+            "dove posso prendere un {service}",
+            "vorrei mangiare {service}",
+            "dove posso mangiare {service}",
+            "vorrei bere {service}",
+            "dove posso bere {service}",
+            "voglio {service}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "aula 2,8"
+              }
+            },
+            {
+              "name": {
+                "value": "2001"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,7"
+              }
+            },
+            {
+              "name": {
+                "value": "2002"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,6"
+              }
+            },
+            {
+              "name": {
+                "value": "2003"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,5"
+              }
+            },
+            {
+              "name": {
+                "value": "2004"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,4"
+              }
+            },
+            {
+              "name": {
+                "value": "2005"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,3"
+              }
+            },
+            {
+              "name": {
+                "value": "2006"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio informatico vela 2,2"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 2,2"
+              }
+            },
+            {
+              "name": {
+                "value": "2007"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,1"
+              }
+            },
+            {
+              "name": {
+                "value": "2008"
+              }
+            },
+            {
+              "name": {
+                "value": "locale tecnico"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,9"
+              }
+            },
+            {
+              "name": {
+                "value": "2015"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,10"
+              }
+            },
+            {
+              "name": {
+                "value": "2014"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,11"
+              }
+            },
+            {
+              "name": {
+                "value": "2020"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,12"
+              }
+            },
+            {
+              "name": {
+                "value": "2025"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 2,13"
+              }
+            },
+            {
+              "name": {
+                "value": "2026"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 2,17"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 2,17"
+              }
+            },
+            {
+              "name": {
+                "value": "2066"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 2,16"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 2,16"
+              }
+            },
+            {
+              "name": {
+                "value": "2065"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 2,15"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 2,15"
+              }
+            },
+            {
+              "name": {
+                "value": "2056"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 2,14"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 2,14"
+              }
+            },
+            {
+              "name": {
+                "value": "2055"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio"
+              }
+            },
+            {
+              "name": {
+                "value": "3001"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio lele 3,2"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,2"
+              }
+            },
+            {
+              "name": {
+                "value": "3003"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio informatico 3,1"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,1"
+              }
+            },
+            {
+              "name": {
+                "value": "3004"
+              }
+            },
+            {
+              "name": {
+                "value": "aula magna 3,4 "
+              }
+            },
+            {
+              "name": {
+                "value": "3034"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 1 elettronica e telecomunicazioni"
+              }
+            },
+            {
+              "name": {
+                "value": "3009"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio informatico 3,3"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,3"
+              }
+            },
+            {
+              "name": {
+                "value": "3021"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio lamovida"
+              }
+            },
+            {
+              "name": {
+                "value": "3065"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 3,10"
+              }
+            },
+            {
+              "name": {
+                "value": "3064"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 3,11"
+              }
+            },
+            {
+              "name": {
+                "value": "3069"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di sintesi 3,12"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,12"
+              }
+            },
+            {
+              "name": {
+                "value": "3056"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di sintesi 3,13"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,13"
+              }
+            },
+            {
+              "name": {
+                "value": "3055"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di sintesi 3,14"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,14"
+              }
+            },
+            {
+              "name": {
+                "value": "3054"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di sintesi 3,15"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,15"
+              }
+            },
+            {
+              "name": {
+                "value": "3053"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di sintesi 3,16"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,16"
+              }
+            },
+            {
+              "name": {
+                "value": "3052"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 3,9"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,9"
+              }
+            },
+            {
+              "name": {
+                "value": "3071"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 3,8"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,8"
+              }
+            },
+            {
+              "name": {
+                "value": "3070"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 3,7"
+              }
+            },
+            {
+              "name": {
+                "value": "3063"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 3,6"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,6"
+              }
+            },
+            {
+              "name": {
+                "value": "3068"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio disegno 3,5"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 3,5"
+              }
+            },
+            {
+              "name": {
+                "value": "3067"
+              }
+            },
+            {
+              "name": {
+                "value": "aula 4,1"
+              }
+            },
+            {
+              "name": {
+                "value": "4116"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio informatico cad 4,2"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio 4,2"
+              }
+            },
+            {
+              "name": {
+                "value": "4118"
+              }
+            },
+            {
+              "name": {
+                "value": "sensore canarin"
+              }
+            },
+            {
+              "name": {
+                "value": "mario bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "4022c"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio lamo"
+              }
+            },
+            {
+              "name": {
+                "value": "2068"
+              }
+            },
+            {
+              "name": {
+                "value": "lab icm"
+              }
+            },
+            {
+              "name": {
+                "value": "vittorio ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "4022b"
+              }
+            },
+            {
+              "name": {
+                "value": "antonella carbonaro"
+              }
+            },
+            {
+              "name": {
+                "value": "carbonaro"
+              }
+            },
+            {
+              "name": {
+                "value": "4022a"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandro ricci"
+              }
+            },
+            {
+              "name": {
+                "value": "ricci"
+              }
+            },
+            {
+              "name": {
+                "value": "4022"
+              }
+            },
+            {
+              "name": {
+                "value": "franco callegati"
+              }
+            },
+            {
+              "name": {
+                "value": "callegati"
+              }
+            },
+            {
+              "name": {
+                "value": "4021"
+              }
+            },
+            {
+              "name": {
+                "value": "daniele morbidelli"
+              }
+            },
+            {
+              "name": {
+                "value": "morbidelli"
+              }
+            },
+            {
+              "name": {
+                "value": "luca pasquini"
+              }
+            },
+            {
+              "name": {
+                "value": "pasquini"
+              }
+            },
+            {
+              "name": {
+                "value": "4020"
+              }
+            },
+            {
+              "name": {
+                "value": "claudia cevenini"
+              }
+            },
+            {
+              "name": {
+                "value": "cevenini"
+              }
+            },
+            {
+              "name": {
+                "value": "mirko ravaioli"
+              }
+            },
+            {
+              "name": {
+                "value": "ravaioli"
+              }
+            },
+            {
+              "name": {
+                "value": "giuseppe levi"
+              }
+            },
+            {
+              "name": {
+                "value": "levi"
+              }
+            },
+            {
+              "name": {
+                "value": "4019"
+              }
+            },
+            {
+              "name": {
+                "value": "davide dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "4018"
+              }
+            },
+            {
+              "name": {
+                "value": "michele mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "stefano severi"
+              }
+            },
+            {
+              "name": {
+                "value": "severi"
+              }
+            },
+            {
+              "name": {
+                "value": "4017"
+              }
+            },
+            {
+              "name": {
+                "value": "marco chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "4016"
+              }
+            },
+            {
+              "name": {
+                "value": "claudio fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "4015"
+              }
+            },
+            {
+              "name": {
+                "value": "mauro ursino"
+              }
+            },
+            {
+              "name": {
+                "value": "ursino"
+              }
+            },
+            {
+              "name": {
+                "value": "4014"
+              }
+            },
+            {
+              "name": {
+                "value": "lorenzo chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "4013"
+              }
+            },
+            {
+              "name": {
+                "value": "alberto bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "4012"
+              }
+            },
+            {
+              "name": {
+                "value": "bagni"
+              }
+            },
+            {
+              "name": {
+                "value": "roberto baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "4008"
+              }
+            },
+            {
+              "name": {
+                "value": "monica mariotti"
+              }
+            },
+            {
+              "name": {
+                "value": "mariotti"
+              }
+            },
+            {
+              "name": {
+                "value": "4006"
+              }
+            },
+            {
+              "name": {
+                "value": "paolo castaldi"
+              }
+            },
+            {
+              "name": {
+                "value": "castaldi"
+              }
+            },
+            {
+              "name": {
+                "value": "4005"
+              }
+            },
+            {
+              "name": {
+                "value": "sergio callegari"
+              }
+            },
+            {
+              "name": {
+                "value": "callegari"
+              }
+            },
+            {
+              "name": {
+                "value": "4004"
+              }
+            },
+            {
+              "name": {
+                "value": "marco crescentini"
+              }
+            },
+            {
+              "name": {
+                "value": "crescentini"
+              }
+            },
+            {
+              "name": {
+                "value": "4003"
+              }
+            },
+            {
+              "name": {
+                "value": "aldo romani"
+              }
+            },
+            {
+              "name": {
+                "value": "romani"
+              }
+            },
+            {
+              "name": {
+                "value": "4002"
+              }
+            },
+            {
+              "name": {
+                "value": "marco tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "4010"
+              }
+            },
+            {
+              "name": {
+                "value": "serena morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "4034"
+              }
+            },
+            {
+              "name": {
+                "value": "emanuele domenico giordano"
+              }
+            },
+            {
+              "name": {
+                "value": "giordano"
+              }
+            },
+            {
+              "name": {
+                "value": "4035"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandra costanzo"
+              }
+            },
+            {
+              "name": {
+                "value": "costanzo"
+              }
+            },
+            {
+              "name": {
+                "value": "4036"
+              }
+            },
+            {
+              "name": {
+                "value": "enrico maria vitucci"
+              }
+            },
+            {
+              "name": {
+                "value": "vitucci"
+              }
+            },
+            {
+              "name": {
+                "value": "4037"
+              }
+            },
+            {
+              "name": {
+                "value": "vittorio degli esposti"
+              }
+            },
+            {
+              "name": {
+                "value": "esposti"
+              }
+            },
+            {
+              "name": {
+                "value": "4038"
+              }
+            },
+            {
+              "name": {
+                "value": "franco mastri"
+              }
+            },
+            {
+              "name": {
+                "value": "mastri"
+              }
+            },
+            {
+              "name": {
+                "value": "4039"
+              }
+            },
+            {
+              "name": {
+                "value": "cristiana corsi"
+              }
+            },
+            {
+              "name": {
+                "value": "corsi"
+              }
+            },
+            {
+              "name": {
+                "value": "4040"
+              }
+            },
+            {
+              "name": {
+                "value": "rita stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "4041"
+              }
+            },
+            {
+              "name": {
+                "value": "debora cesari"
+              }
+            },
+            {
+              "name": {
+                "value": "cesari"
+              }
+            },
+            {
+              "name": {
+                "value": "4042"
+              }
+            },
+            {
+              "name": {
+                "value": "cristiano cuppini"
+              }
+            },
+            {
+              "name": {
+                "value": "cuppini"
+              }
+            },
+            {
+              "name": {
+                "value": "4043"
+              }
+            },
+            {
+              "name": {
+                "value": "elisa magosso"
+              }
+            },
+            {
+              "name": {
+                "value": "magosso"
+              }
+            },
+            {
+              "name": {
+                "value": "4044"
+              }
+            },
+            {
+              "name": {
+                "value": "stefano diciotti"
+              }
+            },
+            {
+              "name": {
+                "value": "diciotti"
+              }
+            },
+            {
+              "name": {
+                "value": "4045"
+              }
+            },
+            {
+              "name": {
+                "value": "walter cerroni"
+              }
+            },
+            {
+              "name": {
+                "value": "cerroni"
+              }
+            },
+            {
+              "name": {
+                "value": "4046"
+              }
+            },
+            {
+              "name": {
+                "value": "nicola arcozzi"
+              }
+            },
+            {
+              "name": {
+                "value": "arcozzi"
+              }
+            },
+            {
+              "name": {
+                "value": "4047"
+              }
+            },
+            {
+              "name": {
+                "value": "luca cristofolini"
+              }
+            },
+            {
+              "name": {
+                "value": "cristofolini"
+              }
+            },
+            {
+              "name": {
+                "value": "enrico paolini"
+              }
+            },
+            {
+              "name": {
+                "value": "paolini"
+              }
+            },
+            {
+              "name": {
+                "value": "4049"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "roberto naldi"
+              }
+            },
+            {
+              "name": {
+                "value": "naldi"
+              }
+            },
+            {
+              "name": {
+                "value": "4051"
+              }
+            },
+            {
+              "name": {
+                "value": "enrico sangiorgi"
+              }
+            },
+            {
+              "name": {
+                "value": "sangiorgi"
+              }
+            },
+            {
+              "name": {
+                "value": "4052"
+              }
+            },
+            {
+              "name": {
+                "value": "massimo cicognani"
+              }
+            },
+            {
+              "name": {
+                "value": "cicognani"
+              }
+            },
+            {
+              "name": {
+                "value": "4053"
+              }
+            },
+            {
+              "name": {
+                "value": "gianluca moro"
+              }
+            },
+            {
+              "name": {
+                "value": "moro"
+              }
+            },
+            {
+              "name": {
+                "value": "4054"
+              }
+            },
+            {
+              "name": {
+                "value": "aristide mingozzi"
+              }
+            },
+            {
+              "name": {
+                "value": "mingozzi"
+              }
+            },
+            {
+              "name": {
+                "value": "4123"
+              }
+            },
+            {
+              "name": {
+                "value": "paola salomoni"
+              }
+            },
+            {
+              "name": {
+                "value": "salomoni"
+              }
+            },
+            {
+              "name": {
+                "value": "4148"
+              }
+            },
+            {
+              "name": {
+                "value": "nicoletta cantarini"
+              }
+            },
+            {
+              "name": {
+                "value": "cantarini"
+              }
+            },
+            {
+              "name": {
+                "value": "fabrizio caselli"
+              }
+            },
+            {
+              "name": {
+                "value": "caselli"
+              }
+            },
+            {
+              "name": {
+                "value": "4146"
+              }
+            },
+            {
+              "name": {
+                "value": "vittorio maniezzo"
+              }
+            },
+            {
+              "name": {
+                "value": "maniezzo"
+              }
+            },
+            {
+              "name": {
+                "value": "4145"
+              }
+            },
+            {
+              "name": {
+                "value": "raffaele cappelli"
+              }
+            },
+            {
+              "name": {
+                "value": "cappelli"
+              }
+            },
+            {
+              "name": {
+                "value": "marco antonio boschetti"
+              }
+            },
+            {
+              "name": {
+                "value": "boschetti"
+              }
+            },
+            {
+              "name": {
+                "value": "4144"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo ferrara"
+              }
+            },
+            {
+              "name": {
+                "value": "ferrara"
+              }
+            },
+            {
+              "name": {
+                "value": "annalisa franco"
+              }
+            },
+            {
+              "name": {
+                "value": "franco"
+              }
+            },
+            {
+              "name": {
+                "value": "4143"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandro bevilacqua"
+              }
+            },
+            {
+              "name": {
+                "value": "bevilacqua"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea roli"
+              }
+            },
+            {
+              "name": {
+                "value": "roli"
+              }
+            },
+            {
+              "name": {
+                "value": "4142"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandra lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "damiana lazzaro"
+              }
+            },
+            {
+              "name": {
+                "value": "lazzaro"
+              }
+            },
+            {
+              "name": {
+                "value": "4141"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "4140"
+              }
+            },
+            {
+              "name": {
+                "value": "moreno marzolla"
+              }
+            },
+            {
+              "name": {
+                "value": "marzolla"
+              }
+            },
+            {
+              "name": {
+                "value": "gabriele d'angelo"
+              }
+            },
+            {
+              "name": {
+                "value": "d'angelo"
+              }
+            },
+            {
+              "name": {
+                "value": "4139"
+              }
+            },
+            {
+              "name": {
+                "value": "pietro di lena"
+              }
+            },
+            {
+              "name": {
+                "value": "lena"
+              }
+            },
+            {
+              "name": {
+                "value": "4138"
+              }
+            },
+            {
+              "name": {
+                "value": "davide maltoni"
+              }
+            },
+            {
+              "name": {
+                "value": "maltoni"
+              }
+            },
+            {
+              "name": {
+                "value": "4132"
+              }
+            },
+            {
+              "name": {
+                "value": "dario maio"
+              }
+            },
+            {
+              "name": {
+                "value": "maio"
+              }
+            },
+            {
+              "name": {
+                "value": "4131"
+              }
+            },
+            {
+              "name": {
+                "value": "stefano rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "4130"
+              }
+            },
+            {
+              "name": {
+                "value": "luciano margara"
+              }
+            },
+            {
+              "name": {
+                "value": "margara"
+              }
+            },
+            {
+              "name": {
+                "value": "4129"
+              }
+            },
+            {
+              "name": {
+                "value": "mirko viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "4128"
+              }
+            },
+            {
+              "name": {
+                "value": "antonio natali"
+              }
+            },
+            {
+              "name": {
+                "value": "natali"
+              }
+            },
+            {
+              "name": {
+                "value": "4127"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea omicini"
+              }
+            },
+            {
+              "name": {
+                "value": "omicini"
+              }
+            },
+            {
+              "name": {
+                "value": "4126"
+              }
+            },
+            {
+              "name": {
+                "value": "giovanni pau"
+              }
+            },
+            {
+              "name": {
+                "value": "pau"
+              }
+            },
+            {
+              "name": {
+                "value": "4125"
+              }
+            },
+            {
+              "name": {
+                "value": "ernesto antonini"
+              }
+            },
+            {
+              "name": {
+                "value": "antonini"
+              }
+            },
+            {
+              "name": {
+                "value": "jacopo gaspari"
+              }
+            },
+            {
+              "name": {
+                "value": "gaspari"
+              }
+            },
+            {
+              "name": {
+                "value": "4097"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea boeri"
+              }
+            },
+            {
+              "name": {
+                "value": "boeri"
+              }
+            },
+            {
+              "name": {
+                "value": "danila longo"
+              }
+            },
+            {
+              "name": {
+                "value": "longo"
+              }
+            },
+            {
+              "name": {
+                "value": "4098"
+              }
+            },
+            {
+              "name": {
+                "value": "gino malacarne"
+              }
+            },
+            {
+              "name": {
+                "value": "malacarne"
+              }
+            },
+            {
+              "name": {
+                "value": "walter balducci"
+              }
+            },
+            {
+              "name": {
+                "value": "balducci"
+              }
+            },
+            {
+              "name": {
+                "value": "4099"
+              }
+            },
+            {
+              "name": {
+                "value": "francesco ceccarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "ceccarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "piergiorgio massarenti"
+              }
+            },
+            {
+              "name": {
+                "value": "massarenti"
+              }
+            },
+            {
+              "name": {
+                "value": "kristian fabbri"
+              }
+            },
+            {
+              "name": {
+                "value": "fabbri"
+              }
+            },
+            {
+              "name": {
+                "value": "4100"
+              }
+            },
+            {
+              "name": {
+                "value": "lamberto tronchin"
+              }
+            },
+            {
+              "name": {
+                "value": "tronchin"
+              }
+            },
+            {
+              "name": {
+                "value": "4101"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo agnoletto"
+              }
+            },
+            {
+              "name": {
+                "value": "agnoletto"
+              }
+            },
+            {
+              "name": {
+                "value": "antonio esposito"
+              }
+            },
+            {
+              "name": {
+                "value": "esposito"
+              }
+            },
+            {
+              "name": {
+                "value": "4102"
+              }
+            },
+            {
+              "name": {
+                "value": "francesco saverio fera"
+              }
+            },
+            {
+              "name": {
+                "value": "fera"
+              }
+            },
+            {
+              "name": {
+                "value": "annalisa trentin"
+              }
+            },
+            {
+              "name": {
+                "value": "trentin"
+              }
+            },
+            {
+              "name": {
+                "value": "4103"
+              }
+            },
+            {
+              "name": {
+                "value": "lamberto amistadi"
+              }
+            },
+            {
+              "name": {
+                "value": "amistadi"
+              }
+            },
+            {
+              "name": {
+                "value": "ildebrando clemente"
+              }
+            },
+            {
+              "name": {
+                "value": "clemente"
+              }
+            },
+            {
+              "name": {
+                "value": "4104"
+              }
+            },
+            {
+              "name": {
+                "value": "maura savini"
+              }
+            },
+            {
+              "name": {
+                "value": "savini"
+              }
+            },
+            {
+              "name": {
+                "value": "andreina milan"
+              }
+            },
+            {
+              "name": {
+                "value": "milan"
+              }
+            },
+            {
+              "name": {
+                "value": "4105"
+              }
+            },
+            {
+              "name": {
+                "value": "francesco gulinello"
+              }
+            },
+            {
+              "name": {
+                "value": "gulinello"
+              }
+            },
+            {
+              "name": {
+                "value": "elena mucelli"
+              }
+            },
+            {
+              "name": {
+                "value": "mucelli"
+              }
+            },
+            {
+              "name": {
+                "value": "stefania rössl"
+              }
+            },
+            {
+              "name": {
+                "value": "rössl"
+              }
+            },
+            {
+              "name": {
+                "value": "4106"
+              }
+            },
+            {
+              "name": {
+                "value": "valentina orioli"
+              }
+            },
+            {
+              "name": {
+                "value": "orioli"
+              }
+            },
+            {
+              "name": {
+                "value": "4096"
+              }
+            },
+            {
+              "name": {
+                "value": "giovanni leoni"
+              }
+            },
+            {
+              "name": {
+                "value": "leoni"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea borsari"
+              }
+            },
+            {
+              "name": {
+                "value": "borsari"
+              }
+            },
+            {
+              "name": {
+                "value": "4095"
+              }
+            },
+            {
+              "name": {
+                "value": "marco pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea ugolini"
+              }
+            },
+            {
+              "name": {
+                "value": "ugolini"
+              }
+            },
+            {
+              "name": {
+                "value": "4094"
+              }
+            },
+            {
+              "name": {
+                "value": "nicoletta cantarini"
+              }
+            },
+            {
+              "name": {
+                "value": "cantarini"
+              }
+            },
+            {
+              "name": {
+                "value": "marco lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "tommaso trombetti"
+              }
+            },
+            {
+              "name": {
+                "value": "trombetti"
+              }
+            },
+            {
+              "name": {
+                "value": "giada gasparini"
+              }
+            },
+            {
+              "name": {
+                "value": "gasparini"
+              }
+            },
+            {
+              "name": {
+                "value": "4092"
+              }
+            },
+            {
+              "name": {
+                "value": "lucio nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "cristina gentilini"
+              }
+            },
+            {
+              "name": {
+                "value": "gentilini"
+              }
+            },
+            {
+              "name": {
+                "value": "luisa molari"
+              }
+            },
+            {
+              "name": {
+                "value": "molari"
+              }
+            },
+            {
+              "name": {
+                "value": "4091"
+              }
+            },
+            {
+              "name": {
+                "value": "anna maria manfredini"
+              }
+            },
+            {
+              "name": {
+                "value": "manfredini"
+              }
+            },
+            {
+              "name": {
+                "value": "federico fallavollita"
+              }
+            },
+            {
+              "name": {
+                "value": "fallavollita"
+              }
+            },
+            {
+              "name": {
+                "value": "4090"
+              }
+            },
+            {
+              "name": {
+                "value": "fabrizio ivan apollonio"
+              }
+            },
+            {
+              "name": {
+                "value": "apollonio"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandro marata"
+              }
+            },
+            {
+              "name": {
+                "value": "marata"
+              }
+            },
+            {
+              "name": {
+                "value": "4089"
+              }
+            },
+            {
+              "name": {
+                "value": "sensore canarin 2"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio lib (m)"
+              }
+            },
+            {
+              "name": {
+                "value": "3007"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio lib (i)"
+              }
+            },
+            {
+              "name": {
+                "value": "3008"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio offline"
+              }
+            },
+            {
+              "name": {
+                "value": "4117"
+              }
+            },
+            {
+              "name": {
+                "value": "sala riprese"
+              }
+            },
+            {
+              "name": {
+                "value": "4119"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio fotografico"
+              }
+            },
+            {
+              "name": {
+                "value": "4120"
+              }
+            },
+            {
+              "name": {
+                "value": "aula magna 3,4 "
+              }
+            },
+            {
+              "name": {
+                "value": "2011"
+              }
+            },
+            {
+              "name": {
+                "value": "biblioteca"
+              }
+            },
+            {
+              "name": {
+                "value": "spazio studenti"
+              }
+            },
+            {
+              "name": {
+                "value": "2010"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di ricerca e2"
+              }
+            },
+            {
+              "name": {
+                "value": "2046"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio lamo"
+              }
+            },
+            {
+              "name": {
+                "value": "3073"
+              }
+            },
+            {
+              "name": {
+                "value": "distributore dell'acqua"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di laurea"
+              }
+            },
+            {
+              "name": {
+                "value": "4093"
+              }
+            },
+            {
+              "name": {
+                "value": "laboratorio di fisica ambientale"
+              }
+            },
+            {
+              "name": {
+                "value": "4086"
+              }
+            },
+            {
+              "name": {
+                "value": "daniele vigo"
+              }
+            },
+            {
+              "name": {
+                "value": "vigo"
+              }
+            },
+            {
+              "name": {
+                "value": "4032"
+              }
+            },
+            {
+              "name": {
+                "value": "ernesto antonini"
+              }
+            },
+            {
+              "name": {
+                "value": "antonini"
+              }
+            },
+            {
+              "name": {
+                "value": "jacopo gaspari"
+              }
+            },
+            {
+              "name": {
+                "value": "gaspari"
+              }
+            },
+            {
+              "name": {
+                "value": "4097"
+              }
+            },
+            {
+              "name": {
+                "value": "silvia mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "mirri"
+              }
+            },
+            {
+              "name": {
+                "value": "catia prandi"
+              }
+            },
+            {
+              "name": {
+                "value": "prandi"
+              }
+            },
+            {
+              "name": {
+                "value": "4124"
+              }
+            },
+            {
+              "name": {
+                "value": "sensore canarin archivio"
+              }
+            },
+            {
+              "name": {
+                "value": "sensore canarin 3"
+              }
+            },
+            {
+              "name": {
+                "value": "casina dell'acqua"
+              }
+            },
+            {
+              "name": {
+                "value": "macchinette"
+              }
+            },
+            {
+              "name": {
+                "value": "bar"
+              }
+            },
+            {
+              "name": {
+                "value": "segreteria"
+              }
+            },
+            {
+              "name": {
+                "value": "cla"
+              }
+            },
+            {
+              "name": {
+                "value": "bagno"
+              }
+            },
+            {
+              "name": {
+                "value": "spazio calmo"
+              }
+            },
+            {
+              "name": {
+                "value": "workshop archea"
+              }
+            },
+            {
+              "name": {
+                "value": "algebra e analisi numerica"
+              }
+            },
+            {
+              "name": {
+                "value": "serena morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "analisi numerica"
+              }
+            },
+            {
+              "name": {
+                "value": "serena morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "elaborazione dei segnali"
+              }
+            },
+            {
+              "name": {
+                "value": "marco chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "elaborazione dei segnali"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "elaborazione dei segnali"
+              }
+            },
+            {
+              "name": {
+                "value": "marco chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "elaborazione dei segnali"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "istituzioni di matematiche"
+              }
+            },
+            {
+              "name": {
+                "value": "marco lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "preveniamo"
+              }
+            },
+            {
+              "name": {
+                "value": "iniziativa preveniamo, rivolta agli studenti universitari"
+              }
+            },
+            {
+              "name": {
+                "value": "ricerca operativa"
+              }
+            },
+            {
+              "name": {
+                "value": "roberto baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "sensori e nanotecnologie"
+              }
+            },
+            {
+              "name": {
+                "value": "marco tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori  (c.i.) - sensori e attuatori"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori  (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori"
+              }
+            },
+            {
+              "name": {
+                "value": "marco tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "fondamenti di biomeccanica"
+              }
+            },
+            {
+              "name": {
+                "value": "rita stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione ad oggetti"
+              }
+            },
+            {
+              "name": {
+                "value": "mirko viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "linguaggi, compilatori e modelli computazionali"
+              }
+            },
+            {
+              "name": {
+                "value": "mario bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.) - storia dell'architettura 3"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo cassani simonetti"
+              }
+            },
+            {
+              "name": {
+                "value": "simonetti"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.) - teorie e storia del restauro"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro"
+              }
+            },
+            {
+              "name": {
+                "value": "marco pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "conversione elettromeccanica dell'energia"
+              }
+            },
+            {
+              "name": {
+                "value": "alberto bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "data mining"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "data mining"
+              }
+            },
+            {
+              "name": {
+                "value": "gianluca moro"
+              }
+            },
+            {
+              "name": {
+                "value": "moro"
+              }
+            },
+            {
+              "name": {
+                "value": "algebra e analisi numerica"
+              }
+            },
+            {
+              "name": {
+                "value": "serena morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "analisi numerica"
+              }
+            },
+            {
+              "name": {
+                "value": "serena morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "bioingegneria della riabilitazione"
+              }
+            },
+            {
+              "name": {
+                "value": "lorenzo chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "data mining"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "data mining"
+              }
+            },
+            {
+              "name": {
+                "value": "gianluca moro"
+              }
+            },
+            {
+              "name": {
+                "value": "moro"
+              }
+            },
+            {
+              "name": {
+                "value": "diagnostica strutturale"
+              }
+            },
+            {
+              "name": {
+                "value": "lucio nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "diagnostica strutturale"
+              }
+            },
+            {
+              "name": {
+                "value": "mario bonagura"
+              }
+            },
+            {
+              "name": {
+                "value": "bonagura"
+              }
+            },
+            {
+              "name": {
+                "value": "elementi di urbanistica"
+              }
+            },
+            {
+              "name": {
+                "value": "enrico brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "fondamenti di chimica"
+              }
+            },
+            {
+              "name": {
+                "value": "nadia lotti"
+              }
+            },
+            {
+              "name": {
+                "value": "lotti"
+              }
+            },
+            {
+              "name": {
+                "value": "ingegneria del software"
+              }
+            },
+            {
+              "name": {
+                "value": "stefano rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "matematica"
+              }
+            },
+            {
+              "name": {
+                "value": "marco lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione - cl.b (cl.b)"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandra lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori  (c.i.) - sistemi elettronici"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori  (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori"
+              }
+            },
+            {
+              "name": {
+                "value": "nicolo' attilio speciale"
+              }
+            },
+            {
+              "name": {
+                "value": "speciale"
+              }
+            },
+            {
+              "name": {
+                "value": "algoritmi di ottimizzazione"
+              }
+            },
+            {
+              "name": {
+                "value": "roberto baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "tutorato progetti fondamenti di biomeccanica"
+              }
+            },
+            {
+              "name": {
+                "value": "fisiologia"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo cerri"
+              }
+            },
+            {
+              "name": {
+                "value": "cerri"
+              }
+            },
+            {
+              "name": {
+                "value": "speciale - sistemi elettronici  - ricevimento"
+              }
+            },
+            {
+              "name": {
+                "value": "speciale"
+              }
+            },
+            {
+              "name": {
+                "value": "geometria e algebra"
+              }
+            },
+            {
+              "name": {
+                "value": "michele mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "geometria e algebra"
+              }
+            },
+            {
+              "name": {
+                "value": "michele mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi operativi"
+              }
+            },
+            {
+              "name": {
+                "value": "vittorio ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi operativi"
+              }
+            },
+            {
+              "name": {
+                "value": "vittorio ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione (prof.ssa carbonaro)"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione"
+              }
+            },
+            {
+              "name": {
+                "value": "afpg - laboratorio di diagnostica strutturale"
+              }
+            },
+            {
+              "name": {
+                "value": "afpg"
+              }
+            },
+            {
+              "name": {
+                "value": "lucio nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "elementi di urbanistica"
+              }
+            },
+            {
+              "name": {
+                "value": "enrico brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "organi artificiali"
+              }
+            },
+            {
+              "name": {
+                "value": "emanuela marcelli"
+              }
+            },
+            {
+              "name": {
+                "value": "marcelli"
+              }
+            },
+            {
+              "name": {
+                "value": "scienza delle costruzioni"
+              }
+            },
+            {
+              "name": {
+                "value": "luisa molari"
+              }
+            },
+            {
+              "name": {
+                "value": "molari"
+              }
+            },
+            {
+              "name": {
+                "value": "scienza delle costruzioni"
+              }
+            },
+            {
+              "name": {
+                "value": "veronica bartolomeo"
+              }
+            },
+            {
+              "name": {
+                "value": "bartolomeo"
+              }
+            },
+            {
+              "name": {
+                "value": "business intelligence"
+              }
+            },
+            {
+              "name": {
+                "value": "stefano rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "comunicazioni digitali e internet"
+              }
+            },
+            {
+              "name": {
+                "value": "davide dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "colloquio candidati assegno di tutorato corsi di studio dei"
+              }
+            },
+            {
+              "name": {
+                "value": "callegati - gruppo tlc e informatica"
+              }
+            },
+            {
+              "name": {
+                "value": "callegati"
+              }
+            },
+            {
+              "name": {
+                "value": "psicologia della forma"
+              }
+            },
+            {
+              "name": {
+                "value": "emanuele valgiusti"
+              }
+            },
+            {
+              "name": {
+                "value": "valgiusti"
+              }
+            },
+            {
+              "name": {
+                "value": "elettronica"
+              }
+            },
+            {
+              "name": {
+                "value": "claudio fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "elettronica"
+              }
+            },
+            {
+              "name": {
+                "value": "claudio fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali (c.i.) - biomateriali"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali"
+              }
+            },
+            {
+              "name": {
+                "value": "joseph lovecchio"
+              }
+            },
+            {
+              "name": {
+                "value": "lovecchio"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali (c.i.) - biomateriali"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali"
+              }
+            },
+            {
+              "name": {
+                "value": "alberto sensini"
+              }
+            },
+            {
+              "name": {
+                "value": "sensini"
+              }
+            }
+          ],
+          "name": "destinationType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "sì, motoria"
+              }
+            },
+            {
+              "name": {
+                "value": "sì, visiva"
+              }
+            },
+            {
+              "name": {
+                "value": "no"
+              }
+            },
+            {
+              "name": {
+                "value": "nessuna"
+              }
+            },
+            {
+              "name": {
+                "value": "visiva"
+              }
+            },
+            {
+              "name": {
+                "value": "motoria"
+              }
+            },
+            {
+              "name": {
+                "value": "altro"
+              }
+            },
+            {
+              "name": {
+                "value": "disabilità motoria"
+              }
+            },
+            {
+              "name": {
+                "value": "disabilità visiva"
+              }
+            }
+          ],
+          "name": "disabilityType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "workshop archea"
+              }
+            },
+            {
+              "name": {
+                "value": "algebra e analisi numerica"
+              }
+            },
+            {
+              "name": {
+                "value": "serena morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "morigi"
+              }
+            },
+            {
+              "name": {
+                "value": "analisi numerica"
+              }
+            },
+            {
+              "name": {
+                "value": "elaborazione dei segnali"
+              }
+            },
+            {
+              "name": {
+                "value": "marco chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "chiani"
+              }
+            },
+            {
+              "name": {
+                "value": "andrea giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "giorgetti"
+              }
+            },
+            {
+              "name": {
+                "value": "istituzioni di matematiche"
+              }
+            },
+            {
+              "name": {
+                "value": "marco lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "lenci"
+              }
+            },
+            {
+              "name": {
+                "value": "preveniamo"
+              }
+            },
+            {
+              "name": {
+                "value": "iniziativa preveniamo, rivolta agli studenti universitari"
+              }
+            },
+            {
+              "name": {
+                "value": "ricerca operativa"
+              }
+            },
+            {
+              "name": {
+                "value": "roberto baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "baldacci"
+              }
+            },
+            {
+              "name": {
+                "value": "sensori e nanotecnologie"
+              }
+            },
+            {
+              "name": {
+                "value": "marco tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "tartagni"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori  (c.i.) - sensori e attuatori"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori  (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori"
+              }
+            },
+            {
+              "name": {
+                "value": "fondamenti di biomeccanica"
+              }
+            },
+            {
+              "name": {
+                "value": "rita stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "stagni"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione ad oggetti"
+              }
+            },
+            {
+              "name": {
+                "value": "mirko viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "viroli"
+              }
+            },
+            {
+              "name": {
+                "value": "linguaggi, compilatori e modelli computazionali"
+              }
+            },
+            {
+              "name": {
+                "value": "mario bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "bravetti"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.) - storia dell'architettura 3"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo cassani simonetti"
+              }
+            },
+            {
+              "name": {
+                "value": "simonetti"
+              }
+            },
+            {
+              "name": {
+                "value": "storia  e restauro (c.i.) - teorie e storia del restauro"
+              }
+            },
+            {
+              "name": {
+                "value": "marco pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "pretelli"
+              }
+            },
+            {
+              "name": {
+                "value": "conversione elettromeccanica dell'energia"
+              }
+            },
+            {
+              "name": {
+                "value": "alberto bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "bellini"
+              }
+            },
+            {
+              "name": {
+                "value": "data mining"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "golfarelli"
+              }
+            },
+            {
+              "name": {
+                "value": "gianluca moro"
+              }
+            },
+            {
+              "name": {
+                "value": "moro"
+              }
+            },
+            {
+              "name": {
+                "value": "bioingegneria della riabilitazione"
+              }
+            },
+            {
+              "name": {
+                "value": "lorenzo chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "chiari"
+              }
+            },
+            {
+              "name": {
+                "value": "diagnostica strutturale"
+              }
+            },
+            {
+              "name": {
+                "value": "lucio nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "nobile"
+              }
+            },
+            {
+              "name": {
+                "value": "mario bonagura"
+              }
+            },
+            {
+              "name": {
+                "value": "bonagura"
+              }
+            },
+            {
+              "name": {
+                "value": "elementi di urbanistica"
+              }
+            },
+            {
+              "name": {
+                "value": "enrico brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "brighi"
+              }
+            },
+            {
+              "name": {
+                "value": "fondamenti di chimica"
+              }
+            },
+            {
+              "name": {
+                "value": "nadia lotti"
+              }
+            },
+            {
+              "name": {
+                "value": "lotti"
+              }
+            },
+            {
+              "name": {
+                "value": "ingegneria del software"
+              }
+            },
+            {
+              "name": {
+                "value": "stefano rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "rizzi"
+              }
+            },
+            {
+              "name": {
+                "value": "matematica"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione - cl.b (cl.b)"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione"
+              }
+            },
+            {
+              "name": {
+                "value": "alessandra lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "lumini"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi elettronici e sensori  (c.i.) - sistemi elettronici"
+              }
+            },
+            {
+              "name": {
+                "value": "nicolo' attilio speciale"
+              }
+            },
+            {
+              "name": {
+                "value": "speciale"
+              }
+            },
+            {
+              "name": {
+                "value": "algoritmi di ottimizzazione"
+              }
+            },
+            {
+              "name": {
+                "value": "tutorato progetti fondamenti di biomeccanica"
+              }
+            },
+            {
+              "name": {
+                "value": "fisiologia"
+              }
+            },
+            {
+              "name": {
+                "value": "matteo cerri"
+              }
+            },
+            {
+              "name": {
+                "value": "cerri"
+              }
+            },
+            {
+              "name": {
+                "value": "speciale - sistemi elettronici  - ricevimento"
+              }
+            },
+            {
+              "name": {
+                "value": "geometria e algebra"
+              }
+            },
+            {
+              "name": {
+                "value": "michele mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "mulazzani"
+              }
+            },
+            {
+              "name": {
+                "value": "sistemi operativi"
+              }
+            },
+            {
+              "name": {
+                "value": "vittorio ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "ghini"
+              }
+            },
+            {
+              "name": {
+                "value": "programmazione (prof.ssa carbonaro)"
+              }
+            },
+            {
+              "name": {
+                "value": "afpg - laboratorio di diagnostica strutturale"
+              }
+            },
+            {
+              "name": {
+                "value": "afpg"
+              }
+            },
+            {
+              "name": {
+                "value": "organi artificiali"
+              }
+            },
+            {
+              "name": {
+                "value": "emanuela marcelli"
+              }
+            },
+            {
+              "name": {
+                "value": "marcelli"
+              }
+            },
+            {
+              "name": {
+                "value": "scienza delle costruzioni"
+              }
+            },
+            {
+              "name": {
+                "value": "luisa molari"
+              }
+            },
+            {
+              "name": {
+                "value": "molari"
+              }
+            },
+            {
+              "name": {
+                "value": "veronica bartolomeo"
+              }
+            },
+            {
+              "name": {
+                "value": "bartolomeo"
+              }
+            },
+            {
+              "name": {
+                "value": "business intelligence"
+              }
+            },
+            {
+              "name": {
+                "value": "comunicazioni digitali e internet"
+              }
+            },
+            {
+              "name": {
+                "value": "davide dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "dardari"
+              }
+            },
+            {
+              "name": {
+                "value": "colloquio candidati assegno di tutorato corsi di studio dei"
+              }
+            },
+            {
+              "name": {
+                "value": "callegati - gruppo tlc e informatica"
+              }
+            },
+            {
+              "name": {
+                "value": "callegati"
+              }
+            },
+            {
+              "name": {
+                "value": "psicologia della forma"
+              }
+            },
+            {
+              "name": {
+                "value": "emanuele valgiusti"
+              }
+            },
+            {
+              "name": {
+                "value": "valgiusti"
+              }
+            },
+            {
+              "name": {
+                "value": "elettronica"
+              }
+            },
+            {
+              "name": {
+                "value": "claudio fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "fiegna"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali (c.i.) - biomateriali"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali (c.i.)"
+              }
+            },
+            {
+              "name": {
+                "value": "biomateriali e comportamento meccanico dei biomateriali"
+              }
+            },
+            {
+              "name": {
+                "value": "joseph lovecchio"
+              }
+            },
+            {
+              "name": {
+                "value": "lovecchio"
+              }
+            },
+            {
+              "name": {
+                "value": "alberto sensini"
+              }
+            },
+            {
+              "name": {
+                "value": "sensini"
+              }
+            }
+          ],
+          "name": "targetType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "percorso dettagliato"
+              }
+            },
+            {
+              "name": {
+                "value": "voglio il percorso dettagliato"
+              }
+            },
+            {
+              "name": {
+                "value": "voglio il percorso breve"
+              }
+            },
+            {
+              "name": {
+                "value": "solo sapere dove si trova"
+              }
+            },
+            {
+              "name": {
+                "value": "percorso breve"
+              }
+            },
+            {
+              "name": {
+                "value": "dove si trova"
+              }
+            }
+          ],
+          "name": "pathGranularityType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "PathFinderIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "disability",
+              "type": "disabilityType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1057778871618.1284276472442"
+              },
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.1297102697818.541174438677.607149353801",
+                  "values": [
+                    "nessuna",
+                    "no",
+                    "motoria",
+                    "visiva",
+                    "altro"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "destination",
+              "type": "destinationType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1057778871618.1277650161174"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.923564076158.1313959831403.1195653323940"
+                }
+              ]
+            },
+            {
+              "name": "pathGranularity",
+              "type": "pathGranularityType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.547627555697.1474740494664"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.567139504216.364536321297.894642058699"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DailyInformationIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "target",
+              "type": "targetType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1053306661657.1227953044039"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1233103193770.715126445446.153524353520"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ServiceLocationIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "service",
+              "type": "AMAZON.Food",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1057778871618.1277650161174",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Dove devi andare?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1057778871618.1284276472442",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Hai una disabilità visiva o motoria?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.514042326505.933996650449.84970071480",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Mi dispiace, non ho capito. Prova a dirmi il nome esatto dell'evento o della lezione che devi seguire oppure il nome del professore che la tiene."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1053306661657.1227953044039",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Non ho capito. Prova a dirmi semblicemente il nome del posto, della lezione o dell'evento oppure il nome del professore che lo tiene."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.547627555697.1474740494664",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Vuoi solo sapere dove si trova, vuoi il percorso breve oppure vuoi il percorso dettagliato?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.923564076158.1313959831403.1195653323940",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Non ho capito dove vuoi andare. Prova a chiedermi il nome dell'aula, della stanza o del laboratorio oppure il cognome del professore da cui devi andare oppure il nome preciso della lezione o dell'evento a cui devi partecipare."
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.567139504216.364536321297.894642058699",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Rispondi solo dicendomi dove si trova oppure percorso breve oppure percorso dettagliato"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1233103193770.715126445446.153524353520",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Mi dispiace, ma non ho capito. Prova a dirmi semblicemente il nome del posto, della lezione o dell'evento oppure il nome del professore che lo tiene."
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1297102697818.541174438677.607149353801",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Posso aiutarti solo se non hai disabilità o se la tua disabilità è motoria o visiva. Rispondi semplicemente con motoria, o visiva, o nessuna"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "268"
+}

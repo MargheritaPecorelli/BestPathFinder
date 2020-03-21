@@ -1,6 +1,5 @@
 class Location {
     
-    // `informazioni` (`IdInfo`, `Nome`, `Descrizione`, `Posti`)
     constructor(locName, locDescription, locRoomNumber, locLevel, locFloor, locBlock, locSeats) {
         this.myName = locName;
         this.myDescription = locDescription;

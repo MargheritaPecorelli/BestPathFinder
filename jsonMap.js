@@ -20,7 +20,6 @@ class JsonMap {
         const alexaLevel = 3;
         destination.push(`[\"ingresso principale\"]`);
         this.mapNodes.push(JSON.parse(`{\"id\": \"${this.nodeIndex}\",\"beacon\": \"${this.beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "0",\"info\": \"\"}`));
-        // this.mapBeacons.push(JSON.parse(`{\"id\": \"${this.beaconIndex}\", \"major\": \"${alexaLevel}\"}`));
         this.mapBeacons.push(JSON.parse(`{\"id\": \"${this.beaconIndex}\", \"level\": \"${alexaLevel}\", \"floor\": \"primo piano\", \"block\": \"A\", \"information\": \"si trova all'ingresso di via università\"}`));
         this.nodeIndex = this.nodeIndex + 1;
         this.beaconIndex = this.beaconIndex +1;
@@ -29,7 +28,6 @@ class JsonMap {
         destination = [];
         destination.push(`[\"segreteria architettura\"]`);
         this.mapNodes.push(JSON.parse(`{\"id\": \"${this.nodeIndex}\",\"beacon\": \"${this.beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": "90",\"info\": \"\"}`));
-        // this.mapBeacons.push(JSON.parse(`{\"id\": \"${this.beaconIndex}\", \"major\": \"${alexaLevel}\"}`));
         this.mapBeacons.push(JSON.parse(`{\"id\": \"${this.beaconIndex}\", \"level\": \"${alexaLevel}\", \"floor\": \"primo piano\", \"block\": \"A\", \"information\": \"\"}`));
 
         // creo l'arco tra questi 2 nodi -> non necessario quando non farà il secondo nodo
@@ -89,13 +87,10 @@ class JsonMap {
         var random = Math.floor(Math.random() * 4);
         var degrees = (random === 0) ? 0 : (random === 1) ? 90 : (random === 2) ? 180 : 270;
         this.mapNodes.push(JSON.parse(`{\"id\": \"${this.nodeIndex}\",\"beacon\": \"${this.beaconIndex}\",\"type\": \"room\",\"name\": ${destination},\"degrees\": \"${degrees}\",\"info\": \"\"}`));
-        // this.mapBeacons.push(JSON.parse(`{\"id\": \"${this.beaconIndex}\", \"major\": \"${level}\"}`));
         this.mapBeacons.push(JSON.parse(`{\"id\": \"${this.beaconIndex}\", \"level\": \"${level}\", \"floor\": \"${floor}\", \"block\": \"${block}\", \"information\": \"\"}`));
 
         // se i beacons sono a livelli diversi, metto una scala e un ascensore
         if (this.previousBeaconLevel != level && this.previousBeaconLevel != null && level != null) {
-            // random = Math.floor(Math.random() * 3);
-            // degrees = (random === 0) ? 0 : (random === 1) ? 90 : 270;
             this.mapEdges.push(JSON.parse(`{\"id\": \"${this.edgeIndex}\",\"start\": \"${this.beaconIndex - 1}\",\"end\": \"${this.beaconIndex}\",\"type\": \"elevator\",\"accessible\": \"true\",\"degrees\": \"${degrees}\"}`));
             this.edgeIndex = this.edgeIndex + 1;
             this.mapEdges.push(JSON.parse(`{\"id\": \"${this.edgeIndex}\",\"start\": \"${this.beaconIndex - 1}\",\"end\": \"${this.beaconIndex}\",\"type\": \"stairs\",\"accessible\": \"false\",\"degrees\": \"${degrees}\"}`));
